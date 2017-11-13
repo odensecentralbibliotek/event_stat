@@ -81,31 +81,14 @@ function event_stat_views_default_views() {
     'thousand_separator' => '',
     'prefix_suffix' => 1,
   );
-  /* Felt: Indhold: Addresse */
-  $handler->display->display_options['fields']['field_ding_library_addresse']['id'] = 'field_ding_library_addresse';
-  $handler->display->display_options['fields']['field_ding_library_addresse']['table'] = 'field_data_field_ding_library_addresse';
-  $handler->display->display_options['fields']['field_ding_library_addresse']['field'] = 'field_ding_library_addresse';
-  $handler->display->display_options['fields']['field_ding_library_addresse']['label'] = '';
-  $handler->display->display_options['fields']['field_ding_library_addresse']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_ding_library_addresse']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_ding_library_addresse']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_ding_library_addresse']['hide_empty'] = TRUE;
-  $handler->display->display_options['fields']['field_ding_library_addresse']['click_sort_column'] = 'country';
-  $handler->display->display_options['fields']['field_ding_library_addresse']['settings'] = array(
-    'use_widget_handlers' => 0,
-    'format_handlers' => array(
-      'name-oneline' => 'name-oneline',
-    ),
-  );
   /* Felt: Indhold: Library */
   $handler->display->display_options['fields']['field_ding_event_library']['id'] = 'field_ding_event_library';
   $handler->display->display_options['fields']['field_ding_event_library']['table'] = 'field_data_field_ding_event_library';
   $handler->display->display_options['fields']['field_ding_event_library']['field'] = 'field_ding_event_library';
   $handler->display->display_options['fields']['field_ding_event_library']['label'] = 'Lokation/Afdeling';
-  $handler->display->display_options['fields']['field_ding_event_library']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_ding_event_library']['alter']['text'] = '[field_ding_event_library][field_ding_library_addresse]';
   $handler->display->display_options['fields']['field_ding_event_library']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_ding_event_library']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_ding_event_library']['empty'] = 'Andet...';
   $handler->display->display_options['fields']['field_ding_event_library']['hide_alter_empty'] = FALSE;
   $handler->display->display_options['fields']['field_ding_event_library']['click_sort_column'] = 'gid';
   /* Felt: Indhold: Antal udervisere */
@@ -158,12 +141,22 @@ function event_stat_views_default_views() {
   $handler->display->display_options['fields']['field_eksterne_partnere']['field'] = 'field_eksterne_partnere';
   $handler->display->display_options['fields']['field_eksterne_partnere']['label'] = 'Eksterne partnere';
   $handler->display->display_options['fields']['field_eksterne_partnere']['element_label_colon'] = FALSE;
+  /* Felt: Indhold: Hvis Ja, af hvilken art - økonomisk eller andet. Angiv hvem og hvad der støttes med? */
+  $handler->display->display_options['fields']['field_hvilken_art']['id'] = 'field_hvilken_art';
+  $handler->display->display_options['fields']['field_hvilken_art']['table'] = 'field_data_field_hvilken_art';
+  $handler->display->display_options['fields']['field_hvilken_art']['field'] = 'field_hvilken_art';
+  $handler->display->display_options['fields']['field_hvilken_art']['label'] = 'Hvilken art?';
   /* Felt: Indhold: Har der været ekstern oplægsholder/underviser? */
   $handler->display->display_options['fields']['field_ekstern_underviser']['id'] = 'field_ekstern_underviser';
   $handler->display->display_options['fields']['field_ekstern_underviser']['table'] = 'field_data_field_ekstern_underviser';
   $handler->display->display_options['fields']['field_ekstern_underviser']['field'] = 'field_ekstern_underviser';
   $handler->display->display_options['fields']['field_ekstern_underviser']['label'] = 'Ekstern oplægsholder/underviser';
   $handler->display->display_options['fields']['field_ekstern_underviser']['element_label_colon'] = FALSE;
+  /* Felt: Indhold: Hvis ja, hvordan oplevede du kvaliteten af denne? */
+  $handler->display->display_options['fields']['field_kvaliteten']['id'] = 'field_kvaliteten';
+  $handler->display->display_options['fields']['field_kvaliteten']['table'] = 'field_data_field_kvaliteten';
+  $handler->display->display_options['fields']['field_kvaliteten']['field'] = 'field_kvaliteten';
+  $handler->display->display_options['fields']['field_kvaliteten']['label'] = 'Kvaliteten af oplægsholder/underviser';
   /* Felt: Indhold: Omkostninger til oplægsholder/underviser */
   $handler->display->display_options['fields']['field_omkostninger']['id'] = 'field_omkostninger';
   $handler->display->display_options['fields']['field_omkostninger']['table'] = 'field_data_field_omkostninger';
@@ -173,6 +166,10 @@ function event_stat_views_default_views() {
     'thousand_separator' => '',
     'prefix_suffix' => 1,
   );
+  /* Felt: Indhold: Bemærkninger */
+  $handler->display->display_options['fields']['field_bem_rkninger']['id'] = 'field_bem_rkninger';
+  $handler->display->display_options['fields']['field_bem_rkninger']['table'] = 'field_data_field_bem_rkninger';
+  $handler->display->display_options['fields']['field_bem_rkninger']['field'] = 'field_bem_rkninger';
   /* Felt: Workflow current: Bruger */
   $handler->display->display_options['fields']['uid']['id'] = 'uid';
   $handler->display->display_options['fields']['uid']['table'] = 'workflow_node_current';
@@ -243,14 +240,17 @@ function event_stat_views_default_views() {
     t('Målgruppe'),
     t('Antal deltagere'),
     t('Lokation/Afdeling'),
-    t('[field_ding_event_library][field_ding_library_addresse]'),
+    t('Andet...'),
     t('Antal udervisere'),
     t('Starts dato'),
     t('Slut dato'),
     t('Forberedelsestid'),
     t('Eksterne partnere'),
+    t('Hvilken art?'),
     t('Ekstern oplægsholder/underviser'),
+    t('Kvaliteten af oplægsholder/underviser'),
     t('Omkostninger til oplægsholder/underviser'),
+    t('Bemærkninger'),
     t('Bruger'),
     t('Page'),
     t('Datobrowser'),
