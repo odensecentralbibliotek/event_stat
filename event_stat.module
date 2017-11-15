@@ -8,7 +8,21 @@
 include_once 'event_stat.features.inc';
 
 function event_stat_field_group_build_pre_render_alter(&$element) {
-  if (isset($element['group_efterbehandling'])) {
+  $element['ding_campaigns_wrap']['#access'] = FALSE;
+  $element['language']['#access'] = FALSE;
+
+  if (isset($element['group_efterbehandling']) && ($element['#id'] == 'ding-event-node-form')) {
+    global $user;
+    $role = count($user->roles);
+    if ((in_array('Event rapportør', $user->roles) && ($role == '2'))) {
+       $element['title']['#attributes']['readonly'] = TRUE;
+       $element['options']['#access'] = FALSE;
+       $element['author']['#access'] = FALSE;
+       $element['revision_information']['#access'] = FALSE;
+    unset($element['capacity']);
+    unset($element['place2book']);
+    unset($element['additional_settings']);
+    }
 
     $name = $element['field_efterbehandling_workflow']['und'][0]['workflow']['workflow_sid']['#options'];
     $key = array_search ('Ubehandlet', $name);
@@ -19,7 +33,7 @@ function event_stat_field_group_build_pre_render_alter(&$element) {
          'input[name="field_efterbehandling_workflow[und][0][workflow][workflow_sid]"]' => array('value' => $key),
         ),
       '#id' => '	group_efterbehandling',
-)
+      )
     );
   }
 }
