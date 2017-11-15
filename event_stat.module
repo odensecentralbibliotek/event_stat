@@ -16,12 +16,12 @@ function event_stat_field_group_build_pre_render_alter(&$element) {
     $role = count($user->roles);
     if ((in_array('Event rapportør', $user->roles) && ($role == '2'))) {
        $element['title']['#attributes']['readonly'] = TRUE;
-       $element['options']['#access'] = FALSE;
+       $element['options']['#attributes']['onclick'] = 'return false;';
        $element['author']['#access'] = FALSE;
        $element['revision_information']['#access'] = FALSE;
-    unset($element['capacity']);
-    unset($element['place2book']);
-    unset($element['additional_settings']);
+       $element['capacity']['#access'] = FALSE;
+       $element['place2book']['#access'] = FALSE;
+       $element['additional_settings']['#attributes']['onclick'] = 'return false;';
     }
 
     $name = $element['field_efterbehandling_workflow']['und'][0]['workflow']['workflow_sid']['#options'];

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * event_stat.features.user_permission.inc
@@ -9,6 +10,46 @@
  */
 function event_stat_user_default_permissions() {
   $permissions = array();
+
+  // Exported permission: access administration menu.
+  $permissions['access administration menu'] = array(
+    'name' => 'access administration menu',
+    'roles' => array(
+      'Event rapportør' => 'Event rapportør',
+      'administrator' => 'administrator',
+      'formidler' => 'formidler',
+      'lokalredaktør' => 'lokalredaktør',
+      'redaktør' => 'redaktør',
+    ),
+    'module' => 'admin_menu',
+  );
+
+  // Exported permission: access content.
+  $permissions['access content'] = array(
+    'name' => 'access content',
+    'roles' => array(
+      'Event rapportør' => 'Event rapportør',
+      'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
+      'formidler' => 'formidler',
+      'redaktør' => 'redaktør',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: access content overview.
+  $permissions['access content overview'] = array(
+    'name' => 'access content overview',
+    'roles' => array(
+      'Event rapportør' => 'Event rapportør',
+      'administrator' => 'administrator',
+      'formidler' => 'formidler',
+      'lokalredaktør' => 'lokalredaktør',
+      'redaktør' => 'redaktør',
+    ),
+    'module' => 'node',
+  );
 
   // Exported permission: create field_antal_deltagere.
   $permissions['create field_antal_deltagere'] = array(
@@ -725,6 +766,19 @@ function event_stat_user_default_permissions() {
   // Exported permission: delete own ding_event content.
   $permissions['delete own ding_event content'] = array(
     'name' => 'delete own ding_event content',
+    'roles' => array(
+      'Event rapportør' => 'Event rapportør',
+      'administrator' => 'administrator',
+      'formidler' => 'formidler',
+      'lokalredaktør' => 'lokalredaktør',
+      'redaktør' => 'redaktør',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: view own unpublished content.
+  $permissions['view own unpublished content'] = array(
+    'name' => 'view own unpublished content',
     'roles' => array(
       'Event rapportør' => 'Event rapportør',
       'administrator' => 'administrator',
