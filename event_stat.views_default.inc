@@ -643,6 +643,34 @@ function event_stat_views_default_views() {
       ),
     ),
   );
+  /* Filterkriterie: Workflow current: New state name */
+  $handler->display->display_options['filters']['sid_1']['id'] = 'sid_1';
+  $handler->display->display_options['filters']['sid_1']['table'] = 'workflow_node_current';
+  $handler->display->display_options['filters']['sid_1']['field'] = 'sid';
+  $handler->display->display_options['filters']['sid_1']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['sid_1']['expose']['operator_id'] = 'sid_1_op';
+  $handler->display->display_options['filters']['sid_1']['expose']['label'] = 'New state name';
+  $handler->display->display_options['filters']['sid_1']['expose']['operator'] = 'sid_1_op';
+  $handler->display->display_options['filters']['sid_1']['expose']['identifier'] = 'sid_1';
+  $handler->display->display_options['filters']['sid_1']['is_grouped'] = TRUE;
+  $handler->display->display_options['filters']['sid_1']['group_info']['label'] = 'Behandling';
+  $handler->display->display_options['filters']['sid_1']['group_info']['identifier'] = 'sid_1';
+  $handler->display->display_options['filters']['sid_1']['group_info']['group_items'] = array(
+    1 => array(
+      'title' => 'Ubehandlet',
+      'operator' => 'in',
+      'value' => array(
+        33 => '33',
+      ),
+    ),
+    2 => array(
+      'title' => 'Efterbehandlet',
+      'operator' => 'in',
+      'value' => array(
+        34 => '34',
+      ),
+    ),
+  );
 
   /* Display: System */
   $handler = $view->new_display('system', 'System', 'system_1');
@@ -692,6 +720,7 @@ function event_stat_views_default_views() {
     t('Ordforråd'),
     t('New state name'),
     t('BPI status'),
+    t('Behandling'),
     t('System'),
   );
   $export['klon_af_administration_nodes'] = $view;
