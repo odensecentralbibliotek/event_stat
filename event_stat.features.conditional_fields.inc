@@ -963,7 +963,7 @@ function event_stat_conditional_fields_default_fields() {
     'dependee' => 'field_kategori',
     'options' => array(
       'state' => 'required',
-      'condition' => '!empty',
+      'condition' => 'value',
       'grouping' => 'AND',
       'effect' => FALSE,
       'effect_options' => array(),
@@ -1074,9 +1074,13 @@ function event_stat_conditional_fields_default_fields() {
       ),
       'selector' => '',
       'values_set' => 1,
-      'value' => array(),
+      'value_form' => 'Læring/undervisning',
+      'value' => array(
+        0 => array(
+          'value' => 'Læring/undervisning',
+        ),
+      ),
       'values' => array(),
-      'value_form' => array(),
     ),
   );
 

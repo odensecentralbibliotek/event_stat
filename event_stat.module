@@ -22,6 +22,10 @@ function event_stat_field_group_build_pre_render_alter(&$element) {
        $element['capacity']['#access'] = FALSE;
        $element['place2book']['#access'] = FALSE;
        $element['additional_settings']['#attributes']['onclick'] = 'return false;';
+       $sdato =  DateTime::createFromFormat('Y-m-d H:i:s', $element['group_ding_event_date_loc_price']['field_ding_event_date']['und'][0]['#default_value']['value']);
+       $date = $sdato->format('d/m/Y H:i');
+       $element['group_efterbehandling']['field_slutdato']['und'][0]['#title'] = '<br />Startdato: ' . $date . '<br /><br />Slutdato';
+       
     }
 
     $name = $element['field_efterbehandling_workflow']['und'][0]['workflow']['workflow_sid']['#options'];
