@@ -25,8 +25,16 @@ function event_stat_field_group_build_pre_render_alter(&$element) {
        $sdato =  DateTime::createFromFormat('Y-m-d H:i:s', $element['group_ding_event_date_loc_price']['field_ding_event_date']['und'][0]['#default_value']['value']);
        $date = $sdato->format('m/d/Y H:i');
        $element['group_efterbehandling']['field_slutdato']['und'][0]['#title'] = '<br />Startdato: ' . $date . '<br /><br />Slutdato';
-       $element['group_ding_event_date_loc_price']['#disabled'] = TRUE;
-    }
+       
+       $element['group_ding_event_date_loc_price'] += array(
+        '#states' => array(
+        'invisible' => array(
+        'input[name="field_efterbehandling_workflow[und][0][workflow][workflow_sid]"]' => array('checked' => TRUE),
+          ),
+        '#id' => '	field_ding_event_date',
+        )
+      );
+     }
 
     $name = $element['field_efterbehandling_workflow']['und'][0]['workflow']['workflow_sid']['#options'];
     $key = array_search ('Ubehandlet', $name);
