@@ -789,5 +789,27 @@ function event_stat_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: view any unpublished content.
+  $permissions['view any unpublished content'] = array(
+    'name' => 'view any unpublished content',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'formidler' => 'formidler',
+      'lokalredaktør' => 'lokalredaktør',
+      'redaktør' => 'redaktør',
+    ),
+    'module' => 'view_unpublished',
+  );
+
+  // Exported permission: view any unpublished ding_event content.
+  $permissions['view any unpublished ding_event content'] = array(
+    'name' => 'view any unpublished ding_event content',
+    'roles' => array(
+      'Event rapportør' => 'Event rapportør',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'view_unpublished',
+  );
+
   return $permissions;
 }

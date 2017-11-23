@@ -5,6 +5,7 @@ package = Features
 php = 5.2.4
 project = event_stat
 dependencies[] = admin_views
+dependencies[] = view_unpublished
 dependencies[] = conditional_fields
 dependencies[] = date
 dependencies[] = date_views
