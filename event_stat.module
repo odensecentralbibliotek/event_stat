@@ -15,7 +15,10 @@ function event_stat_field_group_build_pre_render_alter(&$element) {
     global $user;
     $role = count($user->roles);
     if ((in_array('Event rapportør', $user->roles) && ($role == '2'))) {
-       $element['title']['#attributes']['readonly'] = TRUE;
+       if (!empty( $element['#node']->nid)) {
+          $element['title']['#attributes']['readonly'] = TRUE;
+       }
+       
        $element['options']['#attributes']['onclick'] = 'return false;';
        $element['author']['#access'] = FALSE;
        $element['revision_information']['#access'] = FALSE;
