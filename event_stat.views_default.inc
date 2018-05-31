@@ -274,8 +274,11 @@ function event_stat_views_default_views() {
     $handler->display->display_options['use_ajax'] = TRUE;
     $handler->display->display_options['use_more_always'] = FALSE;
     $handler->display->display_options['use_more_text'] = 'mere';
-    $handler->display->display_options['access']['type'] = 'perm';
-    $handler->display->display_options['access']['perm'] = 'access content overview';
+    $handler->display->display_options['access']['type'] = 'role';
+    $handler->display->display_options['access']['role'] = array(
+      3 => '3',
+      8 => '8',
+    );
     $handler->display->display_options['cache']['type'] = 'none';
     $handler->display->display_options['query']['type'] = 'views_query';
     $handler->display->display_options['query']['options']['distinct'] = TRUE;
@@ -515,11 +518,8 @@ function event_stat_views_default_views() {
     $handler->display->display_options['filters']['status_1']['field'] = 'status';
     $handler->display->display_options['filters']['status_1']['value'] = '0';
 
-    /* Display: Events workflow */
-    $handler = $view->new_display('eventsworkflow', 'Events workflow', 'eventsworkflow');
-    $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-    $handler->display->display_options['hide_admin_links'] = TRUE;
-    $handler->display->display_options['defaults']['access'] = FALSE;
+    /* Display: Admin content til events workflow */
+    $handler = $view->new_display('page', 'Admin content til events workflow', 'page_1');
     $handler->display->display_options['path'] = 'eventsworkflow';
     $translatables['klon_af_administration_nodes'] = array(
       t('Defaults'),
@@ -550,7 +550,7 @@ function event_stat_views_default_views() {
       t('Udgivet'),
       t('New state name'),
       t('Behandling'),
-      t('Events workflow'),
+      t('Admin content til events workflow'),
     );
     $export['klon_af_administration_nodes'] = $view;
 
