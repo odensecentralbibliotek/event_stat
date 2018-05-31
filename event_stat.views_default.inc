@@ -274,6 +274,7 @@ function event_stat_views_default_views() {
     $handler->display->display_options['use_ajax'] = TRUE;
     $handler->display->display_options['use_more_always'] = FALSE;
     $handler->display->display_options['use_more_text'] = 'mere';
+    $handler->display->display_options['access']['type'] = 'perm';
     $handler->display->display_options['access']['perm'] = 'access content overview';
     $handler->display->display_options['cache']['type'] = 'none';
     $handler->display->display_options['query']['type'] = 'views_query';
@@ -515,7 +516,7 @@ function event_stat_views_default_views() {
     $handler->display->display_options['filters']['status_1']['value'] = '0';
 
     /* Display: Events workflow */
-    $handler = $view->new_display('system', 'Events workflow', 'eventsworkflow');
+    $handler = $view->new_display('eventsworkflow', 'Events workflow', 'eventsworkflow');
     $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
     $handler->display->display_options['hide_admin_links'] = TRUE;
     $handler->display->display_options['defaults']['access'] = FALSE;
