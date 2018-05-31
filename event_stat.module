@@ -52,30 +52,3 @@ function event_stat_field_group_build_pre_render_alter(&$element) {
     );
   }
 }
-
-/**
- * Disable the default admin/content browser view.
- */
-function event_stat_enable() {
-
-    // a list of views (their view name) I want to disable
-  $viewnames = array(
-    'admin_views_node',
-  );
-
-  // grab list of views that are already disabled
-  $views_status = variable_get('views_defaults', array());
-
-  // add our views to be disabled to the list
-  foreach ($viewnames as $key => $viewname) {
-    $views_status[$viewname] = TRUE;
-  }
-
-  // reset the variable with the new list
-  variable_set('views_defaults', $views_status);
-
-  // empty cache now
-  if (function_exists('views_invalidate_cache')) {
-    views_invalidate_cache();
-  }
-}

@@ -257,7 +257,7 @@ function event_stat_views_default_views() {
     );
     $export['event_stat'] = $view;
 
-    $view = new view();
+ $view = new view();
     $view->name = 'klon_af_administration_nodes';
     $view->description = 'Find and manage content.';
     $view->tag = 'admin';
@@ -399,126 +399,28 @@ function event_stat_views_default_views() {
       'forums' => 0,
       'tags' => 0,
     );
-  /* Felt: Masse-handlinger: Indhold */
-    $handler->display->display_options['fields']['views_bulk_operations']['id'] = 'views_bulk_operations';
-    $handler->display->display_options['fields']['views_bulk_operations']['table'] = 'node';
-    $handler->display->display_options['fields']['views_bulk_operations']['field'] = 'views_bulk_operations';
-    $handler->display->display_options['fields']['views_bulk_operations']['label'] = '';
-    $handler->display->display_options['fields']['views_bulk_operations']['element_label_colon'] = FALSE;
-    $handler->display->display_options['fields']['views_bulk_operations']['hide_alter_empty'] = FALSE;
-    $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['display_type'] = '0';
-    $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['enable_select_all_pages'] = 1;
-    $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['force_single'] = 0;
-    $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['entity_load_capacity'] = '10';
-    $handler->display->display_options['fields']['views_bulk_operations']['vbo_operations'] = array(
-      'action::node_assign_owner_action' => array(
-        'selected' => 1,
-        'skip_confirmation' => 1,
-        'override_label' => 1,
-        'label' => 'Change author',
-        'postpone_processing' => 0,
-      ),
-      'action::views_bulk_operations_delete_item' => array(
-        'selected' => 1,
-        'skip_confirmation' => 0,
-        'override_label' => 1,
-        'label' => 'Delete',
-        'postpone_processing' => 0,
-      ),
-      'action::views_bulk_operations_modify_action' => array(
-        'selected' => 1,
-        'skip_confirmation' => 1,
-        'override_label' => 1,
-        'label' => 'Change value',
-        'settings' => array(
-          'show_all_tokens' => 1,
-          'display_values' => array(
-            '_all_' => '_all_',
-          ),
-        ),
-        'postpone_processing' => 0,
-      ),
-      'action::node_make_sticky_action' => array(
-        'selected' => 1,
-        'skip_confirmation' => 1,
-        'override_label' => 1,
-        'label' => 'Stick',
-        'postpone_processing' => 0,
-      ),
-      'action::node_make_unsticky_action' => array(
-        'selected' => 1,
-        'skip_confirmation' => 1,
-        'override_label' => 1,
-        'label' => 'Unstick',
-        'postpone_processing' => 0,
-      ),
-      'action::node_promote_action' => array(
-        'selected' => 1,
-        'skip_confirmation' => 1,
-        'override_label' => 1,
-        'label' => 'Promote to front page',
-        'postpone_processing' => 0,
-      ),
-      'action::node_publish_action' => array(
-        'selected' => 1,
-        'skip_confirmation' => 1,
-        'override_label' => 1,
-        'label' => 'Publish',
-        'postpone_processing' => 0,
-      ),
-      'action::node_unpromote_action' => array(
-        'selected' => 1,
-        'skip_confirmation' => 1,
-        'override_label' => 1,
-        'label' => 'Demote from front page',
-        'postpone_processing' => 0,
-      ),
-      'action::node_unpublish_action' => array(
-        'selected' => 1,
-        'skip_confirmation' => 1,
-        'override_label' => 1,
-        'label' => 'Unpublish',
-        'postpone_processing' => 0,
-      ),
-    );
     /* Felt: Indhold: Titel */
     $handler->display->display_options['fields']['title']['id'] = 'title';
     $handler->display->display_options['fields']['title']['table'] = 'node';
     $handler->display->display_options['fields']['title']['field'] = 'title';
+    /* Felt: Indhold: Date */
+    $handler->display->display_options['fields']['field_ding_event_date']['id'] = 'field_ding_event_date';
+    $handler->display->display_options['fields']['field_ding_event_date']['table'] = 'field_data_field_ding_event_date';
+    $handler->display->display_options['fields']['field_ding_event_date']['field'] = 'field_ding_event_date';
+    $handler->display->display_options['fields']['field_ding_event_date']['label'] = 'Startsdato';
+    $handler->display->display_options['fields']['field_ding_event_date']['settings'] = array(
+      'format_type' => 'long_date_only',
+      'fromto' => 'value',
+      'multiple_number' => '',
+      'multiple_from' => '',
+      'multiple_to' => '',
+    );
     /* Felt: Indhold: Har nyt indhold */
     $handler->display->display_options['fields']['timestamp']['id'] = 'timestamp';
     $handler->display->display_options['fields']['timestamp']['table'] = 'history';
     $handler->display->display_options['fields']['timestamp']['field'] = 'timestamp';
     $handler->display->display_options['fields']['timestamp']['label'] = '';
     $handler->display->display_options['fields']['timestamp']['element_label_colon'] = FALSE;
-    /* Felt: Indhold: Type */
-    $handler->display->display_options['fields']['type']['id'] = 'type';
-    $handler->display->display_options['fields']['type']['table'] = 'node';
-    $handler->display->display_options['fields']['type']['field'] = 'type';
-    /* Felt: Bruger: Navn */
-    $handler->display->display_options['fields']['name']['id'] = 'name';
-    $handler->display->display_options['fields']['name']['table'] = 'users';
-    $handler->display->display_options['fields']['name']['field'] = 'name';
-    $handler->display->display_options['fields']['name']['relationship'] = 'uid';
-    $handler->display->display_options['fields']['name']['label'] = 'Forfatter';
-    $handler->display->display_options['fields']['name']['hide_alter_empty'] = FALSE;
-    /* Felt: Indhold: Udgivet */
-    $handler->display->display_options['fields']['status']['id'] = 'status';
-    $handler->display->display_options['fields']['status']['table'] = 'node';
-    $handler->display->display_options['fields']['status']['field'] = 'status';
-    $handler->display->display_options['fields']['status']['not'] = 0;
-    /* Felt: Indhold: Opdateringsdato */
-    $handler->display->display_options['fields']['changed']['id'] = 'changed';
-    $handler->display->display_options['fields']['changed']['table'] = 'node';
-    $handler->display->display_options['fields']['changed']['field'] = 'changed';
-    $handler->display->display_options['fields']['changed']['label'] = 'Opdateret';
-    $handler->display->display_options['fields']['changed']['date_format'] = 'short';
-    /* Felt: Indhold: Oprettelsesdato */
-    $handler->display->display_options['fields']['created']['id'] = 'created';
-    $handler->display->display_options['fields']['created']['table'] = 'node';
-    $handler->display->display_options['fields']['created']['field'] = 'created';
-    $handler->display->display_options['fields']['created']['date_format'] = 'short';
-    $handler->display->display_options['fields']['created']['second_date_format'] = 'date_only';
     /* Felt: Indhold: Redigér-link */
     $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
     $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
@@ -529,17 +431,16 @@ function event_stat_views_default_views() {
     $handler->display->display_options['fields']['delete_node']['table'] = 'views_entity_node';
     $handler->display->display_options['fields']['delete_node']['field'] = 'delete_node';
     $handler->display->display_options['fields']['delete_node']['label'] = '';
-    /* Felt: Indhold: Clone link */
+    /* Felt: Indhold: Kopiér link */
     $handler->display->display_options['fields']['clone_node']['id'] = 'clone_node';
     $handler->display->display_options['fields']['clone_node']['table'] = 'node';
     $handler->display->display_options['fields']['clone_node']['field'] = 'clone_node';
     $handler->display->display_options['fields']['clone_node']['label'] = '';
     $handler->display->display_options['fields']['clone_node']['element_label_colon'] = FALSE;
-    /* Felt: Indhold: BPI workflow */
-    $handler->display->display_options['fields']['field_bpi_workflow']['id'] = 'field_bpi_workflow';
-    $handler->display->display_options['fields']['field_bpi_workflow']['table'] = 'field_data_field_bpi_workflow';
-    $handler->display->display_options['fields']['field_bpi_workflow']['field'] = 'field_bpi_workflow';
-    $handler->display->display_options['fields']['field_bpi_workflow']['empty'] = 'Ingen tilstand';
+    /* Felt: Indhold: Ansvarlig (initialer) */
+    $handler->display->display_options['fields']['field_initialer']['id'] = 'field_initialer';
+    $handler->display->display_options['fields']['field_initialer']['table'] = 'field_data_field_initialer';
+    $handler->display->display_options['fields']['field_initialer']['field'] = 'field_initialer';
     /* Felt: Indhold: Efterbehandling workflow */
     $handler->display->display_options['fields']['field_efterbehandling_workflow']['id'] = 'field_efterbehandling_workflow';
     $handler->display->display_options['fields']['field_efterbehandling_workflow']['table'] = 'field_data_field_efterbehandling_workflow';
@@ -560,35 +461,47 @@ function event_stat_views_default_views() {
     $handler->display->display_options['filters']['type']['id'] = 'type';
     $handler->display->display_options['filters']['type']['table'] = 'node';
     $handler->display->display_options['filters']['type']['field'] = 'type';
-    $handler->display->display_options['filters']['type']['exposed'] = TRUE;
+    $handler->display->display_options['filters']['type']['value'] = array(
+      'ding_event' => 'ding_event',
+    );
     $handler->display->display_options['filters']['type']['expose']['operator_id'] = 'type_op';
     $handler->display->display_options['filters']['type']['expose']['label'] = 'Type';
     $handler->display->display_options['filters']['type']['expose']['operator'] = 'type_op';
     $handler->display->display_options['filters']['type']['expose']['identifier'] = 'type';
     $handler->display->display_options['filters']['type']['expose']['remember'] = TRUE;
-    /* Filterkriterie: Bruger: Navn */
-    $handler->display->display_options['filters']['uid']['id'] = 'uid';
-    $handler->display->display_options['filters']['uid']['table'] = 'users';
-    $handler->display->display_options['filters']['uid']['field'] = 'uid';
-    $handler->display->display_options['filters']['uid']['relationship'] = 'uid';
-    $handler->display->display_options['filters']['uid']['value'] = '';
-    $handler->display->display_options['filters']['uid']['exposed'] = TRUE;
-    $handler->display->display_options['filters']['uid']['expose']['operator_id'] = 'uid_op';
-    $handler->display->display_options['filters']['uid']['expose']['label'] = 'Forfatter';
-    $handler->display->display_options['filters']['uid']['expose']['operator'] = 'uid_op';
-    $handler->display->display_options['filters']['uid']['expose']['identifier'] = 'author';
-    $handler->display->display_options['filters']['uid']['expose']['remember'] = TRUE;
+    $handler->display->display_options['filters']['type']['expose']['remember_roles'] = array(
+      2 => '2',
+      1 => 0,
+      6 => 0,
+      4 => 0,
+      7 => 0,
+      5 => 0,
+      3 => 0,
+      8 => 0,
+      9 => 0,
+    );
     /* Filterkriterie: Indhold: Udgivet */
     $handler->display->display_options['filters']['status']['id'] = 'status';
     $handler->display->display_options['filters']['status']['table'] = 'node';
     $handler->display->display_options['filters']['status']['field'] = 'status';
-    $handler->display->display_options['filters']['status']['value'] = 'All';
+    $handler->display->display_options['filters']['status']['value'] = '0';
     $handler->display->display_options['filters']['status']['exposed'] = TRUE;
     $handler->display->display_options['filters']['status']['expose']['operator_id'] = '';
     $handler->display->display_options['filters']['status']['expose']['label'] = 'Udgivet';
     $handler->display->display_options['filters']['status']['expose']['operator'] = 'status_op';
     $handler->display->display_options['filters']['status']['expose']['identifier'] = 'status';
     $handler->display->display_options['filters']['status']['expose']['remember'] = TRUE;
+    $handler->display->display_options['filters']['status']['expose']['remember_roles'] = array(
+      2 => '2',
+      1 => 0,
+      6 => 0,
+      4 => 0,
+      7 => 0,
+      5 => 0,
+      3 => 0,
+      8 => 0,
+      9 => 0,
+    );
     /* Filterkriterie: Ord i ordforråd: Ordforråd */
     $handler->display->display_options['filters']['vid']['id'] = 'vid';
     $handler->display->display_options['filters']['vid']['table'] = 'taxonomy_term_data';
@@ -600,47 +513,16 @@ function event_stat_views_default_views() {
     $handler->display->display_options['filters']['vid']['expose']['operator'] = 'vid_op';
     $handler->display->display_options['filters']['vid']['expose']['identifier'] = 'vid';
     $handler->display->display_options['filters']['vid']['expose']['remember'] = TRUE;
-    /* Filterkriterie: Workflow current: New state name */
-    $handler->display->display_options['filters']['sid']['id'] = 'sid';
-    $handler->display->display_options['filters']['sid']['table'] = 'workflow_node_current';
-    $handler->display->display_options['filters']['sid']['field'] = 'sid';
-    $handler->display->display_options['filters']['sid']['exposed'] = TRUE;
-    $handler->display->display_options['filters']['sid']['expose']['operator_id'] = 'sid_op';
-    $handler->display->display_options['filters']['sid']['expose']['label'] = 'New state name';
-    $handler->display->display_options['filters']['sid']['expose']['operator'] = 'sid_op';
-    $handler->display->display_options['filters']['sid']['expose']['identifier'] = 'sid';
-    $handler->display->display_options['filters']['sid']['is_grouped'] = TRUE;
-    $handler->display->display_options['filters']['sid']['group_info']['label'] = 'BPI status';
-    $handler->display->display_options['filters']['sid']['group_info']['identifier'] = 'sid';
-    $handler->display->display_options['filters']['sid']['group_info']['group_items'] = array(
-      1 => array(
-        'title' => 'Lokalt Indhold',
-        'operator' => 'in',
-        'value' => array(
-          23 => '23',
-        ),
-      ),
-      2 => array(
-        'title' => 'Sendt til BPI',
-        'operator' => 'in',
-        'value' => array(
-          25 => '25',
-        ),
-      ),
-      3 => array(
-        'title' => 'Oprettet fra  BPI',
-        'operator' => 'in',
-        'value' => array(
-          27 => '27',
-        ),
-      ),
-      4 => array(
-        'title' => 'Slettet fra BPI',
-        'operator' => 'in',
-        'value' => array(
-          28 => '28',
-        ),
-      ),
+    $handler->display->display_options['filters']['vid']['expose']['remember_roles'] = array(
+      2 => 0,
+      4 => '4',
+      7 => '7',
+      5 => '5',
+      3 => '3',
+      1 => 0,
+      6 => 0,
+      8 => 0,
+      9 => 0,
     );
     /* Filterkriterie: Workflow current: New state name */
     $handler->display->display_options['filters']['sid_1']['id'] = 'sid_1';
@@ -670,13 +552,18 @@ function event_stat_views_default_views() {
         ),
       ),
     );
+    /* Filterkriterie: Indhold: Udgivet */
+    $handler->display->display_options['filters']['status_1']['id'] = 'status_1';
+    $handler->display->display_options['filters']['status_1']['table'] = 'node';
+    $handler->display->display_options['filters']['status_1']['field'] = 'status';
+    $handler->display->display_options['filters']['status_1']['value'] = '0';
 
     /* Display: System */
     $handler = $view->new_display('system', 'System', 'system_1');
     $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
     $handler->display->display_options['hide_admin_links'] = TRUE;
     $handler->display->display_options['defaults']['access'] = FALSE;
-    $handler->display->display_options['path'] = 'admin/content';
+    $handler->display->display_options['path'] = 'admin/eventsworkflow';
     $translatables['klon_af_administration_nodes'] = array(
       t('Defaults'),
       t('Indhold'),
@@ -696,29 +583,16 @@ function event_stat_views_default_views() {
       t('Der er intet indhold at vise.'),
       t('forfatter'),
       t('term'),
-      t('- Vælg en handling -'),
-      t('Change author'),
-      t('Delete'),
-      t('Change value'),
-      t('Stick'),
-      t('Unstick'),
-      t('Promote to front page'),
-      t('Publish'),
-      t('Demote from front page'),
-      t('Unpublish'),
       t('Titel'),
-      t('Type'),
-      t('Forfatter'),
-      t('Udgivet'),
-      t('Opdateret'),
-      t('Oprettelsesdato'),
+      t('Startsdato'),
       t('Handlinger'),
-      t('BPI workflow'),
-      t('Ingen tilstand'),
+      t('Ansvarlig (initialer)'),
       t('Efterbehandling workflow'),
+      t('Ingen tilstand'),
+      t('Type'),
+      t('Udgivet'),
       t('Ordforråd'),
       t('New state name'),
-      t('BPI status'),
       t('Behandling'),
       t('System'),
     );
