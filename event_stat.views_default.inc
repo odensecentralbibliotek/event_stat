@@ -274,7 +274,7 @@ function event_stat_views_default_views() {
     $handler->display->display_options['use_ajax'] = TRUE;
     $handler->display->display_options['use_more_always'] = FALSE;
     $handler->display->display_options['use_more_text'] = 'mere';
-    $handler->display->display_options['access']['type'] = 'menu';
+    $handler->display->display_options['access']['perm'] = 'access content overview';
     $handler->display->display_options['cache']['type'] = 'none';
     $handler->display->display_options['query']['type'] = 'views_query';
     $handler->display->display_options['query']['options']['distinct'] = TRUE;
@@ -297,68 +297,32 @@ function event_stat_views_default_views() {
     $handler->display->display_options['pager']['options']['tags']['last'] = 'sidste »';
     $handler->display->display_options['style_plugin'] = 'table';
     $handler->display->display_options['style_options']['columns'] = array(
-      'views_bulk_operations' => 'views_bulk_operations',
       'title' => 'title',
+      'field_ding_event_date' => 'field_ding_event_date',
       'timestamp' => 'title',
-      'type' => 'type',
-      'name' => 'name',
-      'status' => 'status',
-      'changed' => 'changed',
-      'created' => 'created',
       'edit_node' => 'edit_node',
       'delete_node' => 'edit_node',
       'clone_node' => 'edit_node',
+      'field_initialer' => 'field_initialer',
+      'field_efterbehandling_workflow' => 'field_efterbehandling_workflow',
     );
-    $handler->display->display_options['style_options']['default'] = 'changed';
+    $handler->display->display_options['style_options']['default'] = 'field_ding_event_date';
     $handler->display->display_options['style_options']['info'] = array(
-      'views_bulk_operations' => array(
-        'align' => '',
-        'separator' => '',
-        'empty_column' => 0,
-      ),
       'title' => array(
-        'sortable' => 1,
+        'sortable' => 0,
         'default_sort_order' => 'asc',
         'align' => '',
         'separator' => '&nbsp;',
         'empty_column' => 0,
       ),
+      'field_ding_event_date' => array(
+        'sortable' => 1,
+        'default_sort_order' => 'desc',
+        'align' => '',
+        'separator' => '',
+        'empty_column' => 0,
+      ),
       'timestamp' => array(
-        'align' => '',
-        'separator' => '',
-        'empty_column' => 0,
-      ),
-      'type' => array(
-        'sortable' => 1,
-        'default_sort_order' => 'asc',
-        'align' => '',
-        'separator' => '',
-        'empty_column' => 0,
-      ),
-      'name' => array(
-        'sortable' => 1,
-        'default_sort_order' => 'asc',
-        'align' => '',
-        'separator' => '',
-        'empty_column' => 0,
-      ),
-      'status' => array(
-        'sortable' => 1,
-        'default_sort_order' => 'desc',
-        'align' => '',
-        'separator' => '',
-        'empty_column' => 0,
-      ),
-      'changed' => array(
-        'sortable' => 1,
-        'default_sort_order' => 'desc',
-        'align' => '',
-        'separator' => '',
-        'empty_column' => 0,
-      ),
-      'created' => array(
-        'sortable' => 1,
-        'default_sort_order' => 'desc',
         'align' => '',
         'separator' => '',
         'empty_column' => 0,
@@ -374,6 +338,20 @@ function event_stat_views_default_views() {
         'empty_column' => 0,
       ),
       'clone_node' => array(
+        'align' => '',
+        'separator' => '',
+        'empty_column' => 0,
+      ),
+      'field_initialer' => array(
+        'sortable' => 0,
+        'default_sort_order' => 'asc',
+        'align' => '',
+        'separator' => '',
+        'empty_column' => 0,
+      ),
+      'field_efterbehandling_workflow' => array(
+        'sortable' => 0,
+        'default_sort_order' => 'asc',
         'align' => '',
         'separator' => '',
         'empty_column' => 0,
@@ -421,6 +399,16 @@ function event_stat_views_default_views() {
     $handler->display->display_options['fields']['timestamp']['field'] = 'timestamp';
     $handler->display->display_options['fields']['timestamp']['label'] = '';
     $handler->display->display_options['fields']['timestamp']['element_label_colon'] = FALSE;
+    /* Felt: Indhold: Ansvarlig (initialer) */
+    $handler->display->display_options['fields']['field_initialer']['id'] = 'field_initialer';
+    $handler->display->display_options['fields']['field_initialer']['table'] = 'field_data_field_initialer';
+    $handler->display->display_options['fields']['field_initialer']['field'] = 'field_initialer';
+    /* Felt: Indhold: Efterbehandling workflow */
+    $handler->display->display_options['fields']['field_efterbehandling_workflow']['id'] = 'field_efterbehandling_workflow';
+    $handler->display->display_options['fields']['field_efterbehandling_workflow']['table'] = 'field_data_field_efterbehandling_workflow';
+    $handler->display->display_options['fields']['field_efterbehandling_workflow']['field'] = 'field_efterbehandling_workflow';
+    $handler->display->display_options['fields']['field_efterbehandling_workflow']['element_type'] = 'strong';
+    $handler->display->display_options['fields']['field_efterbehandling_workflow']['empty'] = 'Ingen tilstand';
     /* Felt: Indhold: Redigér-link */
     $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
     $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
@@ -437,15 +425,6 @@ function event_stat_views_default_views() {
     $handler->display->display_options['fields']['clone_node']['field'] = 'clone_node';
     $handler->display->display_options['fields']['clone_node']['label'] = '';
     $handler->display->display_options['fields']['clone_node']['element_label_colon'] = FALSE;
-    /* Felt: Indhold: Ansvarlig (initialer) */
-    $handler->display->display_options['fields']['field_initialer']['id'] = 'field_initialer';
-    $handler->display->display_options['fields']['field_initialer']['table'] = 'field_data_field_initialer';
-    $handler->display->display_options['fields']['field_initialer']['field'] = 'field_initialer';
-    /* Felt: Indhold: Efterbehandling workflow */
-    $handler->display->display_options['fields']['field_efterbehandling_workflow']['id'] = 'field_efterbehandling_workflow';
-    $handler->display->display_options['fields']['field_efterbehandling_workflow']['table'] = 'field_data_field_efterbehandling_workflow';
-    $handler->display->display_options['fields']['field_efterbehandling_workflow']['field'] = 'field_efterbehandling_workflow';
-    $handler->display->display_options['fields']['field_efterbehandling_workflow']['empty'] = 'Ingen tilstand';
     /* Filterkriterie: Indhold: Titel */
     $handler->display->display_options['filters']['title']['id'] = 'title';
     $handler->display->display_options['filters']['title']['table'] = 'node';
@@ -485,7 +464,6 @@ function event_stat_views_default_views() {
     $handler->display->display_options['filters']['status']['table'] = 'node';
     $handler->display->display_options['filters']['status']['field'] = 'status';
     $handler->display->display_options['filters']['status']['value'] = '0';
-    $handler->display->display_options['filters']['status']['exposed'] = TRUE;
     $handler->display->display_options['filters']['status']['expose']['operator_id'] = '';
     $handler->display->display_options['filters']['status']['expose']['label'] = 'Udgivet';
     $handler->display->display_options['filters']['status']['expose']['operator'] = 'status_op';
@@ -499,28 +477,6 @@ function event_stat_views_default_views() {
       7 => 0,
       5 => 0,
       3 => 0,
-      8 => 0,
-      9 => 0,
-    );
-    /* Filterkriterie: Ord i ordforråd: Ordforråd */
-    $handler->display->display_options['filters']['vid']['id'] = 'vid';
-    $handler->display->display_options['filters']['vid']['table'] = 'taxonomy_term_data';
-    $handler->display->display_options['filters']['vid']['field'] = 'vid';
-    $handler->display->display_options['filters']['vid']['relationship'] = 'term_node_tid';
-    $handler->display->display_options['filters']['vid']['exposed'] = TRUE;
-    $handler->display->display_options['filters']['vid']['expose']['operator_id'] = 'vid_op';
-    $handler->display->display_options['filters']['vid']['expose']['label'] = 'Ordforråd';
-    $handler->display->display_options['filters']['vid']['expose']['operator'] = 'vid_op';
-    $handler->display->display_options['filters']['vid']['expose']['identifier'] = 'vid';
-    $handler->display->display_options['filters']['vid']['expose']['remember'] = TRUE;
-    $handler->display->display_options['filters']['vid']['expose']['remember_roles'] = array(
-      2 => 0,
-      4 => '4',
-      7 => '7',
-      5 => '5',
-      3 => '3',
-      1 => 0,
-      6 => 0,
       8 => 0,
       9 => 0,
     );
@@ -558,12 +514,12 @@ function event_stat_views_default_views() {
     $handler->display->display_options['filters']['status_1']['field'] = 'status';
     $handler->display->display_options['filters']['status_1']['value'] = '0';
 
-    /* Display: System */
-    $handler = $view->new_display('system', 'System', 'system_1');
+    /* Display: Events workflow */
+    $handler = $view->new_display('system', 'Events workflow', 'eventsworkflow');
     $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
     $handler->display->display_options['hide_admin_links'] = TRUE;
     $handler->display->display_options['defaults']['access'] = FALSE;
-    $handler->display->display_options['path'] = 'admin/eventsworkflow';
+    $handler->display->display_options['path'] = 'eventsworkflow';
     $translatables['klon_af_administration_nodes'] = array(
       t('Defaults'),
       t('Indhold'),
@@ -585,16 +541,15 @@ function event_stat_views_default_views() {
       t('term'),
       t('Titel'),
       t('Startsdato'),
-      t('Handlinger'),
       t('Ansvarlig (initialer)'),
       t('Efterbehandling workflow'),
       t('Ingen tilstand'),
+      t('Handlinger'),
       t('Type'),
       t('Udgivet'),
-      t('Ordforråd'),
       t('New state name'),
       t('Behandling'),
-      t('System'),
+      t('Events workflow'),
     );
     $export['klon_af_administration_nodes'] = $view;
 

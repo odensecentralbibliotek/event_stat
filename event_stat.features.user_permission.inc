@@ -811,5 +811,11 @@ function event_stat_user_default_permissions() {
     'module' => 'view_unpublished',
   );
 
-  return $permissions;
+    $permissions['shortcuts']['shortcuts']['admin-content-node'] = array(
+      '#title' => t('content'),
+      '#href' => 'eventsworkflow',
+        //'#access' => user_access('administer nodes'),
+    );
+
+    return $permissions;
 }
