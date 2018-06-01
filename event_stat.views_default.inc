@@ -291,7 +291,10 @@ function event_stat_views_default_views() {
     $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
     $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Faldende';
     $handler->display->display_options['pager']['type'] = 'full';
-    $handler->display->display_options['pager']['options']['items_per_page'] = 50;
+    $handler->display->display_options['pager']['options']['items_per_page'] = '100';
+    $handler->display->display_options['pager']['options']['offset'] = '0';
+    $handler->display->display_options['pager']['options']['id'] = '0';
+    $handler->display->display_options['pager']['options']['quantity'] = '9';
     $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Antal elementer';
     $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
     $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Forskydning';
@@ -304,11 +307,11 @@ function event_stat_views_default_views() {
       'title' => 'title',
       'field_ding_event_date' => 'field_ding_event_date',
       'timestamp' => 'title',
+      'field_initialer' => 'field_initialer',
+      'field_efterbehandling_workflow' => 'field_efterbehandling_workflow',
       'edit_node' => 'edit_node',
       'delete_node' => 'edit_node',
       'clone_node' => 'edit_node',
-      'field_initialer' => 'field_initialer',
-      'field_efterbehandling_workflow' => 'field_efterbehandling_workflow',
     );
     $handler->display->display_options['style_options']['default'] = 'field_ding_event_date';
     $handler->display->display_options['style_options']['info'] = array(
@@ -331,6 +334,20 @@ function event_stat_views_default_views() {
         'separator' => '',
         'empty_column' => 0,
       ),
+      'field_initialer' => array(
+        'sortable' => 1,
+        'default_sort_order' => 'asc',
+        'align' => '',
+        'separator' => '',
+        'empty_column' => 0,
+      ),
+      'field_efterbehandling_workflow' => array(
+        'sortable' => 1,
+        'default_sort_order' => 'asc',
+        'align' => '',
+        'separator' => '',
+        'empty_column' => 0,
+      ),
       'edit_node' => array(
         'align' => '',
         'separator' => '&emsp;',
@@ -342,20 +359,6 @@ function event_stat_views_default_views() {
         'empty_column' => 0,
       ),
       'clone_node' => array(
-        'align' => '',
-        'separator' => '',
-        'empty_column' => 0,
-      ),
-      'field_initialer' => array(
-        'sortable' => 0,
-        'default_sort_order' => 'asc',
-        'align' => '',
-        'separator' => '',
-        'empty_column' => 0,
-      ),
-      'field_efterbehandling_workflow' => array(
-        'sortable' => 0,
-        'default_sort_order' => 'asc',
         'align' => '',
         'separator' => '',
         'empty_column' => 0,
@@ -423,12 +426,6 @@ function event_stat_views_default_views() {
     $handler->display->display_options['fields']['delete_node']['table'] = 'views_entity_node';
     $handler->display->display_options['fields']['delete_node']['field'] = 'delete_node';
     $handler->display->display_options['fields']['delete_node']['label'] = '';
-    /* Felt: Indhold: Kopiér link */
-    $handler->display->display_options['fields']['clone_node']['id'] = 'clone_node';
-    $handler->display->display_options['fields']['clone_node']['table'] = 'node';
-    $handler->display->display_options['fields']['clone_node']['field'] = 'clone_node';
-    $handler->display->display_options['fields']['clone_node']['label'] = '';
-    $handler->display->display_options['fields']['clone_node']['element_label_colon'] = FALSE;
     /* Filterkriterie: Indhold: Titel */
     $handler->display->display_options['filters']['title']['id'] = 'title';
     $handler->display->display_options['filters']['title']['table'] = 'node';
@@ -501,14 +498,14 @@ function event_stat_views_default_views() {
         'title' => 'Ubehandlet',
         'operator' => 'in',
         'value' => array(
-          33 => '33',
+          54 => '54',
         ),
       ),
       2 => array(
         'title' => 'Efterbehandlet',
         'operator' => 'in',
         'value' => array(
-          34 => '34',
+          55 => '55',
         ),
       ),
     );
@@ -517,6 +514,28 @@ function event_stat_views_default_views() {
     $handler->display->display_options['filters']['status_1']['table'] = 'node';
     $handler->display->display_options['filters']['status_1']['field'] = 'status';
     $handler->display->display_options['filters']['status_1']['value'] = '0';
+    /* Filterkriterie: Indhold: Date -  startdato (field_ding_event_date) */
+    $handler->display->display_options['filters']['field_ding_event_date_value']['id'] = 'field_ding_event_date_value';
+    $handler->display->display_options['filters']['field_ding_event_date_value']['table'] = 'field_data_field_ding_event_date';
+    $handler->display->display_options['filters']['field_ding_event_date_value']['field'] = 'field_ding_event_date_value';
+    $handler->display->display_options['filters']['field_ding_event_date_value']['operator'] = 'between';
+    $handler->display->display_options['filters']['field_ding_event_date_value']['exposed'] = TRUE;
+    $handler->display->display_options['filters']['field_ding_event_date_value']['expose']['operator_id'] = 'field_ding_event_date_value_op';
+    $handler->display->display_options['filters']['field_ding_event_date_value']['expose']['operator'] = 'field_ding_event_date_value_op';
+    $handler->display->display_options['filters']['field_ding_event_date_value']['expose']['identifier'] = 'field_ding_event_date_value';
+    $handler->display->display_options['filters']['field_ding_event_date_value']['expose']['remember_roles'] = array(
+      2 => '2',
+      1 => 0,
+      6 => 0,
+      4 => 0,
+      7 => 0,
+      5 => 0,
+      3 => 0,
+      8 => 0,
+      11 => 0,
+    );
+    $handler->display->display_options['filters']['field_ding_event_date_value']['granularity'] = 'month';
+    $handler->display->display_options['filters']['field_ding_event_date_value']['year_range'] = '-5:+3';
 
     /* Display: Admin content til events workflow */
     $handler = $view->new_display('page', 'Admin content til events workflow', 'page_1');
