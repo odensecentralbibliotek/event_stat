@@ -13,8 +13,7 @@ function event_stat_field_group_build_pre_render_alter(&$element) {
 
   if (isset($element['group_efterbehandling']) && ($element['#id'] == 'ding-event-node-form')) {
     global $user;
-    $role = count($user->roles);
-    $rid = array_search ('Event rapportør', $user->roles);
+    $rid = array_search('Event rapportør', $user->roles);
     if (user_has_role($rid)) {
        if (!empty( $element['#node']->nid)) {
           $element['title']['#attributes']['readonly'] = TRUE;
@@ -52,7 +51,7 @@ function event_stat_field_group_build_pre_render_alter(&$element) {
 
      }else {
          $element['field_efterbehandling_workflow']['#access'] = FALSE;
-         $element['group_efterbehandling'] = FALSE;
+         $element['group_efterbehandling']['#access'] = FALSE;
      }
   }
 }
