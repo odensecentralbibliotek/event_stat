@@ -14,7 +14,8 @@ function event_stat_field_group_build_pre_render_alter(&$element) {
   if (isset($element['group_efterbehandling']) && ($element['#id'] == 'ding-event-node-form')) {
     global $user;
     $role = count($user->roles);
-    if ((in_array('Event rapportør', $user->roles) && ($role == '2'))) {
+    $rid = array_search ('Event rapportør', $user->roles);
+    if (user_has_role($rid)) {
        if (!empty( $element['#node']->nid)) {
           $element['title']['#attributes']['readonly'] = TRUE;
        }
@@ -34,21 +35,24 @@ function event_stat_field_group_build_pre_render_alter(&$element) {
         'invisible' => array(
         'input[name="field_efterbehandling_workflow[und][0][workflow][workflow_sid]"]' => array('checked' => TRUE),
           ),
-        '#id' => '	field_ding_event_date',
+        '#id' => 'field_ding_event_date',
         )
       );
-     }
 
-    $name = $element['field_efterbehandling_workflow']['und'][0]['workflow']['workflow_sid']['#options'];
-    $key = array_search ('Ubehandlet', $name);
-
-    $element['group_efterbehandling'] += array(
+      $name = $element['field_efterbehandling_workflow']['und'][0]['workflow']['workflow_sid']['#options'];
+      $key = array_search ('Ubehandlet', $name);
+      $element['group_efterbehandling'] += array(
       '#states' => array(
         'invisible' => array(
          'input[name="field_efterbehandling_workflow[und][0][workflow][workflow_sid]"]' => array('value' => $key),
         ),
-      '#id' => '	group_efterbehandling',
+      '#id' => 'group_efterbehandling',
       )
     );
+
+     }else {
+         $element['field_efterbehandling_workflow']['#access'] = FALSE;
+         $element['group_efterbehandling'] = FALSE;
+     }
   }
 }
