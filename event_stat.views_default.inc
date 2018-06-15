@@ -308,10 +308,9 @@ function event_stat_views_default_views() {
       'field_ding_event_date' => 'field_ding_event_date',
       'timestamp' => 'title',
       'field_initialer' => 'field_initialer',
-      'field_efterbehandling_workflow' => 'field_efterbehandling_workflow',
       'edit_node' => 'edit_node',
       'delete_node' => 'edit_node',
-      'clone_node' => 'edit_node',
+      'sid' => 'sid',
     );
     $handler->display->display_options['style_options']['default'] = 'field_ding_event_date';
     $handler->display->display_options['style_options']['info'] = array(
@@ -341,13 +340,6 @@ function event_stat_views_default_views() {
         'separator' => '',
         'empty_column' => 0,
       ),
-      'field_efterbehandling_workflow' => array(
-        'sortable' => 1,
-        'default_sort_order' => 'asc',
-        'align' => '',
-        'separator' => '',
-        'empty_column' => 0,
-      ),
       'edit_node' => array(
         'align' => '',
         'separator' => '&emsp;',
@@ -358,7 +350,9 @@ function event_stat_views_default_views() {
         'separator' => '',
         'empty_column' => 0,
       ),
-      'clone_node' => array(
+      'sid' => array(
+        'sortable' => 1,
+        'default_sort_order' => 'asc',
         'align' => '',
         'separator' => '',
         'empty_column' => 0,
@@ -410,12 +404,6 @@ function event_stat_views_default_views() {
     $handler->display->display_options['fields']['field_initialer']['id'] = 'field_initialer';
     $handler->display->display_options['fields']['field_initialer']['table'] = 'field_data_field_initialer';
     $handler->display->display_options['fields']['field_initialer']['field'] = 'field_initialer';
-    /* Felt: Indhold: Efterbehandling workflow */
-    $handler->display->display_options['fields']['field_efterbehandling_workflow']['id'] = 'field_efterbehandling_workflow';
-    $handler->display->display_options['fields']['field_efterbehandling_workflow']['table'] = 'field_data_field_efterbehandling_workflow';
-    $handler->display->display_options['fields']['field_efterbehandling_workflow']['field'] = 'field_efterbehandling_workflow';
-    $handler->display->display_options['fields']['field_efterbehandling_workflow']['element_type'] = 'strong';
-    $handler->display->display_options['fields']['field_efterbehandling_workflow']['empty'] = 'Ingen tilstand';
     /* Felt: Indhold: Redigér-link */
     $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
     $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
@@ -426,11 +414,17 @@ function event_stat_views_default_views() {
     $handler->display->display_options['fields']['delete_node']['table'] = 'views_entity_node';
     $handler->display->display_options['fields']['delete_node']['field'] = 'delete_node';
     $handler->display->display_options['fields']['delete_node']['label'] = '';
+    /* Felt: Workflow current: New state name */
+    $handler->display->display_options['fields']['sid']['id'] = 'sid';
+    $handler->display->display_options['fields']['sid']['table'] = 'workflow_node_current';
+    $handler->display->display_options['fields']['sid']['field'] = 'sid';
+    $handler->display->display_options['fields']['sid']['label'] = 'Efterbehandling workflow';
     /* Filterkriterie: Indhold: Titel */
     $handler->display->display_options['filters']['title']['id'] = 'title';
     $handler->display->display_options['filters']['title']['table'] = 'node';
     $handler->display->display_options['filters']['title']['field'] = 'title';
     $handler->display->display_options['filters']['title']['operator'] = 'contains';
+    $handler->display->display_options['filters']['title']['group'] = 1;
     $handler->display->display_options['filters']['title']['exposed'] = TRUE;
     $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
     $handler->display->display_options['filters']['title']['expose']['label'] = 'Titel';
@@ -444,6 +438,7 @@ function event_stat_views_default_views() {
     $handler->display->display_options['filters']['type']['value'] = array(
       'ding_event' => 'ding_event',
     );
+    $handler->display->display_options['filters']['type']['group'] = 1;
     $handler->display->display_options['filters']['type']['expose']['operator_id'] = 'type_op';
     $handler->display->display_options['filters']['type']['expose']['label'] = 'Type';
     $handler->display->display_options['filters']['type']['expose']['operator'] = 'type_op';
@@ -460,11 +455,34 @@ function event_stat_views_default_views() {
       8 => 0,
       9 => 0,
     );
+    /* Filterkriterie: Workflow current: New state name */
+    $handler->display->display_options['filters']['sid']['id'] = 'sid';
+    $handler->display->display_options['filters']['sid']['table'] = 'workflow_node_current';
+    $handler->display->display_options['filters']['sid']['field'] = 'sid';
+    $handler->display->display_options['filters']['sid']['group'] = 1;
+    $handler->display->display_options['filters']['sid']['exposed'] = TRUE;
+    $handler->display->display_options['filters']['sid']['expose']['operator_id'] = 'sid_op';
+    $handler->display->display_options['filters']['sid']['expose']['label'] = 'Workflow';
+    $handler->display->display_options['filters']['sid']['expose']['operator'] = 'sid_op';
+    $handler->display->display_options['filters']['sid']['expose']['identifier'] = 'sid';
+    $handler->display->display_options['filters']['sid']['expose']['remember_roles'] = array(
+      2 => '2',
+      1 => 0,
+      6 => 0,
+      4 => 0,
+      7 => 0,
+      5 => 0,
+      3 => 0,
+      8 => 0,
+    );
+    $handler->display->display_options['filters']['sid']['expose']['workflow_reduce_wid'] = '7';
+    $handler->display->display_options['filters']['sid']['expose']['workflow_include_all'] = TRUE;
     /* Filterkriterie: Indhold: Udgivet */
     $handler->display->display_options['filters']['status']['id'] = 'status';
     $handler->display->display_options['filters']['status']['table'] = 'node';
     $handler->display->display_options['filters']['status']['field'] = 'status';
     $handler->display->display_options['filters']['status']['value'] = '0';
+    $handler->display->display_options['filters']['status']['group'] = 1;
     $handler->display->display_options['filters']['status']['expose']['operator_id'] = '';
     $handler->display->display_options['filters']['status']['expose']['label'] = 'Udgivet';
     $handler->display->display_options['filters']['status']['expose']['operator'] = 'status_op';
@@ -481,44 +499,12 @@ function event_stat_views_default_views() {
       8 => 0,
       9 => 0,
     );
-    /* Filterkriterie: Workflow current: New state name */
-    $handler->display->display_options['filters']['sid_1']['id'] = 'sid_1';
-    $handler->display->display_options['filters']['sid_1']['table'] = 'workflow_node_current';
-    $handler->display->display_options['filters']['sid_1']['field'] = 'sid';
-    $handler->display->display_options['filters']['sid_1']['exposed'] = TRUE;
-    $handler->display->display_options['filters']['sid_1']['expose']['operator_id'] = 'sid_1_op';
-    $handler->display->display_options['filters']['sid_1']['expose']['label'] = 'New state name';
-    $handler->display->display_options['filters']['sid_1']['expose']['operator'] = 'sid_1_op';
-    $handler->display->display_options['filters']['sid_1']['expose']['identifier'] = 'sid_1';
-    $handler->display->display_options['filters']['sid_1']['is_grouped'] = TRUE;
-    $handler->display->display_options['filters']['sid_1']['group_info']['label'] = 'Behandling';
-    $handler->display->display_options['filters']['sid_1']['group_info']['identifier'] = 'sid_1';
-    $handler->display->display_options['filters']['sid_1']['group_info']['group_items'] = array(
-      1 => array(
-        'title' => 'Ubehandlet',
-        'operator' => 'in',
-        'value' => array(
-          54 => '54',
-        ),
-      ),
-      2 => array(
-        'title' => 'Efterbehandlet',
-        'operator' => 'in',
-        'value' => array(
-          55 => '55',
-        ),
-      ),
-    );
-    /* Filterkriterie: Indhold: Udgivet */
-    $handler->display->display_options['filters']['status_1']['id'] = 'status_1';
-    $handler->display->display_options['filters']['status_1']['table'] = 'node';
-    $handler->display->display_options['filters']['status_1']['field'] = 'status';
-    $handler->display->display_options['filters']['status_1']['value'] = '0';
     /* Filterkriterie: Indhold: Date -  startdato (field_ding_event_date) */
     $handler->display->display_options['filters']['field_ding_event_date_value']['id'] = 'field_ding_event_date_value';
     $handler->display->display_options['filters']['field_ding_event_date_value']['table'] = 'field_data_field_ding_event_date';
     $handler->display->display_options['filters']['field_ding_event_date_value']['field'] = 'field_ding_event_date_value';
     $handler->display->display_options['filters']['field_ding_event_date_value']['operator'] = 'between';
+    $handler->display->display_options['filters']['field_ding_event_date_value']['group'] = 1;
     $handler->display->display_options['filters']['field_ding_event_date_value']['exposed'] = TRUE;
     $handler->display->display_options['filters']['field_ding_event_date_value']['expose']['operator_id'] = 'field_ding_event_date_value_op';
     $handler->display->display_options['filters']['field_ding_event_date_value']['expose']['operator'] = 'field_ding_event_date_value_op';
@@ -562,13 +548,11 @@ function event_stat_views_default_views() {
       t('Titel'),
       t('Startsdato'),
       t('Ansvarlig (initialer)'),
-      t('Efterbehandling workflow'),
-      t('Ingen tilstand'),
       t('Handlinger'),
+      t('Efterbehandling workflow'),
       t('Type'),
+      t('Workflow'),
       t('Udgivet'),
-      t('New state name'),
-      t('Behandling'),
       t('Admin content til events workflow'),
     );
     $export['klon_af_administration_nodes'] = $view;

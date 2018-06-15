@@ -14,7 +14,9 @@ function event_stat_field_group_build_pre_render_alter(&$element) {
   if (isset($element['group_efterbehandling']) && ($element['#id'] == 'ding-event-node-form')) {
     global $user;
     $rid = array_search('Event rapportør', $user->roles);
-    if (user_has_role($rid)) {
+    $admin = array_search('administrator', $user->roles);
+    $role = count($user->roles);
+    if (user_has_role($rid) && ($role == '2')) {
        if (!empty( $element['#node']->nid)) {
           $element['title']['#attributes']['readonly'] = TRUE;
        }
@@ -49,9 +51,30 @@ function event_stat_field_group_build_pre_render_alter(&$element) {
       )
     );
 
-     }else {
+     }
+     if(user_has_role($admin)) {
+        $name = $element['field_efterbehandling_workflow']['und'][0]['workflow']['workflow_sid']['#options'];
+        $ubehandlet = array_search ('Ubehandlet', $name);
+        $element['group_efterbehandling'] += array(
+        '#states' => array(
+        'invisible' => array(
+         'input[name="field_efterbehandling_workflow[und][0][workflow][workflow_sid]"]' => array('value' => $ubehandlet),
+            ),
+            '#id' => 'group_efterbehandling',
+        )
+        );
+        }
+         else{
          $element['field_efterbehandling_workflow']['#access'] = FALSE;
          $element['group_efterbehandling']['#access'] = FALSE;
      }
   }
+}
+
+function event_stat_enable(){
+$fname = 'event_stat_user_default_permissions';
+$feature = features_get_features($fname);
+$components = array_keys($feature->info['features']);
+features_revert(array($fname => $components));
+drupal_flush_all_caches();
 }
