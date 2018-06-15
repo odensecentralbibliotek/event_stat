@@ -52,7 +52,7 @@ function event_stat_field_group_build_pre_render_alter(&$element) {
     );
 
      }
-     if(user_has_role($admin)) {
+     elseif(user_has_role($admin)) {
         $name = $element['field_efterbehandling_workflow']['und'][0]['workflow']['workflow_sid']['#options'];
         $ubehandlet = array_search ('Ubehandlet', $name);
         $element['group_efterbehandling'] += array(
