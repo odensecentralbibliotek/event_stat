@@ -257,7 +257,7 @@ function event_stat_views_default_views() {
     );
     $export['event_stat'] = $view;
 
- $view = new view();
+    $view = new view();
     $view->name = 'klon_af_administration_nodes';
     $view->description = 'Find and manage content.';
     $view->tag = 'admin';
@@ -475,7 +475,7 @@ function event_stat_views_default_views() {
       3 => 0,
       8 => 0,
     );
-    $handler->display->display_options['filters']['sid']['expose']['workflow_reduce_wid'] = '7';
+    $handler->display->display_options['filters']['sid']['expose']['workflow_reduce_wid'] = '5';
     $handler->display->display_options['filters']['sid']['expose']['workflow_include_all'] = TRUE;
     /* Filterkriterie: Indhold: Udgivet */
     $handler->display->display_options['filters']['status']['id'] = 'status';

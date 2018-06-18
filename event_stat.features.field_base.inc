@@ -156,7 +156,7 @@ function event_stat_field_default_field_bases() {
         ),
         'profile2_private' => FALSE,
         'watchdog_log' => 1,
-        'wid' => 6,
+        'wid' => 5,
         'widget' => array(
           'comment' => 0,
           'fieldset' => 0,

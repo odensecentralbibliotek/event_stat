@@ -16,21 +16,21 @@ function event_stat_default_Workflow() {
     "tab_roles" : [],
     "options" : [],
     "states" : {
-      "32" : {"sid":"32","wid":"6","weight":"-50","sysid":"1","state":"(creation)","status":"1","name":"(creation)"},
-      "33" : {"sid":"33","wid":"6","weight":"-20","sysid":"0","state":"Ubehandlet","status":"1","name":"ubehandlet"},
-      "34" : {"sid":"34","wid":"6","weight":"-19","sysid":"0","state":"Efterbehandlet","status":"1","name":"efterbehandlet"}
+      "32" : {"sid":"32","wid":"5","weight":"-50","sysid":"1","state":"(creation)","status":"1","name":"(creation)"},
+      "33" : {"sid":"33","wid":"5","weight":"-20","sysid":"0","state":"Ubehandlet","status":"1","name":"ubehandlet"},
+      "34" : {"sid":"34","wid":"5","weight":"-19","sysid":"0","state":"Efterbehandlet","status":"1","name":"efterbehandlet"}
     },
     "transitions" : {
-      "135" : {"tid":"135","sid":"32","target_sid":"33","roles":{"-1":-1,"3":"3","8":"8"},"wid":"6","name":"31_32","label":""},
-      "136" : {"tid":"136","sid":"32","target_sid":"34","roles":{"3":"3","8":"8"},"wid":"6","name":"31_33","label":""},
-      "137" : {"tid":"137","sid":"33","target_sid":"33","roles":{"-1":-1,"3":"3","8":"8"},"wid":"6","name":"32_32","label":""},
-      "138" : {"tid":"138","sid":"33","target_sid":"34","roles":{"3":"3","8":"8"},"wid":"6","name":"32_33","label":""},
-      "139" : {"tid":"139","sid":"34","target_sid":"33","roles":{"3":"3","8":"8"},"wid":"6","name":"33_32","label":""},
-      "140" : {"tid":"140","sid":"34","target_sid":"34","roles":{"-1":-1,"3":"3","8":"8"},"wid":"6","name":"33_33","label":""}
+      "135" : {"tid":"135","sid":"32","target_sid":"33","roles":{"-1":-1,"3":"3","8":"8"},"wid":"5","name":"31_32","label":""},
+      "136" : {"tid":"136","sid":"32","target_sid":"34","roles":{"3":"3","8":"8"},"wid":"5","name":"31_33","label":""},
+      "137" : {"tid":"137","sid":"33","target_sid":"33","roles":{"-1":-1,"3":"3","8":"8"},"wid":"5","name":"32_32","label":""},
+      "138" : {"tid":"138","sid":"33","target_sid":"34","roles":{"3":"3","8":"8"},"wid":"5","name":"32_33","label":""},
+      "139" : {"tid":"139","sid":"34","target_sid":"33","roles":{"3":"3","8":"8"},"wid":"5","name":"33_32","label":""},
+      "140" : {"tid":"140","sid":"34","target_sid":"34","roles":{"-1":-1,"3":"3","8":"8"},"wid":"5","name":"33_33","label":""}
     },
     "label" : "Arrangement efterbehandling",
     "typeMap" : [],
-    "wid_original" : "6",
+    "wid_original" : "5",
     "system_roles" : {
       "-1" : "(forfatter)",
       "1" : "anonym bruger",
