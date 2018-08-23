@@ -9,49 +9,61 @@
  * Implements hook_user_default_permissions().
  */
 function event_stat_user_default_permissions() {
-  $permissions = array();
+    $permissions = array();
 
-  // Exported permission: access administration menu.
-  $permissions['access administration menu'] = array(
-    'name' => 'access administration menu',
-    'roles' => array(
-      'Event rapportør' => 'Event rapportør',
-      'administrator' => 'administrator',
-      'formidler' => 'formidler',
-      'lokalredaktør' => 'lokalredaktør',
-      'redaktør' => 'redaktør',
-    ),
-    'module' => 'admin_menu',
-  );
+    // Exported permission: administer group.
+    $permissions['administer group'] = array(
+      'name' => 'administer group',
+      'roles' => array(
+        'Event rapportør' => 'Event rapportør',
+        'administrator' => 'administrator',
+        'formidler' => 'formidler',
+        'lokalredaktør' => 'lokalredaktør',
+        'redaktør' => 'redaktør',
+      ),
+      'module' => 'og',
+    );
+    // Exported permission: access administration menu.
+    $permissions['access administration menu'] = array(
+      'name' => 'access administration menu',
+      'roles' => array(
+        'Event rapportør' => 'Event rapportør',
+        'administrator' => 'administrator',
+        'formidler' => 'formidler',
+        'lokalredaktør' => 'lokalredaktør',
+        'redaktør' => 'redaktør',
+      ),
+      'module' => 'admin_menu',
+    );
 
-  // Exported permission: access content.
-  $permissions['access content'] = array(
-    'name' => 'access content',
-    'roles' => array(
-      'Event rapportør' => 'Event rapportør',
-      'administrator' => 'administrator',
-      'anonymous user' => 'anonymous user',
-      'authenticated user' => 'authenticated user',
-      'formidler' => 'formidler',
-      'redaktør' => 'redaktør',
-    ),
-    'module' => 'node',
-  );
+    // Exported permission: access content.
+    $permissions['access content'] = array(
+      'name' => 'access content',
+      'roles' => array(
+        'Event rapportør' => 'Event rapportør',
+        'administrator' => 'administrator',
+        'anonymous user' => 'anonymous user',
+        'authenticated user' => 'authenticated user',
+        'formidler' => 'formidler',
+        'redaktør' => 'redaktør',
+      ),
+      'module' => 'node',
+    );
 
-  // Exported permission: access content overview.
-  $permissions['access content overview'] = array(
-    'name' => 'access content overview',
-    'roles' => array(
-      'Event rapportør' => 'Event rapportør',
-      'administrator' => 'administrator',
-      'formidler' => 'formidler',
-      'lokalredaktør' => 'lokalredaktør',
-      'redaktør' => 'redaktør',
-    ),
-    'module' => 'node',
-  );
+    // Exported permission: access content overview.
+    $permissions['access content overview'] = array(
+      'name' => 'access content overview',
+      'roles' => array(
+        'Event rapportør' => 'Event rapportør',
+        'administrator' => 'administrator',
+        'formidler' => 'formidler',
+        'lokalredaktør' => 'lokalredaktør',
+        'redaktør' => 'redaktør',
+      ),
+      'module' => 'node',
+    );
 
-  // Exported permission: create field_antal_deltagere.
+    // Exported permission: create field_antal_deltagere.
     $permissions['create field_antal_deltagere'] = array(
       'name' => 'create field_antal_deltagere',
       'roles' => array(
@@ -195,7 +207,7 @@ function event_stat_user_default_permissions() {
     $permissions['edit field_antal_deltagere'] = array(
       'name' => 'edit field_antal_deltagere',
       'roles' => array(
-      'Event rapportør' => 'Event rapportør',
+        'Event rapportør' => 'Event rapportør',
         'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
@@ -205,7 +217,7 @@ function event_stat_user_default_permissions() {
     $permissions['edit field_antal_udervisere'] = array(
       'name' => 'edit field_antal_udervisere',
       'roles' => array(
-      'Event rapportør' => 'Event rapportør',
+        'Event rapportør' => 'Event rapportør',
         'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
@@ -215,7 +227,7 @@ function event_stat_user_default_permissions() {
     $permissions['edit field_arrangementstype'] = array(
       'name' => 'edit field_arrangementstype',
       'roles' => array(
-      'Event rapportør' => 'Event rapportør',
+        'Event rapportør' => 'Event rapportør',
         'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
@@ -225,7 +237,7 @@ function event_stat_user_default_permissions() {
     $permissions['edit field_bem_rkninger'] = array(
       'name' => 'edit field_bem_rkninger',
       'roles' => array(
-      'Event rapportør' => 'Event rapportør',
+        'Event rapportør' => 'Event rapportør',
         'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
@@ -235,7 +247,7 @@ function event_stat_user_default_permissions() {
     $permissions['edit field_efterbehandling_workflow'] = array(
       'name' => 'edit field_efterbehandling_workflow',
       'roles' => array(
-      'Event rapportør' => 'Event rapportør',
+        'Event rapportør' => 'Event rapportør',
         'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
@@ -245,7 +257,7 @@ function event_stat_user_default_permissions() {
     $permissions['edit field_ekstern_underviser'] = array(
       'name' => 'edit field_ekstern_underviser',
       'roles' => array(
-      'Event rapportør' => 'Event rapportør',
+        'Event rapportør' => 'Event rapportør',
         'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
@@ -255,7 +267,7 @@ function event_stat_user_default_permissions() {
     $permissions['edit field_eksterne_partnere'] = array(
       'name' => 'edit field_eksterne_partnere',
       'roles' => array(
-      'Event rapportør' => 'Event rapportør',
+        'Event rapportør' => 'Event rapportør',
         'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
@@ -265,7 +277,7 @@ function event_stat_user_default_permissions() {
     $permissions['edit field_forberedelsestid'] = array(
       'name' => 'edit field_forberedelsestid',
       'roles' => array(
-      'Event rapportør' => 'Event rapportør',
+        'Event rapportør' => 'Event rapportør',
         'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
@@ -275,7 +287,7 @@ function event_stat_user_default_permissions() {
     $permissions['edit field_hvilken_art'] = array(
       'name' => 'edit field_hvilken_art',
       'roles' => array(
-      'Event rapportør' => 'Event rapportør',
+        'Event rapportør' => 'Event rapportør',
         'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
@@ -285,6 +297,7 @@ function event_stat_user_default_permissions() {
     $permissions['edit field_initialer'] = array(
       'name' => 'edit field_initialer',
       'roles' => array(
+        'Event rapportør' => 'Event rapportør',
         'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
@@ -294,7 +307,7 @@ function event_stat_user_default_permissions() {
     $permissions['edit field_kategori'] = array(
       'name' => 'edit field_kategori',
       'roles' => array(
-      'Event rapportør' => 'Event rapportør',
+        'Event rapportør' => 'Event rapportør',
         'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
@@ -304,7 +317,7 @@ function event_stat_user_default_permissions() {
     $permissions['edit field_kvaliteten'] = array(
       'name' => 'edit field_kvaliteten',
       'roles' => array(
-      'Event rapportør' => 'Event rapportør',
+        'Event rapportør' => 'Event rapportør',
         'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
@@ -314,7 +327,7 @@ function event_stat_user_default_permissions() {
     $permissions['edit field_omkostninger'] = array(
       'name' => 'edit field_omkostninger',
       'roles' => array(
-      'Event rapportør' => 'Event rapportør',
+        'Event rapportør' => 'Event rapportør',
         'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
@@ -324,7 +337,7 @@ function event_stat_user_default_permissions() {
     $permissions['edit field_slutdato'] = array(
       'name' => 'edit field_slutdato',
       'roles' => array(
-      'Event rapportør' => 'Event rapportør',
+        'Event rapportør' => 'Event rapportør',
         'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
@@ -765,100 +778,100 @@ function event_stat_user_default_permissions() {
     );
 
     // Exported permission: create ding_event content.
-  $permissions['create ding_event content'] = array(
-    'name' => 'create ding_event content',
-    'roles' => array(
-      'Event rapportør' => 'Event rapportør',
-      'administrator' => 'administrator',
-      'formidler' => 'formidler',
-      'lokalredaktør' => 'lokalredaktør',
-      'redaktør' => 'redaktør',
-    ),
-    'module' => 'node',
-  );
-  // Exported permission: edit own ding_event content.
-  $permissions['edit own ding_event content'] = array(
-    'name' => 'edit own ding_event content',
-    'roles' => array(
-      'Event rapportør' => 'Event rapportør',
-      'administrator' => 'administrator',
-      'formidler' => 'formidler',
-      'lokalredaktør' => 'lokalredaktør',
-      'redaktør' => 'redaktør',
-    ),
-    'module' => 'node',
-  );
+    $permissions['create ding_event content'] = array(
+      'name' => 'create ding_event content',
+      'roles' => array(
+        'Event rapportør' => 'Event rapportør',
+        'administrator' => 'administrator',
+        'formidler' => 'formidler',
+        'lokalredaktør' => 'lokalredaktør',
+        'redaktør' => 'redaktør',
+      ),
+      'module' => 'node',
+    );
+    // Exported permission: edit own ding_event content.
+    $permissions['edit own ding_event content'] = array(
+      'name' => 'edit own ding_event content',
+      'roles' => array(
+        'Event rapportør' => 'Event rapportør',
+        'administrator' => 'administrator',
+        'formidler' => 'formidler',
+        'lokalredaktør' => 'lokalredaktør',
+        'redaktør' => 'redaktør',
+      ),
+      'module' => 'node',
+    );
 
-  // Exported permission: edit any ding_event content.
-  $permissions['edit any ding_event content'] = array(
-    'name' => 'edit any ding_event content',
-    'roles' => array(
-      'Event rapportør' => 'Event rapportør',
-      'administrator' => 'administrator',
-      'formidler' => 'formidler',
-      'lokalredaktør' => 'lokalredaktør',
-      'redaktør' => 'redaktør',
-    ),
-    'module' => 'node',
-  );
+    // Exported permission: edit any ding_event content.
+    $permissions['edit any ding_event content'] = array(
+      'name' => 'edit any ding_event content',
+      'roles' => array(
+        'Event rapportør' => 'Event rapportør',
+        'administrator' => 'administrator',
+        'formidler' => 'formidler',
+        'lokalredaktør' => 'lokalredaktør',
+        'redaktør' => 'redaktør',
+      ),
+      'module' => 'node',
+    );
 
-  // Exported permission: delete any ding_event content.
-  $permissions['delete any ding_event content'] = array(
-    'name' => 'delete any ding_event content',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'redaktør' => 'redaktør',
-    ),
-    'module' => 'node',
-  );
+    // Exported permission: delete any ding_event content.
+    $permissions['delete any ding_event content'] = array(
+      'name' => 'delete any ding_event content',
+      'roles' => array(
+        'administrator' => 'administrator',
+        'redaktør' => 'redaktør',
+      ),
+      'module' => 'node',
+    );
 
-  // Exported permission: delete own ding_event content.
-  $permissions['delete own ding_event content'] = array(
-    'name' => 'delete own ding_event content',
-    'roles' => array(
-      'Event rapportør' => 'Event rapportør',
-      'administrator' => 'administrator',
-      'formidler' => 'formidler',
-      'lokalredaktør' => 'lokalredaktør',
-      'redaktør' => 'redaktør',
-    ),
-    'module' => 'node',
-  );
+    // Exported permission: delete own ding_event content.
+    $permissions['delete own ding_event content'] = array(
+      'name' => 'delete own ding_event content',
+      'roles' => array(
+        'Event rapportør' => 'Event rapportør',
+        'administrator' => 'administrator',
+        'formidler' => 'formidler',
+        'lokalredaktør' => 'lokalredaktør',
+        'redaktør' => 'redaktør',
+      ),
+      'module' => 'node',
+    );
 
-  // Exported permission: view own unpublished content.
-  $permissions['view own unpublished content'] = array(
-    'name' => 'view own unpublished content',
-    'roles' => array(
-      'Event rapportør' => 'Event rapportør',
-      'administrator' => 'administrator',
-      'formidler' => 'formidler',
-      'lokalredaktør' => 'lokalredaktør',
-      'redaktør' => 'redaktør',
-    ),
-    'module' => 'node',
-  );
+    // Exported permission: view own unpublished content.
+    $permissions['view own unpublished content'] = array(
+      'name' => 'view own unpublished content',
+      'roles' => array(
+        'Event rapportør' => 'Event rapportør',
+        'administrator' => 'administrator',
+        'formidler' => 'formidler',
+        'lokalredaktør' => 'lokalredaktør',
+        'redaktør' => 'redaktør',
+      ),
+      'module' => 'node',
+    );
 
-  // Exported permission: view any unpublished content.
-  $permissions['view any unpublished content'] = array(
-    'name' => 'view any unpublished content',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'formidler' => 'formidler',
-      'lokalredaktør' => 'lokalredaktør',
-      'redaktør' => 'redaktør',
-    ),
-    'module' => 'view_unpublished',
-  );
+    // Exported permission: view any unpublished content.
+    $permissions['view any unpublished content'] = array(
+      'name' => 'view any unpublished content',
+      'roles' => array(
+        'administrator' => 'administrator',
+        'formidler' => 'formidler',
+        'lokalredaktør' => 'lokalredaktør',
+        'redaktør' => 'redaktør',
+      ),
+      'module' => 'view_unpublished',
+    );
 
-  // Exported permission: view any unpublished ding_event content.
-  $permissions['view any unpublished ding_event content'] = array(
-    'name' => 'view any unpublished ding_event content',
-    'roles' => array(
-      'Event rapportør' => 'Event rapportør',
-      'administrator' => 'administrator',
-    ),
-    'module' => 'view_unpublished',
-  );
+    // Exported permission: view any unpublished ding_event content.
+    $permissions['view any unpublished ding_event content'] = array(
+      'name' => 'view any unpublished ding_event content',
+      'roles' => array(
+        'Event rapportør' => 'Event rapportør',
+        'administrator' => 'administrator',
+      ),
+      'module' => 'view_unpublished',
+    );
 
     return $permissions;
 }

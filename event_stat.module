@@ -17,32 +17,83 @@ function event_stat_field_group_build_pre_render_alter(&$element) {
     $admin = array_search('administrator', $user->roles);
     $role = count($user->roles);
     if (user_has_role($rid) && ($role == '2')) {
-       if (!empty( $element['#node']->nid)) {
+        //Check if new node and I'm not the author.
+       if (!empty($element['#node']->nid) && ($element['#node']->uid != $user->uid)) {
           $element['title']['#attributes']['readonly'] = TRUE;
+          $sdato =  DateTime::createFromFormat('Y-m-d H:i:s', $element['group_ding_event_date_loc_price']['field_ding_event_date']['und'][0]['#default_value']['value']);
+          $date = $sdato->format('m/d/Y H:i');
+          $element['group_efterbehandling']['field_slutdato']['und'][0]['#title'] = '<br />Startdato: ' . $date . '<br /><br />Slutdato';
+       }else{
+           $element['group_efterbehandling']['field_slutdato']['und'][0]['#title'] = 'Start og slutdato';
+           array_unshift($element['group_efterbehandling']['field_slutdato']['und'][0], $element['group_ding_event_date_loc_price']['field_ding_event_date']['und'][0]['value']);
        }
-       
-       $element['options']['#attributes']['onclick'] = 'return false;';
+
+       $element['title']['#title'] = 'Titel';
+
+       $element['group_ding_event_attachments']['#access'] = FALSE;
+
+       $element['group_ding_event_content']['field_billede_galleri']['#access'] = FALSE;
+       $element['group_ding_event_tagging']['#access'] = FALSE;
+       $element['field_klub_tilbud']['#access'] = FALSE;
+       $element['group_ding_event_ting']['#access'] = FALSE;
+
+       $element['group_ding_event_date_loc_price']['#title'] = '';
+       $element['group_ding_event_date_loc_price']['field_ding_event_location']['und'][0]['#title'] = '';
+       $element['group_ding_event_date_loc_price']['field_ding_event_location']['und'][0]['name_block']['name_line']['#title'] = 'Sted navn';
+       $element['group_ding_event_date_loc_price']['field_ding_event_library']['und']['#options']['_none'] = 'Andet afholdelsessted';
+
+       $element['group_ding_event_date_loc_price']['field_custom_price']['#access'] = FALSE;
+       $element['group_ding_event_date_loc_price']['field_ding_event_price']['#access'] = FALSE;
+       $element['group_ding_event_date_loc_price']['field_valgfrit_pris']['#access'] = FALSE;
+       $element['group_ding_event_date_loc_price']['group_default_ticket_name']['#access'] = FALSE;
+
+
+       $element['options']['status']['onclick'] = 'return false;';
        $element['author']['#access'] = FALSE;
        $element['revision_information']['#access'] = FALSE;
        $element['capacity']['#access'] = FALSE;
        $element['place2book']['#access'] = FALSE;
        $element['additional_settings']['#attributes']['onclick'] = 'return false;';
-       $sdato =  DateTime::createFromFormat('Y-m-d H:i:s', $element['group_ding_event_date_loc_price']['field_ding_event_date']['und'][0]['#default_value']['value']);
-       $date = $sdato->format('m/d/Y H:i');
-       $element['group_efterbehandling']['field_slutdato']['und'][0]['#title'] = '<br />Startdato: ' . $date . '<br /><br />Slutdato';
-       
-       $element['group_ding_event_date_loc_price'] += array(
-        '#states' => array(
+
+       $element['group_ding_event_content'] += array(
+      '#states' => array(
         'invisible' => array(
         'input[name="field_efterbehandling_workflow[und][0][workflow][workflow_sid]"]' => array('checked' => TRUE),
-          ),
+        ),
         '#id' => 'field_ding_event_date',
-        )
-      );
+      )
+    );
 
-      $name = $element['field_efterbehandling_workflow']['und'][0]['workflow']['workflow_sid']['#options'];
-      $key = array_search ('Ubehandlet', $name);
-      $element['group_efterbehandling'] += array(
+       $element['group_ding_event_images'] += array(
+      '#states' => array(
+        'invisible' => array(
+        'input[name="field_efterbehandling_workflow[und][0][workflow][workflow_sid]"]' => array('checked' => TRUE),
+        ),
+        '#id' => 'field_ding_event_date',
+      )
+    );
+
+      $element['group_ding_event_date_loc_price']['group_date'] += array(
+      '#states' => array(
+        'invisible' => array(
+        'input[name="field_efterbehandling_workflow[und][0][workflow][workflow_sid]"]' => array('checked' => TRUE),
+        ),
+        '#id' => 'field_ding_event_date',
+      )
+    );
+
+       $element['group_ding_event_date_loc_price']['field_ding_event_date'] += array(
+      '#states' => array(
+        'invisible' => array(
+        'input[name="field_efterbehandling_workflow[und][0][workflow][workflow_sid]"]' => array('checked' => TRUE),
+        ),
+        '#id' => 'field_ding_event_date',
+      )
+    );
+
+    $name = $element['field_efterbehandling_workflow']['und'][0]['workflow']['workflow_sid']['#options'];
+    $key = array_search ('Ubehandlet', $name);
+    $element['group_efterbehandling'] += array(
       '#states' => array(
         'invisible' => array(
          'input[name="field_efterbehandling_workflow[und][0][workflow][workflow_sid]"]' => array('value' => $key),
@@ -69,6 +120,15 @@ function event_stat_field_group_build_pre_render_alter(&$element) {
          $element['group_efterbehandling']['#access'] = FALSE;
      }
   }
+}
+
+function event_stat_node_presave($node) {
+    global $user;
+    $rid = array_search('Event rapportør', $user->roles);
+    $role = count($user->roles);
+    if (user_has_role($rid) && ($role == '2')) {
+    $node->status = NODE_UNPUBLISHED;
+    }
 }
 
 function event_stat_enable(){
