@@ -40,8 +40,8 @@ function event_stat_field_group_info() {
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'formatter' => 'collapsible',
-      'instance_settings' => array(
+      'formatter' => 'open',
+        'instance_settings' => array(
         'description' => '',
         'classes' => '',
         'required_fields' => 1,
