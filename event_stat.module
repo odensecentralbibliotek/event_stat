@@ -102,6 +102,16 @@ function event_stat_field_group_build_pre_render_alter(&$element) {
       )
     );
 
+    $element['field_efterbehandling_workflow']['und'][0]['workflow']['workflow_sid'][31]['#value'] = 31;
+
+    $element['field_efterbehandling_workflow'] += array(
+      '#states' => array(
+        'invisible' => array(
+         'input[name="field_efterbehandling_workflow[und][0][workflow][workflow_sid]"]' => array('checked' => TRUE),
+        ),
+      )
+    );
+
      }
      elseif(user_has_role($admin)) {
         $name = $element['field_efterbehandling_workflow']['und'][0]['workflow']['workflow_sid']['#options'];
