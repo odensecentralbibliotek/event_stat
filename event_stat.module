@@ -27,7 +27,7 @@ function event_stat_field_group_build_pre_render_alter(&$element) {
            $element['group_efterbehandling']['field_slutdato']['und'][0]['#title'] = 'Start og slutdato';
            array_unshift($element['group_efterbehandling']['field_slutdato']['und'][0], $element['group_ding_event_date_loc_price']['field_ding_event_date']['und'][0]['value']);
        }
-
+       drupal_add_js('jQuery(document).ready(function () { jQuery("legend").contents().unwrap().wrap("<label/>"); });', 'inline');
        $element['title']['#title'] = 'Titel';
 
        $element['group_ding_event_attachments']['#access'] = FALSE;
