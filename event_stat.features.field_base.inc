@@ -156,10 +156,10 @@ function event_stat_field_default_field_bases() {
         ),
         'profile2_private' => FALSE,
         'watchdog_log' => 1,
-      'wid' => 5,
+        'wid' => 5,
         'widget' => array(
           'comment' => 0,
-        'fieldset' => 0,
+          'fieldset' => 0,
           'hide' => 0,
           'name_as_title' => 1,
           'options' => 'radios',
@@ -250,6 +250,36 @@ function event_stat_field_default_field_bases() {
       ),
       'translatable' => 0,
       'type' => 'number_integer',
+    );
+
+    // Exported field_base: 'field_har_formidlingen_v_ret_inv'
+    $field_bases['field_har_formidlingen_v_ret_inv'] = array(
+      'active' => 1,
+      'cardinality' => 1,
+      'deleted' => 0,
+      'entity_types' => array(),
+      'field_name' => 'field_har_formidlingen_v_ret_inv',
+      'field_permissions' => array(
+        'type' => 2,
+      ),
+      'foreign keys' => array(),
+      'indexes' => array(
+        'value' => array(
+          0 => 'value',
+        ),
+      ),
+      'locked' => 0,
+      'module' => 'list',
+      'settings' => array(
+        'allowed_values' => array(
+          'Ja' => 'Ja',
+          'Nej' => 'Nej',
+        ),
+        'allowed_values_function' => '',
+        'profile2_private' => FALSE,
+      ),
+      'translatable' => 0,
+      'type' => 'list_text',
     );
 
     // Exported field_base: 'field_hvilken_art'
@@ -432,6 +462,37 @@ function event_stat_field_default_field_bases() {
       ),
       'translatable' => 0,
       'type' => 'datetime',
+    );
+
+    // Exported field_base: 'field_type'
+    $field_bases['field_type'] = array(
+      'active' => 1,
+      'cardinality' => 1,
+      'deleted' => 0,
+      'entity_types' => array(),
+      'field_name' => 'field_type',
+      'field_permissions' => array(
+        'type' => 0,
+      ),
+      'foreign keys' => array(),
+      'indexes' => array(
+        'value' => array(
+          0 => 'value',
+        ),
+      ),
+      'locked' => 0,
+      'module' => 'list',
+      'settings' => array(
+        'allowed_values' => array(
+          'OBB arrangement' => 'OBB arrangement',
+          'Samarbejdsarrangement' => 'Samarbejdsarrangement',
+          'Selvbetjent arrangement' => 'Selvbetjent arrangement',
+        ),
+        'allowed_values_function' => '',
+        'profile2_private' => FALSE,
+      ),
+      'translatable' => 0,
+      'type' => 'list_text',
     );
 
     return $field_bases;

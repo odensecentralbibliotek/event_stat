@@ -143,6 +143,16 @@ function event_stat_user_default_permissions() {
       'module' => 'field_permissions',
     );
 
+    // Exported permission: create field_har_formidlingen_v_ret_inv.
+    $permissions['create field_har_formidlingen_v_ret_inv'] = array(
+      'name' => 'create field_har_formidlingen_v_ret_inv',
+      'roles' => array(
+        'Event rapportør' => 'Event rapportør',
+        'administrator' => 'administrator',
+      ),
+      'module' => 'field_permissions',
+    );
+
     // Exported permission: create field_hvilken_art.
     $permissions['create field_hvilken_art'] = array(
       'name' => 'create field_hvilken_art',
@@ -196,6 +206,16 @@ function event_stat_user_default_permissions() {
     // Exported permission: create field_slutdato.
     $permissions['create field_slutdato'] = array(
       'name' => 'create field_slutdato',
+      'roles' => array(
+        'Event rapportør' => 'Event rapportør',
+        'administrator' => 'administrator',
+      ),
+      'module' => 'field_permissions',
+    );
+
+    // Exported permission: create field_type.
+    $permissions['create field_type'] = array(
+      'name' => 'create field_type',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
         'administrator' => 'administrator',
@@ -283,6 +303,16 @@ function event_stat_user_default_permissions() {
       'module' => 'field_permissions',
     );
 
+    // Exported permission: edit field_har_formidlingen_v_ret_inv.
+    $permissions['edit field_har_formidlingen_v_ret_inv'] = array(
+      'name' => 'edit field_har_formidlingen_v_ret_inv',
+      'roles' => array(
+        'Event rapportør' => 'Event rapportør',
+        'administrator' => 'administrator',
+      ),
+      'module' => 'field_permissions',
+    );
+
     // Exported permission: edit field_hvilken_art.
     $permissions['edit field_hvilken_art'] = array(
       'name' => 'edit field_hvilken_art',
@@ -336,6 +366,16 @@ function event_stat_user_default_permissions() {
     // Exported permission: edit field_slutdato.
     $permissions['edit field_slutdato'] = array(
       'name' => 'edit field_slutdato',
+      'roles' => array(
+        'Event rapportør' => 'Event rapportør',
+        'administrator' => 'administrator',
+      ),
+      'module' => 'field_permissions',
+    );
+
+    // Exported permission: edit field_type.
+    $permissions['edit field_type'] = array(
+      'name' => 'edit field_type',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
         'administrator' => 'administrator',
@@ -423,6 +463,16 @@ function event_stat_user_default_permissions() {
       'module' => 'field_permissions',
     );
 
+    // Exported permission: edit own field_har_formidlingen_v_ret_inv.
+    $permissions['edit own field_har_formidlingen_v_ret_inv'] = array(
+      'name' => 'edit own field_har_formidlingen_v_ret_inv',
+      'roles' => array(
+        'Event rapportør' => 'Event rapportør',
+        'administrator' => 'administrator',
+      ),
+      'module' => 'field_permissions',
+    );
+
     // Exported permission: edit own field_hvilken_art.
     $permissions['edit own field_hvilken_art'] = array(
       'name' => 'edit own field_hvilken_art',
@@ -476,6 +526,16 @@ function event_stat_user_default_permissions() {
     // Exported permission: edit own field_slutdato.
     $permissions['edit own field_slutdato'] = array(
       'name' => 'edit own field_slutdato',
+      'roles' => array(
+        'Event rapportør' => 'Event rapportør',
+        'administrator' => 'administrator',
+      ),
+      'module' => 'field_permissions',
+    );
+
+    // Exported permission: edit own field_type.
+    $permissions['edit own field_type'] = array(
+      'name' => 'edit own field_type',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
         'administrator' => 'administrator',
@@ -577,6 +637,16 @@ function event_stat_user_default_permissions() {
       'module' => 'field_permissions',
     );
 
+    // Exported permission: view field_har_formidlingen_v_ret_inv.
+    $permissions['view field_har_formidlingen_v_ret_inv'] = array(
+      'name' => 'view field_har_formidlingen_v_ret_inv',
+      'roles' => array(
+        'Event rapportør' => 'Event rapportør',
+        'administrator' => 'administrator',
+      ),
+      'module' => 'field_permissions',
+    );
+
     // Exported permission: view field_hvilken_art.
     $permissions['view field_hvilken_art'] = array(
       'name' => 'view field_hvilken_art',
@@ -630,6 +700,16 @@ function event_stat_user_default_permissions() {
     // Exported permission: view field_slutdato.
     $permissions['view field_slutdato'] = array(
       'name' => 'view field_slutdato',
+      'roles' => array(
+        'Event rapportør' => 'Event rapportør',
+        'administrator' => 'administrator',
+      ),
+      'module' => 'field_permissions',
+    );
+
+    // Exported permission: view field_type.
+    $permissions['view field_type'] = array(
+      'name' => 'view field_type',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
         'administrator' => 'administrator',
@@ -717,6 +797,16 @@ function event_stat_user_default_permissions() {
       'module' => 'field_permissions',
     );
 
+    // Exported permission: view own field_har_formidlingen_v_ret_inv.
+    $permissions['view own field_har_formidlingen_v_ret_inv'] = array(
+      'name' => 'view own field_har_formidlingen_v_ret_inv',
+      'roles' => array(
+        'Event rapportør' => 'Event rapportør',
+        'administrator' => 'administrator',
+      ),
+      'module' => 'field_permissions',
+    );
+
     // Exported permission: view own field_hvilken_art.
     $permissions['view own field_hvilken_art'] = array(
       'name' => 'view own field_hvilken_art',
@@ -770,6 +860,16 @@ function event_stat_user_default_permissions() {
     // Exported permission: view own field_slutdato.
     $permissions['view own field_slutdato'] = array(
       'name' => 'view own field_slutdato',
+      'roles' => array(
+        'Event rapportør' => 'Event rapportør',
+        'administrator' => 'administrator',
+      ),
+      'module' => 'field_permissions',
+    );
+
+    // Exported permission: view own field_type.
+    $permissions['view own field_type'] = array(
+      'name' => 'view own field_type',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
         'administrator' => 'administrator',

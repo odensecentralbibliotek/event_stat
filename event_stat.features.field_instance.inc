@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * event_stat.features.field_instance.inc
@@ -15,7 +16,7 @@ function event_stat_field_default_field_instances() {
       'bundle' => 'ding_event',
       'default_value' => NULL,
       'deleted' => 0,
-      'description' => '',
+      'description' => 'Anslås, hvis der ikke er et specifikt antal, fx ved arrangementer af ”messetype”',
       'display' => array(
         'default' => array(
           'label' => 'above',
@@ -52,7 +53,7 @@ function event_stat_field_default_field_instances() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => 16,
+        'weight' => 19,
       ),
     );
 
@@ -84,7 +85,7 @@ function event_stat_field_default_field_instances() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_antal_udervisere',
-      'label' => 'Antal udervisere',
+      'label' => 'Antal undervisere',
       'required' => 1,
       'settings' => array(
         'max' => 10,
@@ -98,7 +99,7 @@ function event_stat_field_default_field_instances() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => 17,
+        'weight' => 20,
       ),
     );
 
@@ -141,7 +142,7 @@ function event_stat_field_default_field_instances() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => 15,
+        'weight' => 18,
       ),
     );
 
@@ -187,7 +188,7 @@ function event_stat_field_default_field_instances() {
           'rows' => 5,
         ),
         'type' => 'text_textarea',
-        'weight' => 26,
+        'weight' => 30,
       ),
     );
 
@@ -234,7 +235,7 @@ function event_stat_field_default_field_instances() {
           'name_as_title' => 1,
         ),
         'type' => 'workflow_default',
-        'weight' => 11,
+        'weight' => 10,
       ),
     );
 
@@ -266,7 +267,7 @@ function event_stat_field_default_field_instances() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_ekstern_underviser',
-      'label' => 'Har der været ekstern oplægsholder/underviser?',
+      'label' => 'Har der været ekstern oplægsholder/underviser/musiker?',
       'required' => 1,
       'settings' => array(
         'user_register_form' => FALSE,
@@ -276,7 +277,7 @@ function event_stat_field_default_field_instances() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => 22,
+        'weight' => 26,
       ),
     );
 
@@ -318,7 +319,7 @@ function event_stat_field_default_field_instances() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => 20,
+        'weight' => 23,
       ),
     );
 
@@ -327,7 +328,7 @@ function event_stat_field_default_field_instances() {
       'bundle' => 'ding_event',
       'default_value' => NULL,
       'deleted' => 0,
-      'description' => '',
+      'description' => 'Anslås bedst muligt',
       'display' => array(
         'default' => array(
           'label' => 'above',
@@ -364,7 +365,50 @@ function event_stat_field_default_field_instances() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => 19,
+        'weight' => 22,
+      ),
+    );
+
+    // Exported field_instance: 'node-ding_event-field_har_formidlingen_v_ret_inv'
+    $field_instances['node-ding_event-field_har_formidlingen_v_ret_inv'] = array(
+      'bundle' => 'ding_event',
+      'default_value' => NULL,
+      'deleted' => 0,
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'list',
+          'settings' => array(),
+          'type' => 'list_default',
+          'weight' => 34,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser_highlight' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_har_formidlingen_v_ret_inv',
+      'label' => 'Har Formidlingen været involveret ifm. Markedsføring',
+      'required' => 1,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'options',
+        'settings' => array(),
+        'type' => 'options_select',
+        'weight' => 25,
       ),
     );
 
@@ -409,7 +453,7 @@ function event_stat_field_default_field_instances() {
           'rows' => 5,
         ),
         'type' => 'text_textarea',
-        'weight' => 21,
+        'weight' => 24,
       ),
     );
 
@@ -455,7 +499,7 @@ function event_stat_field_default_field_instances() {
           'size' => 4,
         ),
         'type' => 'text_textfield',
-        'weight' => 25,
+        'weight' => 29,
       ),
     );
 
@@ -497,7 +541,7 @@ function event_stat_field_default_field_instances() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => 14,
+        'weight' => 17,
       ),
     );
 
@@ -542,7 +586,7 @@ function event_stat_field_default_field_instances() {
           'rows' => 5,
         ),
         'type' => 'text_textarea',
-        'weight' => 23,
+        'weight' => 27,
       ),
     );
 
@@ -574,7 +618,7 @@ function event_stat_field_default_field_instances() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_omkostninger',
-      'label' => 'Omkostninger til oplægsholder/underviser',
+      'label' => 'Omkostninger til oplægsholder/underviser/musiker',
       'required' => 1,
       'settings' => array(
         'max' => '',
@@ -588,14 +632,14 @@ function event_stat_field_default_field_instances() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => 24,
+        'weight' => 28,
       ),
     );
 
     // Exported field_instance: 'node-ding_event-field_slutdato'
     $field_instances['node-ding_event-field_slutdato'] = array(
       'bundle' => 'ding_event',
-    'default_value' => array(),
+      'default_value' => array(),
       'deleted' => 0,
       'description' => '',
       'display' => array(
@@ -648,27 +692,74 @@ function event_stat_field_default_field_instances() {
           'text_parts' => array(),
           'year_range' => '-3:+3',
         ),
-      'type' => 'date_select',
-        'weight' => 18,
+        'type' => 'date_select',
+        'weight' => 21,
+      ),
+    );
+
+    // Exported field_instance: 'node-ding_event-field_type'
+    $field_instances['node-ding_event-field_type'] = array(
+      'bundle' => 'ding_event',
+      'default_value' => NULL,
+      'deleted' => 0,
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'list',
+          'settings' => array(),
+          'type' => 'list_default',
+          'weight' => 35,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser_highlight' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_type',
+      'label' => 'Type',
+      'required' => 1,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'options',
+        'settings' => array(),
+        'type' => 'options_select',
+        'weight' => 16,
       ),
     );
 
     // Translatables
     // Included for use with string extractors like potx.
+    t('Anslås bedst muligt');
+    t('Anslås, hvis der ikke er et specifikt antal, fx ved arrangementer af ”messetype”');
     t('Ansvarlig (initialer)');
     t('Antal deltagere');
-    t('Antal udervisere');
+    t('Antal undervisere');
     t('Arrangementstype');
     t('Bemærkninger');
     t('Efterbehandling workflow');
     t('Er arrangementet lavet i samarbejde med eksterne partnere?');
     t('Forberedelsestid i minutter');
-    t('Har der været ekstern oplægsholder/underviser?');
+    t('Har Formidlingen været involveret ifm. Markedsføring');
+    t('Har der været ekstern oplægsholder/underviser/musiker?');
     t('Hvis Ja, af hvilken art - økonomisk eller andet. Angiv hvem og hvad der støttes med?');
     t('Hvis ja, hvordan oplevede du kvaliteten af denne?');
     t('Kategori');
-    t('Omkostninger til oplægsholder/underviser');
+    t('Omkostninger til oplægsholder/underviser/musiker');
     t('Slutdato');
+    t('Type');
 
     return $field_instances;
 }
