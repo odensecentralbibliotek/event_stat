@@ -60,7 +60,7 @@ function event_stat_field_group_build_pre_render_alter(&$element) {
         'invisible' => array(
         'input[name="field_efterbehandling_workflow[und][0][workflow][workflow_sid]"]' => array('checked' => TRUE),
         ),
-        '#id' => 'field_ding_event_date',
+        '#id' => 'group_ding_event_content',
       )
     );
 
@@ -69,7 +69,7 @@ function event_stat_field_group_build_pre_render_alter(&$element) {
         'invisible' => array(
         'input[name="field_efterbehandling_workflow[und][0][workflow][workflow_sid]"]' => array('checked' => TRUE),
         ),
-        '#id' => 'field_ding_event_date',
+        '#id' => 'group_ding_event_images',
       )
     );
 
@@ -78,7 +78,7 @@ function event_stat_field_group_build_pre_render_alter(&$element) {
         'invisible' => array(
         'input[name="field_efterbehandling_workflow[und][0][workflow][workflow_sid]"]' => array('checked' => TRUE),
         ),
-        '#id' => 'field_ding_event_date',
+        '#id' => 'group_ding_event_date_loc_price',
       )
     );
 
@@ -87,7 +87,7 @@ function event_stat_field_group_build_pre_render_alter(&$element) {
         'invisible' => array(
         'input[name="field_efterbehandling_workflow[und][0][workflow][workflow_sid]"]' => array('checked' => TRUE),
         ),
-        '#id' => 'field_ding_event_date',
+        '#id' => 'group_ding_event_date_loc_price',
       )
     );
 

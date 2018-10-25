@@ -11,6 +11,55 @@
 function event_stat_field_default_field_instances() {
     $field_instances = array();
 
+    // Exported field_instance: 'node-ding_event-field_aflyst_'
+    $field_instances['node-ding_event-field_aflyst_'] = array(
+      'bundle' => 'ding_event',
+      'default_value' => array(
+        0 => array(
+          'value' => 0,
+        ),
+      ),
+      'deleted' => 0,
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'list',
+          'settings' => array(),
+          'type' => 'list_default',
+          'weight' => 36,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser_highlight' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_aflyst_',
+      'label' => 'Aflyst?',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'options',
+        'settings' => array(
+          'display_label' => 0,
+        ),
+        'type' => 'options_onoff',
+        'weight' => 10,
+      ),
+    );
+
     // Exported field_instance: 'node-ding_event-field_antal_deltagere'
     $field_instances['node-ding_event-field_antal_deltagere'] = array(
       'bundle' => 'ding_event',
@@ -188,7 +237,7 @@ function event_stat_field_default_field_instances() {
           'rows' => 5,
         ),
         'type' => 'text_textarea',
-        'weight' => 30,
+        'weight' => 31,
       ),
     );
 
@@ -277,7 +326,7 @@ function event_stat_field_default_field_instances() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => 26,
+        'weight' => 27,
       ),
     );
 
@@ -499,7 +548,7 @@ function event_stat_field_default_field_instances() {
           'size' => 4,
         ),
         'type' => 'text_textfield',
-        'weight' => 29,
+        'weight' => 30,
       ),
     );
 
@@ -586,7 +635,7 @@ function event_stat_field_default_field_instances() {
           'rows' => 5,
         ),
         'type' => 'text_textarea',
-        'weight' => 27,
+        'weight' => 28,
       ),
     );
 
@@ -632,7 +681,7 @@ function event_stat_field_default_field_instances() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => 28,
+        'weight' => 29,
       ),
     );
 
@@ -742,6 +791,7 @@ function event_stat_field_default_field_instances() {
 
     // Translatables
     // Included for use with string extractors like potx.
+    t('Aflyst?');
     t('Anslås bedst muligt');
     t('Anslås, hvis der ikke er et specifikt antal, fx ved arrangementer af ”messetype”');
     t('Ansvarlig (initialer)');

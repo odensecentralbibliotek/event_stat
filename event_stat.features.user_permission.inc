@@ -68,7 +68,6 @@ function event_stat_user_default_permissions() {
       'name' => 'create field_antal_deltagere',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -78,7 +77,6 @@ function event_stat_user_default_permissions() {
       'name' => 'create field_antal_udervisere',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -88,7 +86,6 @@ function event_stat_user_default_permissions() {
       'name' => 'create field_arrangementstype',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -98,7 +95,6 @@ function event_stat_user_default_permissions() {
       'name' => 'create field_bem_rkninger',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -108,7 +104,6 @@ function event_stat_user_default_permissions() {
       'name' => 'create field_efterbehandling_workflow',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -118,7 +113,6 @@ function event_stat_user_default_permissions() {
       'name' => 'create field_ekstern_underviser',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -128,7 +122,6 @@ function event_stat_user_default_permissions() {
       'name' => 'create field_eksterne_partnere',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -138,7 +131,6 @@ function event_stat_user_default_permissions() {
       'name' => 'create field_forberedelsestid',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -148,7 +140,6 @@ function event_stat_user_default_permissions() {
       'name' => 'create field_har_formidlingen_v_ret_inv',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -158,7 +149,6 @@ function event_stat_user_default_permissions() {
       'name' => 'create field_hvilken_art',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -168,7 +158,6 @@ function event_stat_user_default_permissions() {
       'name' => 'create field_initialer',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -178,7 +167,6 @@ function event_stat_user_default_permissions() {
       'name' => 'create field_kategori',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -188,7 +176,6 @@ function event_stat_user_default_permissions() {
       'name' => 'create field_kvaliteten',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -198,7 +185,6 @@ function event_stat_user_default_permissions() {
       'name' => 'create field_omkostninger',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -208,7 +194,6 @@ function event_stat_user_default_permissions() {
       'name' => 'create field_slutdato',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -218,7 +203,26 @@ function event_stat_user_default_permissions() {
       'name' => 'create field_type',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
+      ),
+      'module' => 'field_permissions',
+    );
+
+    // Exported permission: create field_aflyst_.
+    $permissions['create field_aflyst_'] = array(
+      'name' => 'create field_aflyst_',
+      'roles' => array(
         'administrator' => 'administrator',
+        'redaktør' => 'redaktør',
+      ),
+      'module' => 'field_permissions',
+    );
+
+    // Exported permission: edit field_aflyst_.
+    $permissions['edit field_aflyst_'] = array(
+      'name' => 'edit field_aflyst_',
+      'roles' => array(
+        'administrator' => 'administrator',
+        'redaktør' => 'redaktør',
       ),
       'module' => 'field_permissions',
     );
@@ -228,7 +232,6 @@ function event_stat_user_default_permissions() {
       'name' => 'edit field_antal_deltagere',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -238,7 +241,6 @@ function event_stat_user_default_permissions() {
       'name' => 'edit field_antal_udervisere',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -248,7 +250,6 @@ function event_stat_user_default_permissions() {
       'name' => 'edit field_arrangementstype',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -258,7 +259,6 @@ function event_stat_user_default_permissions() {
       'name' => 'edit field_bem_rkninger',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -268,7 +268,6 @@ function event_stat_user_default_permissions() {
       'name' => 'edit field_efterbehandling_workflow',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -278,7 +277,6 @@ function event_stat_user_default_permissions() {
       'name' => 'edit field_ekstern_underviser',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -288,7 +286,6 @@ function event_stat_user_default_permissions() {
       'name' => 'edit field_eksterne_partnere',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -298,7 +295,6 @@ function event_stat_user_default_permissions() {
       'name' => 'edit field_forberedelsestid',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -308,7 +304,6 @@ function event_stat_user_default_permissions() {
       'name' => 'edit field_har_formidlingen_v_ret_inv',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -318,7 +313,6 @@ function event_stat_user_default_permissions() {
       'name' => 'edit field_hvilken_art',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -328,7 +322,6 @@ function event_stat_user_default_permissions() {
       'name' => 'edit field_initialer',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -338,7 +331,6 @@ function event_stat_user_default_permissions() {
       'name' => 'edit field_kategori',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -348,7 +340,6 @@ function event_stat_user_default_permissions() {
       'name' => 'edit field_kvaliteten',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -358,7 +349,6 @@ function event_stat_user_default_permissions() {
       'name' => 'edit field_omkostninger',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -368,7 +358,6 @@ function event_stat_user_default_permissions() {
       'name' => 'edit field_slutdato',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -378,7 +367,16 @@ function event_stat_user_default_permissions() {
       'name' => 'edit field_type',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
+      ),
+      'module' => 'field_permissions',
+    );
+
+    // Exported permission: edit own field_aflyst_.
+    $permissions['edit own field_aflyst_'] = array(
+      'name' => 'edit own field_aflyst_',
+      'roles' => array(
         'administrator' => 'administrator',
+        'redaktør' => 'redaktør',
       ),
       'module' => 'field_permissions',
     );
@@ -388,7 +386,6 @@ function event_stat_user_default_permissions() {
       'name' => 'edit own field_antal_deltagere',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -398,7 +395,6 @@ function event_stat_user_default_permissions() {
       'name' => 'edit own field_antal_udervisere',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -408,7 +404,6 @@ function event_stat_user_default_permissions() {
       'name' => 'edit own field_arrangementstype',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -418,7 +413,6 @@ function event_stat_user_default_permissions() {
       'name' => 'edit own field_bem_rkninger',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -428,7 +422,6 @@ function event_stat_user_default_permissions() {
       'name' => 'edit own field_efterbehandling_workflow',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -438,7 +431,6 @@ function event_stat_user_default_permissions() {
       'name' => 'edit own field_ekstern_underviser',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -448,7 +440,6 @@ function event_stat_user_default_permissions() {
       'name' => 'edit own field_eksterne_partnere',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -458,7 +449,6 @@ function event_stat_user_default_permissions() {
       'name' => 'edit own field_forberedelsestid',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -468,7 +458,6 @@ function event_stat_user_default_permissions() {
       'name' => 'edit own field_har_formidlingen_v_ret_inv',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -478,7 +467,6 @@ function event_stat_user_default_permissions() {
       'name' => 'edit own field_hvilken_art',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -488,7 +476,6 @@ function event_stat_user_default_permissions() {
       'name' => 'edit own field_initialer',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -498,7 +485,6 @@ function event_stat_user_default_permissions() {
       'name' => 'edit own field_kategori',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -508,7 +494,6 @@ function event_stat_user_default_permissions() {
       'name' => 'edit own field_kvaliteten',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -518,7 +503,6 @@ function event_stat_user_default_permissions() {
       'name' => 'edit own field_omkostninger',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -528,7 +512,6 @@ function event_stat_user_default_permissions() {
       'name' => 'edit own field_slutdato',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -538,7 +521,6 @@ function event_stat_user_default_permissions() {
       'name' => 'edit own field_type',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -557,12 +539,21 @@ function event_stat_user_default_permissions() {
       'module' => 'workflow',
     );
 
+    // Exported permission: view field_aflyst_.
+    $permissions['view field_aflyst_'] = array(
+      'name' => 'view field_aflyst_',
+      'roles' => array(
+        'administrator' => 'administrator',
+        'redaktør' => 'redaktør',
+      ),
+      'module' => 'field_permissions',
+    );
+
     // Exported permission: view field_antal_deltagere.
     $permissions['view field_antal_deltagere'] = array(
       'name' => 'view field_antal_deltagere',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -572,7 +563,6 @@ function event_stat_user_default_permissions() {
       'name' => 'view field_antal_udervisere',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -582,7 +572,6 @@ function event_stat_user_default_permissions() {
       'name' => 'view field_arrangementstype',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -592,7 +581,6 @@ function event_stat_user_default_permissions() {
       'name' => 'view field_bem_rkninger',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -602,7 +590,6 @@ function event_stat_user_default_permissions() {
       'name' => 'view field_efterbehandling_workflow',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -612,7 +599,6 @@ function event_stat_user_default_permissions() {
       'name' => 'view field_ekstern_underviser',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -622,7 +608,6 @@ function event_stat_user_default_permissions() {
       'name' => 'view field_eksterne_partnere',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -632,7 +617,6 @@ function event_stat_user_default_permissions() {
       'name' => 'view field_forberedelsestid',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -642,7 +626,6 @@ function event_stat_user_default_permissions() {
       'name' => 'view field_har_formidlingen_v_ret_inv',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -652,7 +635,6 @@ function event_stat_user_default_permissions() {
       'name' => 'view field_hvilken_art',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -662,7 +644,6 @@ function event_stat_user_default_permissions() {
       'name' => 'view field_initialer',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -672,7 +653,6 @@ function event_stat_user_default_permissions() {
       'name' => 'view field_kategori',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -682,7 +662,6 @@ function event_stat_user_default_permissions() {
       'name' => 'view field_kvaliteten',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -692,7 +671,6 @@ function event_stat_user_default_permissions() {
       'name' => 'view field_omkostninger',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -702,7 +680,6 @@ function event_stat_user_default_permissions() {
       'name' => 'view field_slutdato',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -712,7 +689,16 @@ function event_stat_user_default_permissions() {
       'name' => 'view field_type',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
+      ),
+      'module' => 'field_permissions',
+    );
+
+    // Exported permission: view own field_aflyst_.
+    $permissions['view own field_aflyst_'] = array(
+      'name' => 'view own field_aflyst_',
+      'roles' => array(
         'administrator' => 'administrator',
+        'redaktør' => 'redaktør',
       ),
       'module' => 'field_permissions',
     );
@@ -722,7 +708,6 @@ function event_stat_user_default_permissions() {
       'name' => 'view own field_antal_deltagere',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -732,7 +717,6 @@ function event_stat_user_default_permissions() {
       'name' => 'view own field_antal_udervisere',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -742,7 +726,6 @@ function event_stat_user_default_permissions() {
       'name' => 'view own field_arrangementstype',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -752,7 +735,6 @@ function event_stat_user_default_permissions() {
       'name' => 'view own field_bem_rkninger',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -762,7 +744,6 @@ function event_stat_user_default_permissions() {
       'name' => 'view own field_efterbehandling_workflow',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -772,7 +753,6 @@ function event_stat_user_default_permissions() {
       'name' => 'view own field_ekstern_underviser',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -782,7 +762,6 @@ function event_stat_user_default_permissions() {
       'name' => 'view own field_eksterne_partnere',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -792,7 +771,6 @@ function event_stat_user_default_permissions() {
       'name' => 'view own field_forberedelsestid',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -802,7 +780,6 @@ function event_stat_user_default_permissions() {
       'name' => 'view own field_har_formidlingen_v_ret_inv',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -812,7 +789,6 @@ function event_stat_user_default_permissions() {
       'name' => 'view own field_hvilken_art',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -822,7 +798,6 @@ function event_stat_user_default_permissions() {
       'name' => 'view own field_initialer',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -832,7 +807,6 @@ function event_stat_user_default_permissions() {
       'name' => 'view own field_kategori',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -842,7 +816,6 @@ function event_stat_user_default_permissions() {
       'name' => 'view own field_kvaliteten',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -852,7 +825,6 @@ function event_stat_user_default_permissions() {
       'name' => 'view own field_omkostninger',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -862,7 +834,6 @@ function event_stat_user_default_permissions() {
       'name' => 'view own field_slutdato',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );
@@ -872,7 +843,6 @@ function event_stat_user_default_permissions() {
       'name' => 'view own field_type',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
-        'administrator' => 'administrator',
       ),
       'module' => 'field_permissions',
     );

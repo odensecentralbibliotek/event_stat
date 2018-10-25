@@ -11,6 +11,36 @@
 function event_stat_field_default_field_bases() {
     $field_bases = array();
 
+    // Exported field_base: 'field_aflyst_'
+    $field_bases['field_aflyst_'] = array(
+      'active' => 1,
+      'cardinality' => 1,
+      'deleted' => 0,
+      'entity_types' => array(),
+      'field_name' => 'field_aflyst_',
+      'field_permissions' => array(
+        'type' => 2,
+      ),
+      'foreign keys' => array(),
+      'indexes' => array(
+        'value' => array(
+          0 => 'value',
+        ),
+      ),
+      'locked' => 0,
+      'module' => 'list',
+      'settings' => array(
+        'allowed_values' => array(
+          0 => '',
+          1 => 'Aflyst',
+        ),
+        'allowed_values_function' => '',
+        'profile2_private' => FALSE,
+      ),
+      'translatable' => 0,
+      'type' => 'list_boolean',
+    );
+
     // Exported field_base: 'field_antal_deltagere'
     $field_bases['field_antal_deltagere'] = array(
       'active' => 1,
@@ -145,17 +175,22 @@ function event_stat_field_default_field_bases() {
         'allowed_values_function' => 'workflowfield_allowed_values',
         'allowed_values_string' => '29 | (creation)
 30 | Ubehandlet
-31 | Efterbehandlet',
+31 | Efterbehandlet
+32 | Aflyste',
         'history' => array(
           'history_tab_show' => 1,
           'roles' => array(
             -1 => 0,
             3 => 3,
+            4 => 0,
+            5 => 5,
+            6 => 0,
+            7 => 0,
             8 => 8,
           ),
         ),
         'profile2_private' => FALSE,
-        'watchdog_log' => 1,
+        'watchdog_log' => 0,
         'wid' => 5,
         'widget' => array(
           'comment' => 0,
@@ -322,7 +357,7 @@ function event_stat_field_default_field_bases() {
       'entity_types' => array(),
       'field_name' => 'field_initialer',
       'field_permissions' => array(
-        'type' => 0,
+        'type' => 2,
       ),
       'foreign keys' => array(
         'format' => array(
@@ -472,7 +507,7 @@ function event_stat_field_default_field_bases() {
       'entity_types' => array(),
       'field_name' => 'field_type',
       'field_permissions' => array(
-        'type' => 0,
+        'type' => 2,
       ),
       'foreign keys' => array(),
       'indexes' => array(
