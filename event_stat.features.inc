@@ -20,7 +20,7 @@ function event_stat_default_Workflow() {
     "29" : {"sid":"29","wid":"5","weight":"-50","sysid":"1","state":"(creation)","status":"1","name":"(creation)"},
     "30" : {"sid":"30","wid":"5","weight":"-20","sysid":"0","state":"Ubehandlet","status":"1","name":"ubehandlet"},
     "31" : {"sid":"31","wid":"5","weight":"-19","sysid":"0","state":"Efterbehandlet","status":"1","name":"efterbehandlet"},
-    "32" : {"sid":"32","wid":"5","weight":"-18","sysid":"0","state":"Aflyste","status":"1","name":"aflyste"}
+    "32" : {"sid":"32","wid":"5","weight":"-18","sysid":"0","state":"Aflyst","status":"1","name":"aflyst"}
     },
   "transitions" : {
     "129" : {"tid":"129","sid":"29","target_sid":"30","roles":{"-1":-1,"8":8},"wid":"5","name":"31_29","label":""},

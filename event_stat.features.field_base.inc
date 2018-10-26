@@ -176,7 +176,7 @@ function event_stat_field_default_field_bases() {
         'allowed_values_string' => '29 | (creation)
 30 | Ubehandlet
 31 | Efterbehandlet
-32 | Aflyste',
+32 | Aflyst',
         'history' => array(
           'history_tab_show' => 1,
           'roles' => array(
