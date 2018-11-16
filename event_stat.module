@@ -7,6 +7,32 @@
 
 include_once 'event_stat.features.inc';
 
+function event_stat_menu() {
+    $items = array();
+
+    $items['node/add/eventsworkflow'] = array(
+      'title' => 'indholdsoversigt',
+      'description' => 'Event statistik indholdsoversigt',
+      'page callback' => 'drupal_goto',
+      'page arguments' => array('eventsworkflow'),
+      'access callback' => '_user_has_role',
+      'type' => MENU_NORMAL_ITEM,
+    );
+
+    return $items;
+}
+
+function _user_has_role() {
+    global $user;
+    $rid = array_search('Event rapportør', $user->roles);
+    if (user_has_role($rid)) {
+        return TRUE;
+    }
+    else {
+        return FALSE;
+    }
+}
+
 function event_stat_field_group_build_pre_render_alter(&$element) {
   $element['ding_campaigns_wrap']['#access'] = FALSE;
   $element['language']['#access'] = FALSE;
