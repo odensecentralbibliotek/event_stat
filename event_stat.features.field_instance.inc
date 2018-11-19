@@ -599,13 +599,14 @@ function event_stat_field_default_field_instances() {
       'bundle' => 'ding_event',
       'default_value' => NULL,
       'deleted' => 0,
-      'description' => '',
+      'description' => 'Vælg mellem 1-7 hvor 1 = Meget utilfreds og 7 = 1 Meget tilfreds',
       'display' => array(
         'default' => array(
           'label' => 'above',
+          'module' => 'list',
           'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 28,
+          'type' => 'list_default',
+          'weight' => 37,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -625,16 +626,13 @@ function event_stat_field_default_field_instances() {
       'label' => 'Hvis ja, hvordan oplevede du kvaliteten af denne?',
       'required' => 1,
       'settings' => array(
-        'text_processing' => 0,
         'user_register_form' => FALSE,
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'text',
-        'settings' => array(
-          'rows' => 5,
-        ),
-        'type' => 'text_textarea',
+        'module' => 'options',
+        'settings' => array(),
+        'type' => 'options_buttons',
         'weight' => 28,
       ),
     );

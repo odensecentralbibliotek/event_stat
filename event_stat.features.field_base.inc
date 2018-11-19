@@ -178,12 +178,12 @@ function event_stat_field_default_field_bases() {
 31 | Efterbehandlet
 32 | Aflyst',
         'history' => array(
-          'history_tab_show' => 1,
+          'history_tab_show' => 0,
           'roles' => array(
-            -1 => 0,
+            -1 => -1,
             3 => 3,
             4 => 0,
-            5 => 5,
+            5 => 0,
             6 => 0,
             7 => 0,
             8 => 8,
@@ -422,26 +422,29 @@ function event_stat_field_default_field_bases() {
       'field_permissions' => array(
         'type' => 2,
       ),
-      'foreign keys' => array(
-        'format' => array(
-          'columns' => array(
-            'format' => 'format',
-          ),
-          'table' => 'filter_format',
-        ),
-      ),
+      'foreign keys' => array(),
       'indexes' => array(
-        'format' => array(
-          0 => 'format',
+        'value' => array(
+          0 => 'value',
         ),
       ),
       'locked' => 0,
-      'module' => 'text',
+      'module' => 'list',
       'settings' => array(
+        'allowed_values' => array(
+          1 => '1',
+          2 => '2',
+          3 => '3',
+          4 => '4',
+          5 => '5',
+          6 => '6',
+          7 => '7',
+        ),
+        'allowed_values_function' => '',
         'profile2_private' => FALSE,
       ),
       'translatable' => 0,
-      'type' => 'text_long',
+      'type' => 'list_integer',
     );
 
     // Exported field_base: 'field_omkostninger'
