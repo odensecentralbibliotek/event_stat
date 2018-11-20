@@ -623,7 +623,7 @@ function event_stat_field_default_field_instances() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_kvaliteten',
-      'label' => 'Hvis ja, hvordan oplevede du kvaliteten af denne?',
+      'label' => 'Hvis ja, hvordan oplevede du kvaliteten af denne? (Vælg mellem 1-7 hvor 1 = Meget utilfreds og 7 = 1 Meget tilfreds)',
       'required' => 1,
       'settings' => array(
         'user_register_form' => FALSE,
