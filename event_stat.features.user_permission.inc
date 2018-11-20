@@ -40,7 +40,6 @@ function event_stat_user_default_permissions() {
     $permissions['access content'] = array(
       'name' => 'access content',
       'roles' => array(
-        'Event rapportør' => 'Event rapportør',
         'administrator' => 'administrator',
         'anonymous user' => 'anonymous user',
         'authenticated user' => 'authenticated user',
