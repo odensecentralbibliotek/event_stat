@@ -11,13 +11,16 @@ function event_stat_menu() {
     $items = array();
 
     $items['node/add/eventsworkflow'] = array(
-      'title' => 'indholdsoversigt',
-      'description' => 'Event statistik indholdsoversigt',
-      'page callback' => 'drupal_goto',
-      'page arguments' => array('eventsworkflow'),
-      'access callback' => '_user_has_role',
+    'title' => 'indholdsoversigt',
+    'menu_name' => 'management',
+    'module' => 'menu',
+    'language' => 'und',
+    'description' => 'Event statistik indholdsoversigt',
+    'page callback' => 'drupal_goto',
+    'page arguments' => array('eventsworkflow'),
+    'access callback' => '_user_has_role',
       'type' => MENU_NORMAL_ITEM,
-    );
+  );
 
     return $items;
 }
@@ -54,8 +57,6 @@ function event_stat_field_group_build_pre_render_alter(&$element) {
            array_unshift($element['group_efterbehandling']['field_slutdato']['und'][0], $element['group_ding_event_date_loc_price']['field_ding_event_date']['und'][0]['value']);
        }
        
-       //hide($element['group_efterbehandling']['field_kvaliteten']['und']['#options']['_none']);
-       //hide($element['group_efterbehandling']['field_kvaliteten']['und']['_none']);
        $element['field_efterbehandling_workflow']['und'][0]['workflow']['workflow_sid'][31]['#value'] = 31;
 
        drupal_add_js('jQuery(document).ready(function () { jQuery("legend").contents().unwrap().wrap("<label/>"); });', 'inline');
