@@ -11,7 +11,7 @@ function event_stat_menu() {
     $items = array();
 
     $items['node/add/eventsworkflow'] = array(
-    'title' => 'indholdsoversigt',
+    'title' => 'Arrangementsoversigt',
     'menu_name' => 'management',
     'module' => 'menu',
     'language' => 'und',
