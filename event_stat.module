@@ -53,7 +53,9 @@ function event_stat_user_login(&$edit, $account) {
  */
 function event_stat_preprocess_views_view(&$vars) {
     //logic
-    $vars['title'] = '<b><a href="/node/add/ding-event">Nyt arrangement</a><span style="margin-left:2em;"><a href="/eventsworkflow">Arrangement oversigt</a></span></b>';
+    if($vars['name'] == 'klon_af_administration_nodes') {
+     $vars['title'] = '<b><a href="/node/add/ding-event">Nyt arrangement</a><span style="margin-left:2em;"><a href="/eventsworkflow">Arrangement oversigt</a></span></b>';
+    }
 }
 
 function event_stat_field_group_build_pre_render_alter(&$element) {
