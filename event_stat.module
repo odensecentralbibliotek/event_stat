@@ -36,6 +36,26 @@ function _user_has_role() {
     }
 }
 
+/**
+ * Implements hook_user_login().
+ */
+function event_stat_user_login(&$edit, $account) {
+    global $user;
+
+    // return if no action is required.
+   if(_user_has_role()) {
+       $_GET['destination'] = '/eventsworkflow';
+   }
+}
+
+/**
+ * Implements template_preprocess_views_view().
+ */
+function event_stat_preprocess_views_view(&$vars) {
+    //logic
+    $vars['title'] = '<b><a href="/node/add/ding-event">Nyt arrangement</a><span style="margin-left:2em;"><a href="/eventsworkflow">Arrangement oversigt</a></span></b>';
+}
+
 function event_stat_field_group_build_pre_render_alter(&$element) {
   $element['ding_campaigns_wrap']['#access'] = FALSE;
   $element['language']['#access'] = FALSE;
