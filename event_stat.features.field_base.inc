@@ -226,8 +226,8 @@ function event_stat_field_default_field_bases() {
       'module' => 'list',
       'settings' => array(
         'allowed_values' => array(
-          'Ja' => 'Ja',
-          'Nej' => 'Nej',
+          'TRUE' => 'Ja',
+          'FALSE' => 'Nej',
         ),
         'allowed_values_function' => '',
         'profile2_private' => FALSE,
@@ -256,8 +256,8 @@ function event_stat_field_default_field_bases() {
       'module' => 'list',
       'settings' => array(
         'allowed_values' => array(
-          'Ja' => 'Ja',
-          'Nej' => 'Nej',
+          'TRUE' => 'Ja',
+          'FALSE' => 'Nej',
         ),
         'allowed_values_function' => '',
         'profile2_private' => FALSE,
@@ -307,8 +307,8 @@ function event_stat_field_default_field_bases() {
       'module' => 'list',
       'settings' => array(
         'allowed_values' => array(
-          'Ja' => 'Ja',
-          'Nej' => 'Nej',
+          'TRUE' => 'Ja',
+          'FALSE' => 'Nej',
         ),
         'allowed_values_function' => '',
         'profile2_private' => FALSE,

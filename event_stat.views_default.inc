@@ -11,6 +11,482 @@ function event_stat_views_default_views() {
     $export = array();
 
     $view = new view();
+    $view->name = 'event_stat';
+    $view->description = 'Statistikker i csv format af arrangementer';
+    $view->tag = 'default';
+    $view->base_table = 'node';
+    $view->human_name = 'event_stat';
+    $view->core = 7;
+    $view->api_version = '3.0';
+    $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+    /* Display: Master */
+    $handler = $view->new_display('default', 'Master', 'default');
+    $handler->display->display_options['title'] = 'event_stat';
+    $handler->display->display_options['use_more_always'] = FALSE;
+    $handler->display->display_options['use_more_text'] = 'mere';
+    $handler->display->display_options['access']['type'] = 'perm';
+    $handler->display->display_options['cache']['type'] = 'none';
+    $handler->display->display_options['query']['type'] = 'views_query';
+    $handler->display->display_options['exposed_form']['type'] = 'basic';
+    $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Udfør';
+    $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Gendan';
+    $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sortér efter';
+    $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
+    $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Faldende';
+    $handler->display->display_options['pager']['type'] = 'none';
+    $handler->display->display_options['style_plugin'] = 'default';
+    $handler->display->display_options['row_plugin'] = 'node';
+    $handler->display->display_options['row_options']['view_mode'] = 'full';
+    $handler->display->display_options['row_options']['links'] = FALSE;
+    /* Felt: Indhold: Nid */
+    $handler->display->display_options['fields']['nid']['id'] = 'nid';
+    $handler->display->display_options['fields']['nid']['table'] = 'node';
+    $handler->display->display_options['fields']['nid']['field'] = 'nid';
+    $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+    /* Felt: Indhold: Titel */
+    $handler->display->display_options['fields']['title']['id'] = 'title';
+    $handler->display->display_options['fields']['title']['table'] = 'node';
+    $handler->display->display_options['fields']['title']['field'] = 'title';
+    $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+    $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+    $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+    $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
+    $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+    /* Felt: Indhold: Type */
+    $handler->display->display_options['fields']['field_type']['id'] = 'field_type';
+    $handler->display->display_options['fields']['field_type']['table'] = 'field_data_field_type';
+    $handler->display->display_options['fields']['field_type']['field'] = 'field_type';
+    /* Felt: Indhold: Kategori */
+    $handler->display->display_options['fields']['field_kategori']['id'] = 'field_kategori';
+    $handler->display->display_options['fields']['field_kategori']['table'] = 'field_data_field_kategori';
+    $handler->display->display_options['fields']['field_kategori']['field'] = 'field_kategori';
+    $handler->display->display_options['fields']['field_kategori']['element_label_colon'] = FALSE;
+    $handler->display->display_options['fields']['field_kategori']['element_default_classes'] = FALSE;
+    /* Felt: Indhold: Arrangementstype */
+    $handler->display->display_options['fields']['field_arrangementstype']['id'] = 'field_arrangementstype';
+    $handler->display->display_options['fields']['field_arrangementstype']['table'] = 'field_data_field_arrangementstype';
+    $handler->display->display_options['fields']['field_arrangementstype']['field'] = 'field_arrangementstype';
+    $handler->display->display_options['fields']['field_arrangementstype']['element_label_colon'] = FALSE;
+    /* Felt: Indhold: Target */
+    $handler->display->display_options['fields']['field_ding_event_target']['id'] = 'field_ding_event_target';
+    $handler->display->display_options['fields']['field_ding_event_target']['table'] = 'field_data_field_ding_event_target';
+    $handler->display->display_options['fields']['field_ding_event_target']['field'] = 'field_ding_event_target';
+    $handler->display->display_options['fields']['field_ding_event_target']['label'] = 'Målgruppe';
+    $handler->display->display_options['fields']['field_ding_event_target']['element_label_colon'] = FALSE;
+    $handler->display->display_options['fields']['field_ding_event_target']['element_default_classes'] = FALSE;
+    $handler->display->display_options['fields']['field_ding_event_target']['type'] = 'taxonomy_term_reference_plain';
+    /* Felt: Indhold: Antal deltagere */
+    $handler->display->display_options['fields']['field_antal_deltagere']['id'] = 'field_antal_deltagere';
+    $handler->display->display_options['fields']['field_antal_deltagere']['table'] = 'field_data_field_antal_deltagere';
+    $handler->display->display_options['fields']['field_antal_deltagere']['field'] = 'field_antal_deltagere';
+    $handler->display->display_options['fields']['field_antal_deltagere']['element_default_classes'] = FALSE;
+    $handler->display->display_options['fields']['field_antal_deltagere']['settings'] = array(
+      'thousand_separator' => '',
+      'prefix_suffix' => 1,
+    );
+    /* Felt: Indhold: Library */
+    $handler->display->display_options['fields']['field_ding_event_library']['id'] = 'field_ding_event_library';
+    $handler->display->display_options['fields']['field_ding_event_library']['table'] = 'field_data_field_ding_event_library';
+    $handler->display->display_options['fields']['field_ding_event_library']['field'] = 'field_ding_event_library';
+    $handler->display->display_options['fields']['field_ding_event_library']['label'] = 'Afdeling';
+    $handler->display->display_options['fields']['field_ding_event_library']['element_label_colon'] = FALSE;
+    $handler->display->display_options['fields']['field_ding_event_library']['element_default_classes'] = FALSE;
+    $handler->display->display_options['fields']['field_ding_event_library']['empty'] = 'Andet...';
+    $handler->display->display_options['fields']['field_ding_event_library']['hide_alter_empty'] = FALSE;
+    $handler->display->display_options['fields']['field_ding_event_library']['click_sort_column'] = 'gid';
+    /* Felt: Indhold: Location */
+    $handler->display->display_options['fields']['field_ding_event_location']['id'] = 'field_ding_event_location';
+    $handler->display->display_options['fields']['field_ding_event_location']['table'] = 'field_data_field_ding_event_location';
+    $handler->display->display_options['fields']['field_ding_event_location']['field'] = 'field_ding_event_location';
+    $handler->display->display_options['fields']['field_ding_event_location']['label'] = 'Lokation';
+    $handler->display->display_options['fields']['field_ding_event_location']['alter']['alter_text'] = TRUE;
+    $handler->display->display_options['fields']['field_ding_event_location']['alter']['text'] = '[field_ding_event_location-name_line], [field_ding_event_location-thoroughfare], [field_ding_event_location-postal_code] [field_ding_event_location-locality]';
+    $handler->display->display_options['fields']['field_ding_event_location']['click_sort_column'] = 'country';
+    $handler->display->display_options['fields']['field_ding_event_location']['settings'] = array(
+      'use_widget_handlers' => 1,
+      'format_handlers' => array(
+        'address' => 'address',
+      ),
+    );
+    /* Felt: Indhold: Antal undervisere */
+    $handler->display->display_options['fields']['field_antal_udervisere']['id'] = 'field_antal_udervisere';
+    $handler->display->display_options['fields']['field_antal_udervisere']['table'] = 'field_data_field_antal_udervisere';
+    $handler->display->display_options['fields']['field_antal_udervisere']['field'] = 'field_antal_udervisere';
+    $handler->display->display_options['fields']['field_antal_udervisere']['settings'] = array(
+      'thousand_separator' => '',
+      'prefix_suffix' => 1,
+    );
+    /* Felt: Indhold: Date */
+    $handler->display->display_options['fields']['field_ding_event_date']['id'] = 'field_ding_event_date';
+    $handler->display->display_options['fields']['field_ding_event_date']['table'] = 'field_data_field_ding_event_date';
+    $handler->display->display_options['fields']['field_ding_event_date']['field'] = 'field_ding_event_date';
+    $handler->display->display_options['fields']['field_ding_event_date']['label'] = 'Starts dato';
+    $handler->display->display_options['fields']['field_ding_event_date']['element_label_colon'] = FALSE;
+    $handler->display->display_options['fields']['field_ding_event_date']['element_default_classes'] = FALSE;
+    $handler->display->display_options['fields']['field_ding_event_date']['settings'] = array(
+      'format_type' => 'csv',
+      'fromto' => 'value',
+      'multiple_number' => '',
+      'multiple_from' => '',
+      'multiple_to' => '',
+    );
+    /* Felt: Indhold: Slutdato */
+    $handler->display->display_options['fields']['field_slutdato']['id'] = 'field_slutdato';
+    $handler->display->display_options['fields']['field_slutdato']['table'] = 'field_data_field_slutdato';
+    $handler->display->display_options['fields']['field_slutdato']['field'] = 'field_slutdato';
+    $handler->display->display_options['fields']['field_slutdato']['label'] = 'Slut dato';
+    $handler->display->display_options['fields']['field_slutdato']['element_default_classes'] = FALSE;
+    $handler->display->display_options['fields']['field_slutdato']['settings'] = array(
+      'format_type' => 'csv',
+      'fromto' => 'both',
+      'multiple_number' => '',
+      'multiple_from' => '',
+      'multiple_to' => '',
+    );
+    /* Felt: Indhold: Forberedelsestid i minutter */
+    $handler->display->display_options['fields']['field_forberedelsestid']['id'] = 'field_forberedelsestid';
+    $handler->display->display_options['fields']['field_forberedelsestid']['table'] = 'field_data_field_forberedelsestid';
+    $handler->display->display_options['fields']['field_forberedelsestid']['field'] = 'field_forberedelsestid';
+    $handler->display->display_options['fields']['field_forberedelsestid']['label'] = 'Forberedelsestid';
+    $handler->display->display_options['fields']['field_forberedelsestid']['settings'] = array(
+      'thousand_separator' => '',
+      'prefix_suffix' => 1,
+    );
+    /* Felt: Indhold: Er arrangementet lavet i samarbejde med eksterne partnere? */
+    $handler->display->display_options['fields']['field_eksterne_partnere']['id'] = 'field_eksterne_partnere';
+    $handler->display->display_options['fields']['field_eksterne_partnere']['table'] = 'field_data_field_eksterne_partnere';
+    $handler->display->display_options['fields']['field_eksterne_partnere']['field'] = 'field_eksterne_partnere';
+    $handler->display->display_options['fields']['field_eksterne_partnere']['label'] = 'Eksterne partnere';
+    $handler->display->display_options['fields']['field_eksterne_partnere']['element_label_colon'] = FALSE;
+    /* Felt: Indhold: Hvis Ja, af hvilken art - økonomisk eller andet. Angiv hvem og hvad der støttes med? */
+    $handler->display->display_options['fields']['field_hvilken_art']['id'] = 'field_hvilken_art';
+    $handler->display->display_options['fields']['field_hvilken_art']['table'] = 'field_data_field_hvilken_art';
+    $handler->display->display_options['fields']['field_hvilken_art']['field'] = 'field_hvilken_art';
+    $handler->display->display_options['fields']['field_hvilken_art']['label'] = 'Hvilken art?';
+    /* Felt: Indhold: Har Formidlingen været involveret ifm. Markedsføring */
+    $handler->display->display_options['fields']['field_har_formidlingen_v_ret_inv']['id'] = 'field_har_formidlingen_v_ret_inv';
+    $handler->display->display_options['fields']['field_har_formidlingen_v_ret_inv']['table'] = 'field_data_field_har_formidlingen_v_ret_inv';
+    $handler->display->display_options['fields']['field_har_formidlingen_v_ret_inv']['field'] = 'field_har_formidlingen_v_ret_inv';
+    $handler->display->display_options['fields']['field_har_formidlingen_v_ret_inv']['label'] = 'Markedsføring';
+    /* Felt: Indhold: Har der været ekstern oplægsholder/underviser/musiker? */
+    $handler->display->display_options['fields']['field_ekstern_underviser']['id'] = 'field_ekstern_underviser';
+    $handler->display->display_options['fields']['field_ekstern_underviser']['table'] = 'field_data_field_ekstern_underviser';
+    $handler->display->display_options['fields']['field_ekstern_underviser']['field'] = 'field_ekstern_underviser';
+    $handler->display->display_options['fields']['field_ekstern_underviser']['label'] = 'Ekstern oplægsholder/underviser';
+    $handler->display->display_options['fields']['field_ekstern_underviser']['element_label_colon'] = FALSE;
+    /* Felt: Indhold: Hvis ja, hvordan oplevede du kvaliteten af denne? (Vælg mellem 1-7 hvor 1 = Meget utilfreds og 7 = 1 Meget tilfreds) */
+    $handler->display->display_options['fields']['field_kvaliteten']['id'] = 'field_kvaliteten';
+    $handler->display->display_options['fields']['field_kvaliteten']['table'] = 'field_data_field_kvaliteten';
+    $handler->display->display_options['fields']['field_kvaliteten']['field'] = 'field_kvaliteten';
+    $handler->display->display_options['fields']['field_kvaliteten']['label'] = 'Kvaliteten af oplægsholder/underviser';
+    /* Felt: Indhold: Omkostninger til oplægsholder/underviser/musiker */
+    $handler->display->display_options['fields']['field_omkostninger']['id'] = 'field_omkostninger';
+    $handler->display->display_options['fields']['field_omkostninger']['table'] = 'field_data_field_omkostninger';
+    $handler->display->display_options['fields']['field_omkostninger']['field'] = 'field_omkostninger';
+    $handler->display->display_options['fields']['field_omkostninger']['element_label_colon'] = FALSE;
+    $handler->display->display_options['fields']['field_omkostninger']['settings'] = array(
+      'thousand_separator' => '',
+      'prefix_suffix' => 1,
+    );
+    /* Felt: Indhold: Bemærkninger */
+    $handler->display->display_options['fields']['field_bem_rkninger']['id'] = 'field_bem_rkninger';
+    $handler->display->display_options['fields']['field_bem_rkninger']['table'] = 'field_data_field_bem_rkninger';
+    $handler->display->display_options['fields']['field_bem_rkninger']['field'] = 'field_bem_rkninger';
+    /* Felt: Indhold: Ansvarlig for arrangementet (initialer) */
+    $handler->display->display_options['fields']['field_initialer']['id'] = 'field_initialer';
+    $handler->display->display_options['fields']['field_initialer']['table'] = 'field_data_field_initialer';
+    $handler->display->display_options['fields']['field_initialer']['field'] = 'field_initialer';
+    /* Sorteringskriterie: Indhold: Oprettelsesdato */
+    $handler->display->display_options['sorts']['created']['id'] = 'created';
+    $handler->display->display_options['sorts']['created']['table'] = 'node';
+    $handler->display->display_options['sorts']['created']['field'] = 'created';
+    $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+    /* Filterkriterie: Indhold: Udgivet */
+    $handler->display->display_options['filters']['status']['id'] = 'status';
+    $handler->display->display_options['filters']['status']['table'] = 'node';
+    $handler->display->display_options['filters']['status']['field'] = 'status';
+    $handler->display->display_options['filters']['status']['value'] = '0';
+    $handler->display->display_options['filters']['status']['group'] = 1;
+    $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+    /* Filterkriterie: Indhold: Type */
+    $handler->display->display_options['filters']['type']['id'] = 'type';
+    $handler->display->display_options['filters']['type']['table'] = 'node';
+    $handler->display->display_options['filters']['type']['field'] = 'type';
+    $handler->display->display_options['filters']['type']['value'] = array(
+      'ding_event' => 'ding_event',
+    );
+    /* Filterkriterie: Indhold: Efterbehandling workflow (field_efterbehandling_workflow) */
+    $handler->display->display_options['filters']['field_efterbehandling_workflow_value']['id'] = 'field_efterbehandling_workflow_value';
+    $handler->display->display_options['filters']['field_efterbehandling_workflow_value']['table'] = 'field_data_field_efterbehandling_workflow';
+    $handler->display->display_options['filters']['field_efterbehandling_workflow_value']['field'] = 'field_efterbehandling_workflow_value';
+    $handler->display->display_options['filters']['field_efterbehandling_workflow_value']['value']['value'] = '31';
+
+    /* Display: Page */
+    $handler = $view->new_display('page', 'Page', 'page');
+    $handler->display->display_options['path'] = 'event-stat';
+
+    /* Display: Datobrowser */
+    $handler = $view->new_display('date_nav', 'Datobrowser', 'date_nav_1');
+
+    /* Display: Data export */
+    $handler = $view->new_display('views_data_export', 'Data export', 'views_data_export_1');
+    $handler->display->display_options['pager']['type'] = 'none';
+    $handler->display->display_options['pager']['options']['offset'] = '0';
+    $handler->display->display_options['style_plugin'] = 'views_data_export_csv';
+    $handler->display->display_options['style_options']['provide_file'] = 1;
+    $handler->display->display_options['style_options']['filename'] = 'eventstat.csv';
+    $handler->display->display_options['style_options']['parent_sort'] = 0;
+    $handler->display->display_options['style_options']['separator'] = '|';
+    $handler->display->display_options['style_options']['quote'] = 1;
+    $handler->display->display_options['style_options']['trim'] = 0;
+    $handler->display->display_options['style_options']['replace_newlines'] = 0;
+    $handler->display->display_options['style_options']['newline_token'] = '1';
+    $handler->display->display_options['style_options']['header'] = 1;
+    $handler->display->display_options['style_options']['keep_html'] = 0;
+    $handler->display->display_options['defaults']['fields'] = FALSE;
+    /* Felt: Indhold: Nid */
+    $handler->display->display_options['fields']['nid']['id'] = 'nid';
+    $handler->display->display_options['fields']['nid']['table'] = 'node';
+    $handler->display->display_options['fields']['nid']['field'] = 'nid';
+    $handler->display->display_options['fields']['nid']['label'] = 'nid';
+    $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+    /* Felt: Indhold: Titel */
+    $handler->display->display_options['fields']['title']['id'] = 'title';
+    $handler->display->display_options['fields']['title']['table'] = 'node';
+    $handler->display->display_options['fields']['title']['field'] = 'title';
+    $handler->display->display_options['fields']['title']['label'] = 'titel';
+    $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+    $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+    $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+    $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
+    $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+    /* Felt: Indhold: Type */
+    $handler->display->display_options['fields']['field_type']['id'] = 'field_type';
+    $handler->display->display_options['fields']['field_type']['table'] = 'field_data_field_type';
+    $handler->display->display_options['fields']['field_type']['field'] = 'field_type';
+    $handler->display->display_options['fields']['field_type']['label'] = 'type';
+    /* Felt: Indhold: Kategori */
+    $handler->display->display_options['fields']['field_kategori']['id'] = 'field_kategori';
+    $handler->display->display_options['fields']['field_kategori']['table'] = 'field_data_field_kategori';
+    $handler->display->display_options['fields']['field_kategori']['field'] = 'field_kategori';
+    $handler->display->display_options['fields']['field_kategori']['label'] = 'kategori';
+    $handler->display->display_options['fields']['field_kategori']['element_label_colon'] = FALSE;
+    $handler->display->display_options['fields']['field_kategori']['element_default_classes'] = FALSE;
+    /* Felt: Indhold: Arrangementstype */
+    $handler->display->display_options['fields']['field_arrangementstype']['id'] = 'field_arrangementstype';
+    $handler->display->display_options['fields']['field_arrangementstype']['table'] = 'field_data_field_arrangementstype';
+    $handler->display->display_options['fields']['field_arrangementstype']['field'] = 'field_arrangementstype';
+    $handler->display->display_options['fields']['field_arrangementstype']['label'] = 'arrangementstype';
+    $handler->display->display_options['fields']['field_arrangementstype']['element_label_colon'] = FALSE;
+    /* Felt: Indhold: Target */
+    $handler->display->display_options['fields']['field_ding_event_target']['id'] = 'field_ding_event_target';
+    $handler->display->display_options['fields']['field_ding_event_target']['table'] = 'field_data_field_ding_event_target';
+    $handler->display->display_options['fields']['field_ding_event_target']['field'] = 'field_ding_event_target';
+    $handler->display->display_options['fields']['field_ding_event_target']['label'] = 'maalgruppe';
+    $handler->display->display_options['fields']['field_ding_event_target']['element_label_colon'] = FALSE;
+    $handler->display->display_options['fields']['field_ding_event_target']['element_default_classes'] = FALSE;
+    $handler->display->display_options['fields']['field_ding_event_target']['type'] = 'taxonomy_term_reference_plain';
+    /* Felt: Indhold: Antal deltagere */
+    $handler->display->display_options['fields']['field_antal_deltagere']['id'] = 'field_antal_deltagere';
+    $handler->display->display_options['fields']['field_antal_deltagere']['table'] = 'field_data_field_antal_deltagere';
+    $handler->display->display_options['fields']['field_antal_deltagere']['field'] = 'field_antal_deltagere';
+    $handler->display->display_options['fields']['field_antal_deltagere']['label'] = 'antal_deltagere';
+    $handler->display->display_options['fields']['field_antal_deltagere']['element_default_classes'] = FALSE;
+    $handler->display->display_options['fields']['field_antal_deltagere']['settings'] = array(
+      'thousand_separator' => '',
+      'prefix_suffix' => 1,
+    );
+    /* Felt: Indhold: Library */
+    $handler->display->display_options['fields']['field_ding_event_library']['id'] = 'field_ding_event_library';
+    $handler->display->display_options['fields']['field_ding_event_library']['table'] = 'field_data_field_ding_event_library';
+    $handler->display->display_options['fields']['field_ding_event_library']['field'] = 'field_ding_event_library';
+    $handler->display->display_options['fields']['field_ding_event_library']['label'] = 'afdeling';
+    $handler->display->display_options['fields']['field_ding_event_library']['element_label_colon'] = FALSE;
+    $handler->display->display_options['fields']['field_ding_event_library']['element_default_classes'] = FALSE;
+    $handler->display->display_options['fields']['field_ding_event_library']['empty'] = 'Andet...';
+    $handler->display->display_options['fields']['field_ding_event_library']['hide_alter_empty'] = FALSE;
+    $handler->display->display_options['fields']['field_ding_event_library']['click_sort_column'] = 'gid';
+    /* Felt: Indhold: Location */
+    $handler->display->display_options['fields']['field_ding_event_location']['id'] = 'field_ding_event_location';
+    $handler->display->display_options['fields']['field_ding_event_location']['table'] = 'field_data_field_ding_event_location';
+    $handler->display->display_options['fields']['field_ding_event_location']['field'] = 'field_ding_event_location';
+    $handler->display->display_options['fields']['field_ding_event_location']['label'] = 'lokation';
+    $handler->display->display_options['fields']['field_ding_event_location']['alter']['alter_text'] = TRUE;
+    $handler->display->display_options['fields']['field_ding_event_location']['alter']['text'] = '[field_ding_event_location-name_line], [field_ding_event_location-thoroughfare], [field_ding_event_location-postal_code] [field_ding_event_location-locality]';
+    $handler->display->display_options['fields']['field_ding_event_location']['click_sort_column'] = 'country';
+    $handler->display->display_options['fields']['field_ding_event_location']['settings'] = array(
+      'use_widget_handlers' => 1,
+      'format_handlers' => array(
+        'address' => 'address',
+      ),
+    );
+    /* Felt: Indhold: Antal undervisere */
+    $handler->display->display_options['fields']['field_antal_udervisere']['id'] = 'field_antal_udervisere';
+    $handler->display->display_options['fields']['field_antal_udervisere']['table'] = 'field_data_field_antal_udervisere';
+    $handler->display->display_options['fields']['field_antal_udervisere']['field'] = 'field_antal_udervisere';
+    $handler->display->display_options['fields']['field_antal_udervisere']['label'] = 'antal_undervisere';
+    $handler->display->display_options['fields']['field_antal_udervisere']['settings'] = array(
+      'thousand_separator' => '',
+      'prefix_suffix' => 1,
+    );
+    /* Felt: Indhold: Date */
+    $handler->display->display_options['fields']['field_ding_event_date']['id'] = 'field_ding_event_date';
+    $handler->display->display_options['fields']['field_ding_event_date']['table'] = 'field_data_field_ding_event_date';
+    $handler->display->display_options['fields']['field_ding_event_date']['field'] = 'field_ding_event_date';
+    $handler->display->display_options['fields']['field_ding_event_date']['label'] = 'start_dato';
+    $handler->display->display_options['fields']['field_ding_event_date']['alter']['alter_text'] = TRUE;
+    $handler->display->display_options['fields']['field_ding_event_date']['alter']['text'] = '[field_ding_event_date-value]';
+    $handler->display->display_options['fields']['field_ding_event_date']['element_label_colon'] = FALSE;
+    $handler->display->display_options['fields']['field_ding_event_date']['element_default_classes'] = FALSE;
+    $handler->display->display_options['fields']['field_ding_event_date']['settings'] = array(
+      'format_type' => 'postgres_timestamp',
+      'fromto' => 'value',
+      'multiple_number' => '',
+      'multiple_from' => '',
+      'multiple_to' => '',
+    );
+    /* Felt: Indhold: Slutdato */
+    $handler->display->display_options['fields']['field_slutdato']['id'] = 'field_slutdato';
+    $handler->display->display_options['fields']['field_slutdato']['table'] = 'field_data_field_slutdato';
+    $handler->display->display_options['fields']['field_slutdato']['field'] = 'field_slutdato';
+    $handler->display->display_options['fields']['field_slutdato']['label'] = 'slut_dato';
+    $handler->display->display_options['fields']['field_slutdato']['alter']['alter_text'] = TRUE;
+    $handler->display->display_options['fields']['field_slutdato']['alter']['text'] = '[field_slutdato-value]';
+    $handler->display->display_options['fields']['field_slutdato']['element_default_classes'] = FALSE;
+    $handler->display->display_options['fields']['field_slutdato']['settings'] = array(
+      'format_type' => 'postgres_timestamp',
+      'fromto' => 'both',
+      'multiple_number' => '',
+      'multiple_from' => '',
+      'multiple_to' => '',
+    );
+    /* Felt: Indhold: Forberedelsestid i minutter */
+    $handler->display->display_options['fields']['field_forberedelsestid']['id'] = 'field_forberedelsestid';
+    $handler->display->display_options['fields']['field_forberedelsestid']['table'] = 'field_data_field_forberedelsestid';
+    $handler->display->display_options['fields']['field_forberedelsestid']['field'] = 'field_forberedelsestid';
+    $handler->display->display_options['fields']['field_forberedelsestid']['label'] = 'forberedelsestid';
+    $handler->display->display_options['fields']['field_forberedelsestid']['settings'] = array(
+      'thousand_separator' => '',
+      'prefix_suffix' => 1,
+    );
+    /* Felt: Indhold: Er arrangementet lavet i samarbejde med eksterne partnere? */
+    $handler->display->display_options['fields']['field_eksterne_partnere']['id'] = 'field_eksterne_partnere';
+    $handler->display->display_options['fields']['field_eksterne_partnere']['table'] = 'field_data_field_eksterne_partnere';
+    $handler->display->display_options['fields']['field_eksterne_partnere']['field'] = 'field_eksterne_partnere';
+    $handler->display->display_options['fields']['field_eksterne_partnere']['label'] = 'eksterne_partnere';
+    $handler->display->display_options['fields']['field_eksterne_partnere']['alter']['alter_text'] = TRUE;
+    $handler->display->display_options['fields']['field_eksterne_partnere']['alter']['text'] = '[field_eksterne_partnere-value]';
+    $handler->display->display_options['fields']['field_eksterne_partnere']['element_label_colon'] = FALSE;
+    /* Felt: Indhold: Hvis Ja, af hvilken art - økonomisk eller andet. Angiv hvem og hvad der støttes med? */
+    $handler->display->display_options['fields']['field_hvilken_art']['id'] = 'field_hvilken_art';
+    $handler->display->display_options['fields']['field_hvilken_art']['table'] = 'field_data_field_hvilken_art';
+    $handler->display->display_options['fields']['field_hvilken_art']['field'] = 'field_hvilken_art';
+    $handler->display->display_options['fields']['field_hvilken_art']['label'] = 'eksterne_partnere_note';
+    /* Felt: Indhold: Har Formidlingen været involveret ifm. Markedsføring */
+    $handler->display->display_options['fields']['field_har_formidlingen_v_ret_inv']['id'] = 'field_har_formidlingen_v_ret_inv';
+    $handler->display->display_options['fields']['field_har_formidlingen_v_ret_inv']['table'] = 'field_data_field_har_formidlingen_v_ret_inv';
+    $handler->display->display_options['fields']['field_har_formidlingen_v_ret_inv']['field'] = 'field_har_formidlingen_v_ret_inv';
+    $handler->display->display_options['fields']['field_har_formidlingen_v_ret_inv']['label'] = 'markedsfoering';
+    $handler->display->display_options['fields']['field_har_formidlingen_v_ret_inv']['alter']['alter_text'] = TRUE;
+    $handler->display->display_options['fields']['field_har_formidlingen_v_ret_inv']['type'] = 'list_key';
+    /* Felt: Indhold: Har der været ekstern oplægsholder/underviser/musiker? */
+    $handler->display->display_options['fields']['field_ekstern_underviser']['id'] = 'field_ekstern_underviser';
+    $handler->display->display_options['fields']['field_ekstern_underviser']['table'] = 'field_data_field_ekstern_underviser';
+    $handler->display->display_options['fields']['field_ekstern_underviser']['field'] = 'field_ekstern_underviser';
+    $handler->display->display_options['fields']['field_ekstern_underviser']['label'] = 'ekstern_oplaegsholder_underviser';
+    $handler->display->display_options['fields']['field_ekstern_underviser']['element_label_colon'] = FALSE;
+    $handler->display->display_options['fields']['field_ekstern_underviser']['type'] = 'list_key';
+    /* Felt: Indhold: Hvis ja, hvordan oplevede du kvaliteten af denne? (Vælg mellem 1-7 hvor 1 = Meget utilfreds og 7 = 1 Meget tilfreds) */
+    $handler->display->display_options['fields']['field_kvaliteten']['id'] = 'field_kvaliteten';
+    $handler->display->display_options['fields']['field_kvaliteten']['table'] = 'field_data_field_kvaliteten';
+    $handler->display->display_options['fields']['field_kvaliteten']['field'] = 'field_kvaliteten';
+    $handler->display->display_options['fields']['field_kvaliteten']['label'] = 'ekstern_oplaegsholder_underviser_kvalitet';
+    /* Felt: Indhold: Omkostninger til oplægsholder/underviser/musiker */
+    $handler->display->display_options['fields']['field_omkostninger']['id'] = 'field_omkostninger';
+    $handler->display->display_options['fields']['field_omkostninger']['table'] = 'field_data_field_omkostninger';
+    $handler->display->display_options['fields']['field_omkostninger']['field'] = 'field_omkostninger';
+    $handler->display->display_options['fields']['field_omkostninger']['label'] = 'omkostninger';
+    $handler->display->display_options['fields']['field_omkostninger']['element_label_colon'] = FALSE;
+    $handler->display->display_options['fields']['field_omkostninger']['settings'] = array(
+      'thousand_separator' => '',
+      'prefix_suffix' => 1,
+    );
+    /* Felt: Indhold: Bemærkninger */
+    $handler->display->display_options['fields']['field_bem_rkninger']['id'] = 'field_bem_rkninger';
+    $handler->display->display_options['fields']['field_bem_rkninger']['table'] = 'field_data_field_bem_rkninger';
+    $handler->display->display_options['fields']['field_bem_rkninger']['field'] = 'field_bem_rkninger';
+    $handler->display->display_options['fields']['field_bem_rkninger']['label'] = 'bemaerkninger';
+    /* Felt: Indhold: Ansvarlig for arrangementet (initialer) */
+    $handler->display->display_options['fields']['field_initialer']['id'] = 'field_initialer';
+    $handler->display->display_options['fields']['field_initialer']['table'] = 'field_data_field_initialer';
+    $handler->display->display_options['fields']['field_initialer']['field'] = 'field_initialer';
+    $handler->display->display_options['fields']['field_initialer']['label'] = 'ansvarlig';
+    $handler->display->display_options['path'] = 'events/csv';
+    $translatables['event_stat'] = array(
+      t('Master'),
+      t('event_stat'),
+      t('mere'),
+      t('Udfør'),
+      t('Gendan'),
+      t('Sortér efter'),
+      t('Stigende'),
+      t('Faldende'),
+      t('Nid'),
+      t('Titel'),
+      t('Type'),
+      t('Kategori'),
+      t('Arrangementstype'),
+      t('Målgruppe'),
+      t('Antal deltagere'),
+      t('Afdeling'),
+      t('Andet...'),
+      t('Lokation'),
+      t('[field_ding_event_location-name_line], [field_ding_event_location-thoroughfare], [field_ding_event_location-postal_code] [field_ding_event_location-locality]'),
+      t('Antal undervisere'),
+      t('Starts dato'),
+      t('Slut dato'),
+      t('Forberedelsestid'),
+      t('Eksterne partnere'),
+      t('Hvilken art?'),
+      t('Markedsføring'),
+      t('Ekstern oplægsholder/underviser'),
+      t('Kvaliteten af oplægsholder/underviser'),
+      t('Omkostninger til oplægsholder/underviser/musiker'),
+      t('Bemærkninger'),
+      t('Ansvarlig for arrangementet (initialer)'),
+      t('Page'),
+      t('Datobrowser'),
+      t('Data export'),
+      t('nid'),
+      t('titel'),
+      t('type'),
+      t('kategori'),
+      t('arrangementstype'),
+      t('maalgruppe'),
+      t('antal_deltagere'),
+      t('afdeling'),
+      t('lokation'),
+      t('antal_undervisere'),
+      t('start_dato'),
+      t('[field_ding_event_date-value]'),
+      t('slut_dato'),
+      t('[field_slutdato-value]'),
+      t('forberedelsestid'),
+      t('eksterne_partnere'),
+      t('[field_eksterne_partnere-value]'),
+      t('eksterne_partnere_note'),
+      t('markedsfoering'),
+      t('ekstern_oplaegsholder_underviser'),
+      t('ekstern_oplaegsholder_underviser_kvalitet'),
+      t('omkostninger'),
+      t('bemaerkninger'),
+      t('ansvarlig'),
+    );
+
+    $export['event_stat'] = $view;
+
+    $view = new view();
     $view->name = 'klon_af_administration_nodes';
     $view->description = 'Find and manage content.';
     $view->tag = 'admin';

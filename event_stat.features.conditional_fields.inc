@@ -632,7 +632,7 @@ function event_stat_conditional_fields_default_fields() {
         'values_set' => 4,
         'value_form' => '_none',
         'values' => array(
-          0 => 'Ja',
+          0 => 'TRUE',
         ),
         'value' => array(),
       ),
@@ -747,7 +747,7 @@ function event_stat_conditional_fields_default_fields() {
         'values_set' => 4,
         'value_form' => '_none',
         'values' => array(
-          0 => 'Ja',
+          0 => 'TRUE',
         ),
         'value' => array(),
       ),
@@ -873,7 +873,7 @@ function event_stat_conditional_fields_default_fields() {
         'values_set' => 4,
         'value_form' => NULL,
         'values' => array(
-          0 => 'Ja',
+          0 => 'TRUE',
         ),
         'value' => array(),
       ),
@@ -995,7 +995,7 @@ function event_stat_conditional_fields_default_fields() {
         'values_set' => 4,
         'value_form' => '_none',
         'values' => array(
-          0 => 'Ja',
+          0 => 'TRUE',
         ),
         'value' => array(),
       ),
@@ -1110,7 +1110,7 @@ function event_stat_conditional_fields_default_fields() {
         'values_set' => 4,
         'value_form' => '_none',
         'values' => array(
-          0 => 'Ja',
+          0 => 'TRUE',
         ),
         'value' => array(),
       ),
@@ -1225,7 +1225,7 @@ function event_stat_conditional_fields_default_fields() {
         'values_set' => 4,
         'value_form' => '_none',
         'values' => array(
-          0 => 'Ja',
+          0 => 'TRUE',
         ),
         'value' => array(),
       ),
