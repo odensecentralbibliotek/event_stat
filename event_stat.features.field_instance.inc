@@ -102,7 +102,7 @@ function event_stat_field_default_field_instances() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => 19,
+        'weight' => 20,
       ),
     );
 
@@ -148,7 +148,50 @@ function event_stat_field_default_field_instances() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => 20,
+        'weight' => 21,
+      ),
+    );
+
+    // Exported field_instance: 'node-ding_event-field_area'
+    $field_instances['node-ding_event-field_area'] = array(
+      'bundle' => 'ding_event',
+      'default_value' => NULL,
+      'deleted' => 0,
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'list',
+          'settings' => array(),
+          'type' => 'list_default',
+          'weight' => 38,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser_highlight' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_area',
+      'label' => 'Area',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'options',
+        'settings' => array(),
+        'type' => 'options_select',
+        'weight' => 6,
       ),
     );
 
@@ -191,7 +234,7 @@ function event_stat_field_default_field_instances() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => 18,
+        'weight' => 19,
       ),
     );
 
@@ -368,7 +411,7 @@ function event_stat_field_default_field_instances() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => 23,
+        'weight' => 24,
       ),
     );
 
@@ -400,11 +443,11 @@ function event_stat_field_default_field_instances() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_forberedelsestid',
-      'label' => 'Forberedelsestid i minutter',
+      'label' => 'Forberedelsestid i timer',
       'required' => 0,
       'settings' => array(
         'max' => '',
-        'min' => '',
+        'min' => 1,
         'prefix' => '',
         'suffix' => '',
         'user_register_form' => FALSE,
@@ -414,7 +457,7 @@ function event_stat_field_default_field_instances() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => 22,
+        'weight' => 23,
       ),
     );
 
@@ -457,7 +500,7 @@ function event_stat_field_default_field_instances() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => 25,
+        'weight' => 26,
       ),
     );
 
@@ -502,7 +545,7 @@ function event_stat_field_default_field_instances() {
           'rows' => 5,
         ),
         'type' => 'text_textarea',
-        'weight' => 24,
+        'weight' => 25,
       ),
     );
 
@@ -590,7 +633,7 @@ function event_stat_field_default_field_instances() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => 17,
+        'weight' => 18,
       ),
     );
 
@@ -740,7 +783,7 @@ function event_stat_field_default_field_instances() {
           'year_range' => '-3:+3',
         ),
         'type' => 'date_select',
-        'weight' => 21,
+        'weight' => 22,
       ),
     );
 
@@ -795,19 +838,21 @@ function event_stat_field_default_field_instances() {
     t('Ansvarlig (initialer)');
     t('Antal deltagere');
     t('Antal undervisere');
+    t('Area');
     t('Arrangementstype');
     t('Bemærkninger');
     t('Efterbehandling workflow');
     t('Er arrangementet lavet i samarbejde med eksterne partnere?');
-    t('Forberedelsestid i minutter');
+    t('Forberedelsestid i timer');
     t('Har Formidlingen været involveret ifm. Markedsføring');
     t('Har der været ekstern oplægsholder/underviser/musiker?');
     t('Hvis Ja, af hvilken art - økonomisk eller andet. Angiv hvem og hvad der støttes med?');
-    t('Hvis ja, hvordan oplevede du kvaliteten af denne?');
+    t('Hvis ja, hvordan oplevede du kvaliteten af denne? (Vælg mellem 1-7 hvor 1 = Meget utilfreds og 7 = 1 Meget tilfreds)');
     t('Kategori');
     t('Omkostninger til oplægsholder/underviser/musiker');
     t('Slutdato');
     t('Type');
+    t('Vælg mellem 1-7 hvor 1 = Meget utilfreds og 7 = 1 Meget tilfreds');
 
     return $field_instances;
 }

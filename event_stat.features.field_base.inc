@@ -83,6 +83,49 @@ function event_stat_field_default_field_bases() {
       'type' => 'number_integer',
     );
 
+    // Exported field_base: 'field_area'
+    $field_bases['field_area'] = array(
+      'active' => 1,
+      'cardinality' => 1,
+      'deleted' => 0,
+      'entity_types' => array(),
+      'field_name' => 'field_area',
+      'field_permissions' => array(
+        'type' => 2,
+      ),
+      'foreign keys' => array(),
+      'indexes' => array(
+        'value' => array(
+          0 => 'value',
+        ),
+      ),
+      'locked' => 0,
+      'module' => 'list',
+      'settings' => array(
+        'allowed_values' => array(
+          'Udstillingsområde (stuen)' => 'Udstillingsområde (stuen)',
+          'Udstillingsområde (kælder)' => 'Udstillingsområde (kælder)',
+          'Store scene (café 2. sal)' => 'Store scene (café 2. sal)',
+          'Scene (stuen)' => 'Scene (stuen)',
+          'Musikscenen (2. sal)' => 'Musikscenen (2. sal)',
+          'Borgerservice - udstilling' => 'Borgerservice - udstilling',
+          'Borgernes værksted (2. sal)' => 'Borgernes værksted (2. sal)',
+          'Borgernes Torv (1. sal)' => 'Borgernes Torv (1. sal)',
+          'Børneafdelingen (2.sal)' => 'Børneafdelingen (2.sal)',
+          'E-sports område (stuen)' => 'E-sports område (stuen)',
+          'Multimøbel / Borgernes Værksted (2. sal)' => 'Multimøbel / Borgernes Værksted (2. sal)',
+          'Multimøbel / Borgernes Torv (1. sal)' => 'Multimøbel / Borgernes Torv (1. sal)',
+          'Kantine området (3. sal)' => 'Kantine området (3. sal)',
+          'Amfitrappen (2. sal)' => 'Amfitrappen (2. sal)',
+          'Generel aktivitet' => 'Generel aktivitet',
+        ),
+        'allowed_values_function' => '',
+        'profile2_private' => FALSE,
+      ),
+      'translatable' => 0,
+      'type' => 'list_text',
+    );
+
     // Exported field_base: 'field_arrangementstype'
     $field_bases['field_arrangementstype'] = array(
       'active' => 1,
@@ -112,6 +155,9 @@ function event_stat_field_default_field_bases() {
           'Udstilling' => 'Udstilling',
           'Rundvisning' => 'Rundvisning',
           'Book en bibliotekar' => 'Book en bibliotekar',
+          'Læsekreds' => 'Læsekreds',
+          'Værkstedsaktivitet' => 'Værkstedsaktivitet',
+          'Messe' => 'Messe',
           'Andet...' => 'Andet...',
         ),
         'allowed_values_function' => '',
@@ -432,13 +478,13 @@ function event_stat_field_default_field_bases() {
       'module' => 'list',
       'settings' => array(
         'allowed_values' => array(
-          1 => '1',
-          2 => '2',
-          3 => '3',
-          4 => '4',
-          5 => '5',
-          6 => '6',
-          7 => '7',
+          1 => 1,
+          2 => 2,
+          3 => 3,
+          4 => 4,
+          5 => 5,
+          6 => 6,
+          7 => 7,
         ),
         'allowed_values_function' => '',
         'profile2_private' => FALSE,

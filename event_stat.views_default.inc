@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * event_stat.views_default.inc
@@ -144,7 +145,7 @@ function event_stat_views_default_views() {
       'multiple_from' => '',
       'multiple_to' => '',
     );
-    /* Felt: Indhold: Forberedelsestid i minutter */
+    /* Felt: Indhold: Forberedelsestid i timer */
     $handler->display->display_options['fields']['field_forberedelsestid']['id'] = 'field_forberedelsestid';
     $handler->display->display_options['fields']['field_forberedelsestid']['table'] = 'field_data_field_forberedelsestid';
     $handler->display->display_options['fields']['field_forberedelsestid']['field'] = 'field_forberedelsestid';
@@ -307,6 +308,11 @@ function event_stat_views_default_views() {
     $handler->display->display_options['fields']['field_ding_event_library']['empty'] = 'Andet...';
     $handler->display->display_options['fields']['field_ding_event_library']['hide_alter_empty'] = FALSE;
     $handler->display->display_options['fields']['field_ding_event_library']['click_sort_column'] = 'gid';
+    /* Felt: Indhold: Area */
+    $handler->display->display_options['fields']['field_area']['id'] = 'field_area';
+    $handler->display->display_options['fields']['field_area']['table'] = 'field_data_field_area';
+    $handler->display->display_options['fields']['field_area']['field'] = 'field_area';
+    $handler->display->display_options['fields']['field_area']['label'] = 'omraade';
     /* Felt: Indhold: Location */
     $handler->display->display_options['fields']['field_ding_event_location']['id'] = 'field_ding_event_location';
     $handler->display->display_options['fields']['field_ding_event_location']['table'] = 'field_data_field_ding_event_location';
@@ -361,7 +367,7 @@ function event_stat_views_default_views() {
       'multiple_from' => '',
       'multiple_to' => '',
     );
-    /* Felt: Indhold: Forberedelsestid i minutter */
+    /* Felt: Indhold: Forberedelsestid i timer */
     $handler->display->display_options['fields']['field_forberedelsestid']['id'] = 'field_forberedelsestid';
     $handler->display->display_options['fields']['field_forberedelsestid']['table'] = 'field_data_field_forberedelsestid';
     $handler->display->display_options['fields']['field_forberedelsestid']['field'] = 'field_forberedelsestid';
@@ -466,6 +472,7 @@ function event_stat_views_default_views() {
       t('maalgruppe'),
       t('antal_deltagere'),
       t('afdeling'),
+      t('omraade'),
       t('lokation'),
       t('antal_undervisere'),
       t('start_dato'),
@@ -720,11 +727,9 @@ function event_stat_views_default_views() {
     $handler->display->display_options['filters']['sid']['group_info']['group_items'] = array(
       1 => array(
         'title' => 'Ubehandlet',
-        'operator' => 'empty',
+        'operator' => 'in',
         'value' => array(
-          'all' => 'all',
-          31 => '31',
-          32 => '32',
+          30 => '30',
         ),
       ),
       2 => array(
@@ -786,7 +791,7 @@ function event_stat_views_default_views() {
       11 => 0,
     );
     $handler->display->display_options['filters']['field_ding_event_date_value']['granularity'] = 'month';
-    $handler->display->display_options['filters']['field_ding_event_date_value']['year_range'] = '-5:+3';
+    $handler->display->display_options['filters']['field_ding_event_date_value']['year_range'] = '-1:+1';
 
     /* Display: Admin content til events workflow */
     $handler = $view->new_display('page', 'Admin content til events workflow', 'page_1');

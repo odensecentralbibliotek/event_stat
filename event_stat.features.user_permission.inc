@@ -80,6 +80,15 @@ function event_stat_user_default_permissions() {
       'module' => 'field_permissions',
     );
 
+    // Exported permission: create field_area.
+    $permissions['create field_area'] = array(
+      'name' => 'create field_area',
+      'roles' => array(
+        'Event rapportør' => 'Event rapportør',
+      ),
+      'module' => 'field_permissions',
+    );
+
     // Exported permission: create field_arrangementstype.
     $permissions['create field_arrangementstype'] = array(
       'name' => 'create field_arrangementstype',
@@ -244,6 +253,15 @@ function event_stat_user_default_permissions() {
       'module' => 'field_permissions',
     );
 
+    // Exported permission: edit field_area.
+    $permissions['edit field_area'] = array(
+      'name' => 'edit field_area',
+      'roles' => array(
+        'Event rapportør' => 'Event rapportør',
+      ),
+      'module' => 'field_permissions',
+    );
+
     // Exported permission: edit field_arrangementstype.
     $permissions['edit field_arrangementstype'] = array(
       'name' => 'edit field_arrangementstype',
@@ -392,6 +410,15 @@ function event_stat_user_default_permissions() {
     // Exported permission: edit own field_antal_udervisere.
     $permissions['edit own field_antal_udervisere'] = array(
       'name' => 'edit own field_antal_udervisere',
+      'roles' => array(
+        'Event rapportør' => 'Event rapportør',
+      ),
+      'module' => 'field_permissions',
+    );
+
+    // Exported permission: edit own field_area.
+    $permissions['edit own field_area'] = array(
+      'name' => 'edit own field_area',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
       ),
@@ -568,6 +595,16 @@ function event_stat_user_default_permissions() {
       'module' => 'field_permissions',
     );
 
+    // Exported permission: view field_area.
+    $permissions['view field_area'] = array(
+      'name' => 'view field_area',
+      'roles' => array(
+        'Event rapportør' => 'Event rapportør',
+        'administrator' => 'administrator',
+      ),
+      'module' => 'field_permissions',
+    );
+
     // Exported permission: view field_arrangementstype.
     $permissions['view field_arrangementstype'] = array(
       'name' => 'view field_arrangementstype',
@@ -730,6 +767,15 @@ function event_stat_user_default_permissions() {
     // Exported permission: view own field_antal_udervisere.
     $permissions['view own field_antal_udervisere'] = array(
       'name' => 'view own field_antal_udervisere',
+      'roles' => array(
+        'Event rapportør' => 'Event rapportør',
+      ),
+      'module' => 'field_permissions',
+    );
+
+    // Exported permission: view own field_area.
+    $permissions['view own field_area'] = array(
+      'name' => 'view own field_area',
       'roles' => array(
         'Event rapportør' => 'Event rapportør',
       ),
