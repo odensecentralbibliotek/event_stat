@@ -71,12 +71,25 @@ function event_stat_field_group_build_pre_render_alter(&$element) {
         //Check if new node and I'm not the author.
        if (!empty($element['#node']->nid) && ($element['#node']->uid != $user->uid)) {
           $element['title']['#attributes']['readonly'] = TRUE;
+
+          $element['field_ding_event_target'] = $element['group_ding_event_tagging']['field_ding_event_target'];
+          unset($element['group_ding_event_tagging']['field_ding_event_target']);
+          $element['field_ding_event_target']['#weight'] = "2";
+          foreach($element['field_ding_event_target']['und']['#options'] as $index=>$elm) {
+           if($index != $element['field_ding_event_target']['und']['#default_value'][0]) {
+               unset($element['field_ding_event_target']['und']['#options'][$index]);
+           }
+          }
+
           $sdato =  DateTime::createFromFormat('Y-m-d H:i:s', $element['group_ding_event_date_loc_price']['field_ding_event_date']['und'][0]['#default_value']['value']);
           $date = $sdato->format('m/d/Y H:i');
           $element['group_efterbehandling']['field_slutdato']['und'][0]['#title'] = '<br />Startdato: ' . $date . '<br /><br />Slutdato';
        }else{
            $element['group_efterbehandling']['field_slutdato']['und'][0]['#title'] = 'Start og slutdato';
            array_unshift($element['group_efterbehandling']['field_slutdato']['und'][0], $element['group_ding_event_date_loc_price']['field_ding_event_date']['und'][0]['value']);
+           $element['field_ding_event_target'] = $element['group_ding_event_tagging']['field_ding_event_target'];
+           unset($element['group_ding_event_tagging']['field_ding_event_target']);
+           $element['field_ding_event_target']['#weight'] = "2";
        }
        
        $element['field_efterbehandling_workflow']['und'][0]['workflow']['workflow_sid'][31]['#value'] = 31;
