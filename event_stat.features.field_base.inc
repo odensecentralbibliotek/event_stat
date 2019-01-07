@@ -421,7 +421,7 @@ function event_stat_field_default_field_bases() {
       'locked' => 0,
       'module' => 'text',
       'settings' => array(
-        'max_length' => 4,
+        'max_length' => 6,
         'profile2_private' => FALSE,
       ),
       'translatable' => 0,
