@@ -113,6 +113,8 @@ function event_stat_field_group_build_pre_render_alter(&$element) {
        $element['group_ding_event_date_loc_price']['field_ding_event_price']['#access'] = FALSE;
        $element['group_ding_event_date_loc_price']['field_valgfrit_pris']['#access'] = FALSE;
        $element['group_ding_event_date_loc_price']['group_default_ticket_name']['#access'] = FALSE;
+       $element['group_ding_event_date_loc_price']['group_date']['#access'] = FALSE;
+       $element['group_ding_event_date_loc_price']['group_date']['field_ding_sale_date']['#access'] = FALSE;
 
 
        $element['options']['status']['onclick'] = 'return false;';
@@ -139,8 +141,6 @@ function event_stat_field_group_build_pre_render_alter(&$element) {
         '#id' => 'group_ding_event_images',
       )
     );
-
-      $element['group_ding_event_date_loc_price']['group_date']['#access'] = FALSE;
 
        $element['group_ding_event_date_loc_price']['field_ding_event_date'] += array(
       '#states' => array(
