@@ -199,6 +199,22 @@ function event_stat_node_presave($node) {
     }
 }
 
+function event_stat_node_submit($form, &$form_state) {
+    global $user;
+    $rid = array_search('Event rapportør', $user->roles);
+    $role = count($user->roles);
+    if (user_has_role($rid) && ($role == '2')) {
+        $node = $form_state['#node'];
+        if ($node->type == 'ding_event') {
+        if (!isset($node->nid) || isset($node->is_new)) {
+                $form_state['redirect'] = url('eventsworkflow', array('relative' => true));
+
+                $_GET['destination'] = $form_state['redirect'];
+            }
+        }
+    }
+}
+
 function event_stat_enable(){
 $fname = 'event_stat_user_default_permissions';
 $feature = features_get_features($fname);
