@@ -61,8 +61,18 @@ function event_stat_preprocess_views_view(&$vars) {
 function event_stat_field_group_build_pre_render_alter(&$element) {
   $element['ding_campaigns_wrap']['#access'] = FALSE;
   $element['language']['#access'] = FALSE;
-
+  
   if (isset($element['group_efterbehandling']) && ($element['#id'] == 'ding-event-node-form')) {
+    $team_collections = field_get_items('node', $element['#node'], 'field_event_hold','und');
+    if($team_collections != null)
+    {
+        /*
+         * This node has ding event teams.
+         * The workflow status should be controlled by how many teams have been
+         * submitted. and not on the node itself.
+         */
+        break;
+    }
     global $user;
     $rid = array_search('Event rapportør', $user->roles);
     $admin = array_search('administrator', $user->roles);
