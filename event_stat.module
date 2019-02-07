@@ -62,17 +62,102 @@ function event_stat_field_group_build_pre_render_alter(&$element) {
   $element['ding_campaigns_wrap']['#access'] = FALSE;
   $element['language']['#access'] = FALSE;
   
-  if (isset($element['group_efterbehandling']) && ($element['#id'] == 'ding-event-node-form')) {
-    $team_collections = field_get_items('node', $element['#node'], 'field_event_hold','und');
-    if($team_collections != null)
+  if (isset($element['group_efterbehandling']) && ($element['#id'] == 'ding-event-node-form' || $element['#id'] == 'field-collection-item-form')) {
+   if(isset($element['#node']->type) && $element['#node']->type == "ding_event")
     {
-        /*
-         * This node has ding event teams.
-         * The workflow status should be controlled by how many teams have been
-         * submitted. and not on the node itself.
-         */
-        break;
+        $team_collections = field_get_items('node', $element['#node'], 'field_event_hold','und');
+        if($team_collections != null)
+        {
+            /*
+             * This node has ding event teams.
+             * The workflow status should be controlled by how many teams have been
+             * submitted. and not on the node itself.
+             */
+            $element['group_efterbehandling']['#access'] = FALSE;
+            $element['field_efterbehandling_workflow']['#access'] = FALSE;	
+            return;
+        }
+        event_stat_setup_event_report_node_fields($element);
     }
+    else if(isset($element['#entity']->entityType) && $element['#entity']->entityType() == "field_collection_item" && $element['#entity']->hostEntity()->type == "ding_event")
+    {
+        event_stat_setup_event_report_field_collection_fields($element);
+    }
+  }
+}
+
+function event_stat_node_presave($node) {
+    global $user;
+    $rid = array_search('Event rapportør', $user->roles);
+    $role = count($user->roles);
+    if (user_has_role($rid) && ($role == '2')) {
+    $node->status = NODE_UNPUBLISHED;
+    }
+}
+
+function event_stat_node_submit($form, &$form_state) {
+    global $user;
+    $rid = array_search('Event rapportør', $user->roles);
+    $role = count($user->roles);
+    if (user_has_role($rid) && ($role == '2')) {
+        $node = $form_state['#node'];
+        if ($node->type == 'ding_event') {
+        if (!isset($node->nid) || isset($node->is_new)) {
+                $form_state['redirect'] = url('eventsworkflow', array('relative' => true));
+
+                $_GET['destination'] = $form_state['redirect'];
+            }
+        }
+    }
+}
+
+function event_stat_enable(){
+    $fname = 'event_stat_user_default_permissions';
+    $feature = features_get_features($fname);
+    $components = array_keys($feature->info['features']);
+    features_revert(array($fname => $components));
+    drupal_flush_all_caches();
+}
+
+function event_stat_setup_event_report_field_collection_fields(&$element)
+{
+    global $user;
+    $rid = array_search('Event rapportør', $user->roles);
+    $admin = array_search('administrator', $user->roles);
+    $role = count($user->roles);
+    if (user_has_role($rid) && ($role == '2')) {
+        $element['field_hold_name']['#attributes']['readonly'] = TRUE;
+        $element['field_capacity']['#attributes']['readonly'] = TRUE;
+        
+        $element['field_efterbehandling_workflow']['und'][0]['workflow']['workflow_sid'][31]['#value'] = 31;
+        
+        $sdato =  DateTime::createFromFormat('Y-m-d H:i:s', $element['field_ding_event_date']['und'][0]['#default_value']['value']);
+        $element['group_efterbehandling']['field_slutdato']['und'][0]['#title'] = '<br />Startdato: ' . $date . '<br /><br />Slutdato';
+        /*
+        * Setup conditional fields.
+        */
+        $name = $element['field_efterbehandling_workflow']['und'][0]['workflow']['workflow_sid']['#options'];
+        $key = array_search ('Ubehandlet', $name);
+        $element['group_efterbehandling'] += array(
+          '#states' => array(
+            'invisible' => array(
+             'input[name="field_efterbehandling_workflow[und][0][workflow][workflow_sid]"]' => array('value' => $key),
+            ),
+          '#id' => 'group_efterbehandling',
+          )
+        );
+
+        $element['field_efterbehandling_workflow'] += array(
+          '#states' => array(
+            'invisible' => array(
+             'input[name="field_efterbehandling_workflow[und][0][workflow][workflow_sid]"]' => array('checked' => TRUE),
+            ),
+          )
+        );
+    }
+}
+function event_stat_setup_event_report_node_fields(&$element)
+{
     global $user;
     $rid = array_search('Event rapportør', $user->roles);
     $admin = array_search('administrator', $user->roles);
@@ -133,7 +218,9 @@ function event_stat_field_group_build_pre_render_alter(&$element) {
        $element['capacity']['#access'] = FALSE;
        $element['place2book']['#access'] = FALSE;
        $element['additional_settings']['#attributes']['onclick'] = 'return false;';
-
+    /*
+     * Setup conditional fields.
+     */
        $element['group_ding_event_content'] += array(
       '#states' => array(
         'invisible' => array(
@@ -190,45 +277,38 @@ function event_stat_field_group_build_pre_render_alter(&$element) {
          'input[name="field_efterbehandling_workflow[und][0][workflow][workflow_sid]"]' => array('value' => $ubehandlet),
             ),
             '#id' => 'group_efterbehandling',
-        )
-        );
+        ));
         }
-         else{
+     else{
          $element['field_efterbehandling_workflow']['#access'] = FALSE;
          $element['group_efterbehandling']['#access'] = FALSE;
      }
+}
+function event_stat_views_pre_render(&$views){
+  $test = 0;
+  foreach($views->result as $res)
+  {
+      $node = node_load($res->nid);
+      //$build['image'] = $node->field_event_hold->view('teaser');
   }
+  
+  /*
+   * Add the team data..as views cant build a proper query!
+   */
 }
-
-function event_stat_node_presave($node) {
-    global $user;
-    $rid = array_search('Event rapportør', $user->roles);
-    $role = count($user->roles);
-    if (user_has_role($rid) && ($role == '2')) {
-    $node->status = NODE_UNPUBLISHED;
+function event_stat_theme_registry_alter(&$theme_registry) {
+  // Defined path to the current module.
+  $module_path = drupal_get_path('module', 'event_stat');
+  // Find all .tpl.php files in this module's folder recursively.
+  $template_file_objects = drupal_find_theme_templates($theme_registry, '.tpl.php', $module_path);
+  // Iterate through all found template file objects.
+  foreach ($template_file_objects as $key => $template_file_object) {
+    // If the template has not already been overridden by a theme.
+    if (!isset($theme_registry[$key]['theme path']) || !preg_match('#/themes/#', $theme_registry[$key]['theme path'])) {
+      // Alter the theme path and template elements.
+      $theme_registry[$key]['theme path'] = $module_path;
+      $theme_registry[$key] = array_merge($theme_registry[$key], $template_file_object);
+      $theme_registry[$key]['type'] = 'module';
     }
-}
-
-function event_stat_node_submit($form, &$form_state) {
-    global $user;
-    $rid = array_search('Event rapportør', $user->roles);
-    $role = count($user->roles);
-    if (user_has_role($rid) && ($role == '2')) {
-        $node = $form_state['#node'];
-        if ($node->type == 'ding_event') {
-        if (!isset($node->nid) || isset($node->is_new)) {
-                $form_state['redirect'] = url('eventsworkflow', array('relative' => true));
-
-                $_GET['destination'] = $form_state['redirect'];
-            }
-        }
-    }
-}
-
-function event_stat_enable(){
-$fname = 'event_stat_user_default_permissions';
-$feature = features_get_features($fname);
-$components = array_keys($feature->info['features']);
-features_revert(array($fname => $components));
-drupal_flush_all_caches();
+  }
 }
