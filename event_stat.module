@@ -87,11 +87,41 @@ function event_stat_field_group_build_pre_render_alter(&$element) {
 }
 
 function event_stat_node_presave($node) {
+    
+    
     global $user;
     $rid = array_search('Event rapportør', $user->roles);
     $role = count($user->roles);
     if (user_has_role($rid) && ($role == '2')) {
-    $node->status = NODE_UNPUBLISHED;
+        $node->status = 0;
+        /*
+         * check if has teams.
+         */
+        if(isset($node->field_event_hold) && sizeof($node->field_event_hold) != 0)
+        {
+            $workflow_efterbehandlet_sid = event_stat_get_workflow_rid_by_name('Efterbehandlet');
+            $workflow_done = true;
+            foreach($node->field_event_hold['und'] as $team)
+            {
+                $entity = $team['entity'];
+                /*
+                 * Check if all teams have ben reportet.
+                 */
+                $e_sid = (int)$entity->field_efterbehandling_workflow['und'][0]['workflow']['workflow_sid'];
+                if( $e_sid != $workflow_efterbehandlet_sid)
+                {
+                    $workflow_done = false;
+                    break;
+                }
+            }
+            if($workflow_done == true)
+            {
+                /*
+                 * If all teams reportet , set main node workflow to finished.
+                 */
+                $node->field_efterbehandling_workflow['und'][0]['value'] = $workflow_efterbehandlet_sid;         
+            }
+        }
     }
 }
 
@@ -129,7 +159,8 @@ function event_stat_setup_event_report_field_collection_fields(&$element)
         $element['field_hold_name']['#attributes']['readonly'] = TRUE;
         $element['field_capacity']['#attributes']['readonly'] = TRUE;
         
-        $element['field_efterbehandling_workflow']['und'][0]['workflow']['workflow_sid'][31]['#value'] = 31;
+        $workflow_efterbehandlet_wid = event_stat_get_workflow_rid_by_name('Efterbehandlet');
+        $element['field_efterbehandling_workflow']['und'][0]['workflow']['workflow_sid'][$workflow_efterbehandlet_wid]['#value'] = $workflow_efterbehandlet_wid;
         
         $sdato =  DateTime::createFromFormat('Y-m-d H:i:s', $element['field_ding_event_date']['und'][0]['#default_value']['value']);
         $element['group_efterbehandling']['field_slutdato']['und'][0]['#title'] = '<br />Startdato: ' . $date . '<br /><br />Slutdato';
@@ -186,8 +217,8 @@ function event_stat_setup_event_report_node_fields(&$element)
            unset($element['group_ding_event_tagging']['field_ding_event_target']);
            $element['field_ding_event_target']['#weight'] = "2";
        }
-       
-       $element['field_efterbehandling_workflow']['und'][0]['workflow']['workflow_sid'][31]['#value'] = 31;
+       $workflow_efterbehandlet_wid = event_stat_get_workflow_rid_by_name('Efterbehandlet');
+       $element['field_efterbehandling_workflow']['und'][0]['workflow']['workflow_sid'][$workflow_efterbehandlet_wid]['#value'] = $workflow_efterbehandlet_wid;
 
        drupal_add_js('jQuery(document).ready(function () { jQuery("legend").contents().unwrap().wrap("<label/>"); });', 'inline');
        $element['title']['#title'] = 'Titel';
@@ -284,18 +315,6 @@ function event_stat_setup_event_report_node_fields(&$element)
          $element['group_efterbehandling']['#access'] = FALSE;
      }
 }
-function event_stat_views_pre_render(&$views){
-  $test = 0;
-  foreach($views->result as $res)
-  {
-      $node = node_load($res->nid);
-      //$build['image'] = $node->field_event_hold->view('teaser');
-  }
-  
-  /*
-   * Add the team data..as views cant build a proper query!
-   */
-}
 function event_stat_theme_registry_alter(&$theme_registry) {
   // Defined path to the current module.
   $module_path = drupal_get_path('module', 'event_stat');
@@ -311,4 +330,19 @@ function event_stat_theme_registry_alter(&$theme_registry) {
       $theme_registry[$key]['type'] = 'module';
     }
   }
+}
+function event_stat_get_workflow_rid_by_name($name)
+{
+    /*
+     * For some reason workflow uses label names
+     * and not machine names..but it works.
+     */
+    $workflows = workflow_get_workflow_names();
+    $workflows_reversed = array_flip($workflows);
+    $wid = $workflows_reversed['Arrangement efterbehandling'];
+    $states = workflow_get_workflow_state_names($wid);
+    $states_reversed = array_flip($states);
+    $state_sid = $states_reversed[$name];
+    
+    return $state_sid;
 }
