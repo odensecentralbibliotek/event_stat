@@ -15,4 +15,3 @@ if(isset($row->field_field_event_hold))
         }
     }
 }
-//echo "test";
