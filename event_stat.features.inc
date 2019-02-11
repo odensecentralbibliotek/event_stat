@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * event_stat.features.inc
@@ -9,10 +8,10 @@
  * Implements hook_default_Workflow().
  */
 function event_stat_default_Workflow() {
-    $workflows = array();
+  $workflows = array();
 
-    // Exported workflow: 'arrangement_efterbehandling'
-    $workflows['arrangement_efterbehandling'] = entity_import('Workflow', '{
+  // Exported workflow: 'arrangement_efterbehandling'
+  $workflows['arrangement_efterbehandling'] = entity_import('Workflow', '{
     "name" : "arrangement_efterbehandling",
     "tab_roles" : [],
     "options" : [],
@@ -23,12 +22,13 @@ function event_stat_default_Workflow() {
       "32" : {"sid":"32","wid":"5","weight":"-18","sysid":"0","state":"Aflyst","status":"1","name":"aflyst"}
     },
     "transitions" : {
-      "135" : {"tid":"135","sid":"29","target_sid":"30","roles":{"-1":-1},"wid":"5","name":"29_30","label":""},
+      "135" : {"tid":"135","sid":"29","target_sid":"30","roles":{"-1":-1,"4":4,"7":7,"5":5,"3":3},"wid":"5","name":"29_30","label":""},
       "129" : {"tid":"129","sid":"29","target_sid":"31","roles":{"8":8},"wid":"5","name":"31_30","label":""},
       "130" : {"tid":"130","sid":"29","target_sid":"32","roles":{"4":4,"7":7,"5":5,"3":3},"wid":"5","name":"29_32","label":""},
       "136" : {"tid":"136","sid":"30","target_sid":"30","roles":{"-1":-1,"6":6,"4":4,"7":7,"5":5,"3":3,"8":8},"wid":"5","name":"30_30","label":""},
-      "137" : {"tid":"137","sid":"30","target_sid":"31","roles":{"8":8},"wid":"5","name":"30_31","label":""},
+      "142" : {"tid":"142","sid":"30","target_sid":"31","roles":{"8":8},"wid":"5","name":"30_31","label":""},
       "138" : {"tid":"138","sid":"30","target_sid":"32","roles":{"4":4,"7":7,"5":5,"3":3},"wid":"5","name":"30_32","label":""},
+      "143" : {"tid":"143","sid":"31","target_sid":"30","roles":{"8":8},"wid":"5","name":"31_30","label":""},
       "131" : {"tid":"131","sid":"31","target_sid":"31","roles":{"-1":-1,"6":6,"4":4,"7":7,"5":5,"3":3,"8":8},"wid":"5","name":"30_30","label":""},
       "132" : {"tid":"132","sid":"31","target_sid":"32","roles":{"4":4,"7":7,"5":5,"3":3},"wid":"5","name":"31_32","label":""},
       "139" : {"tid":"139","sid":"32","target_sid":"30","roles":{"4":4,"7":7,"5":5,"3":3},"wid":"5","name":"32_30","label":""},
@@ -51,22 +51,22 @@ function event_stat_default_Workflow() {
     }
   }');
 
-    return $workflows;
+  return $workflows;
 }
 
 /**
  * Implements hook_ctools_plugin_api().
  */
 function event_stat_ctools_plugin_api() {
-    list($module, $api) = func_get_args();
-    if ($module == "field_group" && $api == "field_group") {
-        return array("version" => "1");
-    }
+  list($module, $api) = func_get_args();
+  if ($module == "field_group" && $api == "field_group") {
+    return array("version" => "1");
+  }
 }
 
 /**
  * Implements hook_views_api().
  */
 function event_stat_views_api() {
-    return array("api" => "3.0");
+  return array("api" => "3.0");
 }
