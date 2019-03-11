@@ -167,6 +167,7 @@ function event_stat_setup_event_report_field_collection_fields(&$element)
         $element['field_efterbehandling_workflow']['und'][0]['workflow']['workflow_sid'][$workflow_efterbehandlet_wid]['#value'] = $workflow_efterbehandlet_wid;
         
         $sdato =  DateTime::createFromFormat('Y-m-d H:i:s', $element['field_ding_event_date']['und'][0]['#default_value']['value']);
+        $date = $sdato->format('m/d/Y H:i');
         $element['group_efterbehandling']['field_slutdato']['und'][0]['#title'] = '<br />Startdato: ' . $date . '<br /><br />Slutdato';
         /*
         * Setup conditional fields.
