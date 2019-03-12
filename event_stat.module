@@ -256,7 +256,7 @@ function event_stat_setup_event_report_node_fields(&$element)
        $element['additional_settings']['#attributes']['onclick'] = 'return false;';
        
         $team_collections = field_get_items('node', $element['#node'], 'field_event_hold','und');
-        if($team_collections != null)
+        if(isset($team_collections) && sizeof($team_collections) != 0)
         {
             /*
              * This node has ding event teams.
@@ -267,6 +267,10 @@ function event_stat_setup_event_report_node_fields(&$element)
             $element['field_efterbehandling_workflow']['#access'] = FALSE;
             $element['group_hold_tider']['#attributes']['class'][] = "js-hide";
             
+        }
+        else if(isset($team_collections))
+        {
+            $element['group_hold_tider']['#attributes']['class'][] = "js-hide";
         }
     /*
      * Setup conditional fields.
