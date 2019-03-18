@@ -299,12 +299,12 @@ function event_stat_setup_event_report_node_fields(&$element)
 
                 $element['group_efterbehandling']['#access'] = FALSE;
                 $element['field_efterbehandling_workflow']['#access'] = FALSE;
-                $element['group_hold']['#attributes']['class'][] = "js-hide";
+                $element['group_hold_tider']['#attributes']['class'][] = "js-hide";
 
             }
             else if(isset($team_collections))
             {
-                $element['group_hold']['#attributes']['class'][] = "js-hide";
+                $element['group_hold_tider']['#attributes']['class'][] = "js-hide";
 
 
             }
