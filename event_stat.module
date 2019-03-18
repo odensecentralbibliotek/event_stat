@@ -61,11 +61,10 @@ function event_stat_preprocess_views_view(&$vars) {
 function event_stat_field_group_build_pre_render_alter(&$element) {
   $element['ding_campaigns_wrap']['#access'] = FALSE;
   $element['language']['#access'] = FALSE;
-  
+
   if (isset($element['group_efterbehandling']) && ($element['#id'] == 'ding-event-node-form' || $element['#id'] == 'field-collection-item-form')) {
    if(isset($element['#node']->type) && $element['#node']->type == "ding_event")
     {
-        
         event_stat_setup_event_report_node_fields($element);
     }
     else if(isset($element['#entity']->entityType) && $element['#entity']->entityType() == "field_collection_item" && $element['#entity']->hostEntity()->type == "ding_event")
@@ -135,6 +134,42 @@ function event_stat_node_submit($form, &$form_state) {
 function event_stat_form_field_collection_item_form_alter(&$form, &$form_state){
     $form['#submit'][] = 'event_stat_form_field_collection_item_node_form_submit';
 }
+function event_stat_form_ding_event_node_form_alter(&$form, &$form_state){
+    global $user;
+    if($form['#form_id'] == "ding_event_node_form" && $form["#node_edit_form"] == 1)
+    {
+        $rid = array_search('Event rapportør', $user->roles);
+        $role = count($user->roles);
+        if (user_has_role($rid) && ($role == '2')) {
+            //unset($form['field_event_hold']);
+            //unset($form_state['field']['field_event_hold']);
+            //$form['#validate'] = "event_stat_item_validate";
+            //array_reverse($form['#validate']);
+            //$new_validate = array("event_stat_item_validate");
+            //$form['#submit'] = array_merge($new_validate,$form['#submit']);
+           // $form['field_event_hold']['#validated'] = TRUE;  // Important - skip default validation.;
+        }
+    }
+    //$test = 0;
+}
+function event_stat_item_validate(&$form, &$form_state)
+{
+    $test = 0;
+  //form_clear_error();
+}
+
+function event_stat_date_combo_pre_validate_alter($element, $form_state, $context)
+{
+    if($element['#field_name'] == "field_ding_sale_date")
+    {
+     global $user;
+     $rid = array_search('Event rapportør', $user->roles);
+        $role = count($user->roles);
+        if (user_has_role($rid) && ($role == '2')) {
+            
+        }
+    }
+}
 function event_stat_form_field_collection_item_node_form_submit(&$form, &$form_state){
     global $user;
     $rid = array_search('Event rapportør', $user->roles);
@@ -192,9 +227,10 @@ function event_stat_setup_event_report_field_collection_fields(&$element)
         );
     }
 }
+
 function event_stat_setup_event_report_node_fields(&$element)
 {
-    global $user;
+        global $user;
     $rid = array_search('Event rapportør', $user->roles);
     $admin = array_search('administrator', $user->roles);
     $role = count($user->roles);
@@ -244,37 +280,35 @@ function event_stat_setup_event_report_node_fields(&$element)
        $element['group_ding_event_date_loc_price']['field_ding_event_price']['#access'] = FALSE;
        $element['group_ding_event_date_loc_price']['field_valgfrit_pris']['#access'] = FALSE;
        $element['group_ding_event_date_loc_price']['group_default_ticket_name']['#access'] = FALSE;
-       $element['group_ding_event_date_loc_price']['group_date']['field_ding_sale_date']['#access'] = FALSE;
-       $element['group_ding_event_date_loc_price']['group_date']['#access'] = FALSE;
+       //$element['group_ding_event_date_loc_price']['group_date']['field_ding_sale_date']['#access'] = FALSE;
+       $element['group_ding_event_date_loc_price']['group_date']['#attributes']['class'][] = "js-hide";
 
        
        $element['options']['status']['onclick'] = 'return false;';
        $element['author']['#access'] = FALSE;
        $element['revision_information']['#access'] = FALSE;
-       $element['capacity']['#access'] = FALSE;
+       //hide($element['capacity']);
+       $element['capacity']['#value'] = "0";
+       $element['capacity']['#attributes']['readonly'] = TRUE;
        $element['place2book']['#access'] = FALSE;
        $element['additional_settings']['#attributes']['onclick'] = 'return false;';
        
-        $team_collections = field_get_items('node', $element['#node'], 'field_event_hold','und');
-        if(isset($team_collections) && sizeof($team_collections) != 0)
-        {
-            /*
-             * This node has ding event teams.
-             * The workflow status should be controlled by how many teams have been
-             * submitted. and not on the node itself.
-             */
-            $element['group_efterbehandling']['#access'] = FALSE;
-            $element['field_efterbehandling_workflow']['#access'] = FALSE;
-            $element['group_hold_tider']['#attributes']['class'][] = "js-hide";
-            
-        }
-        else if(isset($team_collections))
-        {
-            $element['group_hold_tider']['#attributes']['class'][] = "js-hide";
-        }
-    /*
-     * Setup conditional fields.
-     */
+         $team_collections = field_get_items('node', $element['#node'], 'field_event_hold','und');
+            if(isset($team_collections) && sizeof($team_collections) != 0)
+            {
+
+                $element['group_efterbehandling']['#access'] = FALSE;
+                $element['field_efterbehandling_workflow']['#access'] = FALSE;
+                $element['group_hold']['#attributes']['class'][] = "js-hide";
+
+            }
+            else if(isset($team_collections))
+            {
+                $element['group_hold']['#attributes']['class'][] = "js-hide";
+
+
+            }
+    //
        $element['group_ding_event_content'] += array(
       '#states' => array(
         'invisible' => array(
