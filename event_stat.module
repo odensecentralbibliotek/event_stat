@@ -67,7 +67,7 @@ function event_stat_field_group_build_pre_render_alter(&$element) {
     {
         event_stat_setup_event_report_node_fields($element);
     }
-    else if(isset($element['#entity']->entityType) && $element['#entity']->entityType() == "field_collection_item" && $element['#entity']->hostEntity()->type == "ding_event")
+    else if($element['#entity']->entityType() == "field_collection_item" && $element['#entity']->hostEntity()->type == "ding_event")
     {
         event_stat_setup_event_report_field_collection_fields($element);
     }
@@ -217,6 +217,10 @@ function event_stat_setup_event_report_field_collection_fields(&$element)
           '#id' => 'group_efterbehandling',
           )
         );
+       
+       $element['field_ding_event_date']['#attributes']['class'][] = "js-hide";
+       $element['field_capacity']['#attributes']['class'][] = "js-hide";
+       $element['field_efterbehandling_workflow']['#attributes']['class'][] = "js-hide";
 
         $element['field_efterbehandling_workflow'] += array(
           '#states' => array(
