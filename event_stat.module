@@ -292,6 +292,7 @@ function event_stat_setup_event_report_node_fields(&$element)
        $element['author']['#access'] = FALSE;
        $element['revision_information']['#access'] = FALSE;
        //hide($element['capacity']);
+       $element['capacity']['#attributes']['class'][] = "js-hide";
        $element['capacity']['#value'] = "0";
        $element['capacity']['#attributes']['readonly'] = TRUE;
        $element['place2book']['#access'] = FALSE;
